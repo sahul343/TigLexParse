@@ -1,16 +1,16 @@
 
-
+%.lex.sml : %.lex
+	mllex $<
 
 all: tigc
 
 PHONY: all clean
 
-tigc: tiger.sml tiger.mlb tokens.sml
-	mllex tiger.lex
+tigc: tiger.mlb tokens.sml tigh.sml tiger.lex.sml
 	mlton -output tigc tiger.mlb
 
 clean: 
-	   rm tigc
+	rm tigc
 	   
 
 

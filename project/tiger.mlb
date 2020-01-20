@@ -1,2 +1,5 @@
 $(SML_LIB)/basis/basis.mlb
-tiger.sml
+tokens.sml
+tiger.lex.sml
+tigh.sml
+
