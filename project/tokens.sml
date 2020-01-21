@@ -16,5 +16,6 @@ datatype Token = key of keywords
 	| var of string 
 	| comment of string
 	| CONST of int
+	| IDENTIFIER of string
 
 

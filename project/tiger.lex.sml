@@ -1168,7 +1168,7 @@ let fun continue() = lex() in
 )
 | 183 => ((*#line 73.15 "tiger.lex"*)sym ColonEqual(*#line 1169.1 "tiger.lex.sml"*)
 )
-| 191 => let val yytext=yymktext() in (*#line 74.19 "tiger.lex"*)(var yytext )(*#line 1171.1 "tiger.lex.sml"*)
+| 191 => let val yytext=yymktext() in (*#line 74.19 "tiger.lex"*)(IDENTIFIER yytext )(*#line 1171.1 "tiger.lex.sml"*)
  end
 | 2 => let val yytext=yymktext() in (*#line 23.15 "tiger.lex"*)white( TAB, size yytext) (*#line 1173.1 "tiger.lex.sml"*)
  end

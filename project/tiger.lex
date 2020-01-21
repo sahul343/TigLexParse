@@ -71,6 +71,6 @@ comment = "/*"([^*]|\*+[^*/])*\*+"/";
 "&"     => (sym AND);
 "|"     => (sym OR);
 ":="      => (sym ColonEqual);
-{id}|"_main"			=>((var yytext ));
+{id}|"_main"			=>((IDENTIFIER yytext ));
 {comment}		=>( (comment yytext));
  
