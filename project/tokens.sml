@@ -6,6 +6,15 @@ datatype objectkeywords = CLASS
             | NEW
 datatype symbols =  Comma | Colon | Semicolon | LeftB | RightB | LeftSB | RightSB | LeftCB | RightCB | Dot | Plus | Minus | Mul | Div | Equal | LTGT | LT | LTEqual | GT | GTEqual | AND | OR | ColonEqual
 datatype whitespace = SPACE | TAB 
-datatype Token = key of keywords|object of objectkeywords | sym of symbols | white of whitespace*int | NEWLINE | EOF | var of string | comment of string
+
+datatype Token = key of keywords
+	|object of objectkeywords 
+	| sym of symbols 	
+	| white of whitespace*int 
+	| NEWLINE 
+	| EOF 
+	| var of string 
+	| comment of string
+	| CONST of int
 
 

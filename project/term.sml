@@ -52,6 +52,7 @@ fun tostring token = case token of
         | (sym OR) => "|"
         | (sym ColonEqual) => ":="
 	| (white (x,n) ) => ws(n,x)
+	| (CONST x) => Int.toString(x)
 
 
 
@@ -64,5 +65,6 @@ fun myprint inst = (case inst of
 	|(comment str) => print("\027[34m"^str)
 	|(white _) => print("\027[0m"^(tostring inst))
 	|(NEWLINE) => print("\027[0m\n")
+	|(CONST x) =>print("\027[0m"^(tostring inst))
 	)
 

@@ -23,6 +23,7 @@ comment = "/*"([^*]|\*+[^*/])*\*+"/";
 [\t]+     => (white( TAB, size yytext) );
 [\ ]+     => (white( SPACE, size yytext) );
 [\n] 	  => (NEWLINE);
+{digit}+  => (CONST (toInt yytext) );
 "#".*\n          => (lex() );
 "array"     => (key ARRAY);
 "if"      => (key IF);
