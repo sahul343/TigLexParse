@@ -8,7 +8,7 @@ fun charsToInt m (x :: xs) = charsToInt (10 * m + ord x - ord #"0") xs
 fun toSigned (#"-" :: xs) = ~ (charsToInt 0 xs)
   | toSigned (#"~" :: xs) = ~ (charsToInt 0 xs)
   | toSigned (#"+" :: xs) =   charsToInt 0 xs
-  | toSigned xs           =   charsToInt 0 xs
+  | toSigned xsym           =   charsToInt 0 xs
 
 val toInt  = toSigned o String.explode
 
@@ -45,6 +45,29 @@ comment = "/*"([^*]|\*+[^*/])*\*+"/";
 "extends" => ( object EXTENDS);
 "method" => ( object METHOD);
 "new" => ( object NEW);
+","     => (sym Comma);
+":"     => (sym Colon);
+";"     => (sym Semicolon);
+"("     => (sym LeftB);
+")"     => (sym RightB);
+"["     => (sym LeftSB);
+"]"     => (sym RightSB);
+"{"     => (sym LeftCB);
+"}"     => (sym RightCB);
+"."     => (sym Dot);
+"+"     => (sym Plus);
+"-"     => (sym Minus);
+"*"     => (sym Mul);
+"/"     => (sym Div);
+"="     => (sym Equal);
+"<>"      => (sym LTGT);
+"<"     => (sym LT);
+"<="      => (sym LTEqual);
+">"     => (sym GT);
+">="      => (sym GTEqual);
+"&"     => (sym AND);
+"|"     => (sym OR);
+":="      => (sym ColonEqual);
 {id}|"_main"			=>((var yytext ));
 {comment}		=>( (comment yytext));
  

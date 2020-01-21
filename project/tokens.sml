@@ -4,6 +4,7 @@ datatype objectkeywords = CLASS
             | EXTENDS
             | METHOD
             | NEW
-datatype Token = key of keywords|object of objectkeywords | EOF | var of string | comment of string
+datatype symbols =  Comma | Colon | Semicolon | LeftB | RightB | LeftSB | RightSB | LeftCB | RightCB | Dot | Plus | Minus | Mul | Div | Equal | LTGT | LT | LTEqual | GT | GTEqual | AND | OR | ColonEqual
+datatype Token = key of keywords|object of objectkeywords | sym of symbols | EOF | var of string | comment of string
 
 
