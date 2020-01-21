@@ -60,8 +60,9 @@ fun tostring token = case token of
 
 
 fun myprint inst = (case inst of 
-	(key _) => print("\027[32m"^(tostring inst))
-	|(object _) => print("\027[33m"^(tostring inst))
+	 (EOF )      => print("\027[0m")
+	|(key _) => print("\027[32m"^(tostring inst))
+	|(object _) => print("\027[35m"^(tostring inst))
 	|(sym _) => print("\027[36m"^(tostring inst))
 	|(var str) => print("\027[31m"^str)
 	|(comment str) => print("\027[34m"^str)
@@ -69,6 +70,6 @@ fun myprint inst = (case inst of
 	|(NEWLINE) => print("\027[0m\n")
 	|(CONST _) =>print("\027[0m"^(tostring inst))
 	|(IDENTIFIER _) => print("\027[33m"^(tostring inst))
-	|(QUOTE _) => print("\027[37m"^(tostring inst))
+	|(QUOTE _) => print("\027[96m"^(tostring inst))
 	)
 
