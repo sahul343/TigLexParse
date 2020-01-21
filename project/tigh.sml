@@ -13,11 +13,6 @@ to use a more efficient lexer than interactive. This will be relevent
 when we want to pipe the output to rp.
 
 *)
-fun myprint inst = (case inst of 
-	(key ARRAY) => print("\027[32marray\n")
-	|(var str) => print("\027[31m"^str)
-	|(comment str) => print("\027[34m"^str)
-	)
 
 (* Running with a lexer *)
 fun runWithLexer lexer = let fun loop () = case lexer () of

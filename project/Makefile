@@ -6,7 +6,7 @@ all: tigc
 
 PHONY: all clean
 
-tigc: tiger.mlb tokens.sml tigh.sml tiger.lex.sml
+tigc: tiger.mlb tokens.sml term.sml tigh.sml tiger.lex.sml
 	mlton -output tigc tiger.mlb
 
 clean: 

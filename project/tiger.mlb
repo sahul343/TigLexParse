@@ -1,5 +1,5 @@
 $(SML_LIB)/basis/basis.mlb
 tokens.sml
 tiger.lex.sml
+term.sml
 tigh.sml
-
