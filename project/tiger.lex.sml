@@ -39,9 +39,9 @@ val s = [
 \\000"
 ),
  (1, 
-"\000\000\000\000\000\000\000\000\000\128\127\000\000\000\000\000\
+"\000\000\000\000\000\000\000\000\000\130\129\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\126\000\000\124\000\000\123\000\122\121\120\119\118\117\116\112\
+\\128\000\126\124\000\000\123\000\122\121\120\119\118\117\116\112\
 \\111\111\111\111\111\111\111\111\111\111\109\108\105\104\102\000\
 \\000\006\006\006\006\006\006\006\006\006\006\006\006\006\006\006\
 \\006\006\006\006\006\006\006\006\006\006\006\101\000\100\000\095\
@@ -908,9 +908,20 @@ val s = [
 \\124"
 ),
  (126, 
+"\126\126\126\126\126\126\126\126\126\126\000\126\126\126\126\126\
+\\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\
+\\126\126\127\126\126\126\126\126\126\126\126\126\126\126\126\126\
+\\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\
+\\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\
+\\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\
+\\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\
+\\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\126\
+\\126"
+),
+ (128, 
 "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\126\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
+\\128\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
@@ -918,8 +929,8 @@ val s = [
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000"
 ),
- (128, 
-"\000\000\000\000\000\000\000\000\000\128\000\000\000\000\000\000\
+ (130, 
+"\000\000\000\000\000\000\000\000\000\130\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
@@ -940,132 +951,134 @@ in Vector.fromList(map g
 [{fin = [], trans = 0},
 {fin = [], trans = 1},
 {fin = [], trans = 1},
-{fin = [(N 151)], trans = 0},
-{fin = [(N 180)], trans = 0},
-{fin = [(N 149)], trans = 0},
-{fin = [(N 191)], trans = 6},
-{fin = [(N 191)], trans = 7},
-{fin = [(N 191)], trans = 8},
-{fin = [(N 191)], trans = 9},
-{fin = [(N 191)], trans = 10},
-{fin = [(N 39),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 12},
-{fin = [(N 191)], trans = 13},
-{fin = [(N 86),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 15},
-{fin = [(N 191)], trans = 16},
-{fin = [(N 191)], trans = 17},
-{fin = [(N 91),(N 191)], trans = 6},
-{fin = [(N 46),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 20},
-{fin = [(N 191)], trans = 21},
-{fin = [(N 28),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 23},
-{fin = [(N 191)], trans = 24},
-{fin = [(N 191)], trans = 25},
-{fin = [(N 191)], trans = 26},
-{fin = [(N 191)], trans = 27},
-{fin = [(N 191)], trans = 28},
-{fin = [(N 191)], trans = 29},
-{fin = [(N 191)], trans = 30},
-{fin = [(N 108),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 32},
-{fin = [(N 63),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 34},
-{fin = [(N 191)], trans = 35},
-{fin = [(N 73),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 37},
-{fin = [(N 133),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 39},
-{fin = [(N 191)], trans = 40},
-{fin = [(N 191)], trans = 41},
-{fin = [(N 191)], trans = 42},
-{fin = [(N 191)], trans = 43},
-{fin = [(N 129),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 45},
-{fin = [(N 191)], trans = 46},
-{fin = [(N 53),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 48},
-{fin = [(N 56),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 50},
-{fin = [(N 191)], trans = 51},
-{fin = [(N 191)], trans = 52},
-{fin = [(N 191)], trans = 53},
-{fin = [(N 98),(N 191)], trans = 6},
-{fin = [(N 23),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 56},
-{fin = [(N 191)], trans = 57},
-{fin = [(N 191)], trans = 58},
-{fin = [(N 191)], trans = 59},
-{fin = [(N 191)], trans = 60},
-{fin = [(N 191)], trans = 61},
-{fin = [(N 191)], trans = 62},
-{fin = [(N 82),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 64},
-{fin = [(N 43),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 66},
-{fin = [(N 191)], trans = 67},
-{fin = [(N 191)], trans = 68},
-{fin = [(N 191)], trans = 69},
-{fin = [(N 191)], trans = 70},
-{fin = [(N 191)], trans = 71},
-{fin = [(N 122),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 73},
-{fin = [(N 60),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 75},
-{fin = [(N 191)], trans = 76},
-{fin = [(N 33),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 78},
-{fin = [(N 49),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 80},
-{fin = [(N 191)], trans = 81},
-{fin = [(N 191)], trans = 82},
-{fin = [(N 191)], trans = 83},
-{fin = [(N 114),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 85},
-{fin = [(N 191)], trans = 86},
-{fin = [(N 191)], trans = 87},
-{fin = [(N 191)], trans = 88},
-{fin = [(N 69),(N 191)], trans = 6},
-{fin = [(N 191)], trans = 90},
-{fin = [(N 191)], trans = 91},
-{fin = [(N 191)], trans = 92},
-{fin = [(N 191)], trans = 93},
-{fin = [(N 20),(N 191)], trans = 6},
+{fin = [(N 155)], trans = 0},
+{fin = [(N 184)], trans = 0},
+{fin = [(N 153)], trans = 0},
+{fin = [(N 195)], trans = 6},
+{fin = [(N 195)], trans = 7},
+{fin = [(N 195)], trans = 8},
+{fin = [(N 195)], trans = 9},
+{fin = [(N 195)], trans = 10},
+{fin = [(N 43),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 12},
+{fin = [(N 195)], trans = 13},
+{fin = [(N 90),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 15},
+{fin = [(N 195)], trans = 16},
+{fin = [(N 195)], trans = 17},
+{fin = [(N 95),(N 195)], trans = 6},
+{fin = [(N 50),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 20},
+{fin = [(N 195)], trans = 21},
+{fin = [(N 32),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 23},
+{fin = [(N 195)], trans = 24},
+{fin = [(N 195)], trans = 25},
+{fin = [(N 195)], trans = 26},
+{fin = [(N 195)], trans = 27},
+{fin = [(N 195)], trans = 28},
+{fin = [(N 195)], trans = 29},
+{fin = [(N 195)], trans = 30},
+{fin = [(N 112),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 32},
+{fin = [(N 67),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 34},
+{fin = [(N 195)], trans = 35},
+{fin = [(N 77),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 37},
+{fin = [(N 137),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 39},
+{fin = [(N 195)], trans = 40},
+{fin = [(N 195)], trans = 41},
+{fin = [(N 195)], trans = 42},
+{fin = [(N 195)], trans = 43},
+{fin = [(N 133),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 45},
+{fin = [(N 195)], trans = 46},
+{fin = [(N 57),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 48},
+{fin = [(N 60),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 50},
+{fin = [(N 195)], trans = 51},
+{fin = [(N 195)], trans = 52},
+{fin = [(N 195)], trans = 53},
+{fin = [(N 102),(N 195)], trans = 6},
+{fin = [(N 27),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 56},
+{fin = [(N 195)], trans = 57},
+{fin = [(N 195)], trans = 58},
+{fin = [(N 195)], trans = 59},
+{fin = [(N 195)], trans = 60},
+{fin = [(N 195)], trans = 61},
+{fin = [(N 195)], trans = 62},
+{fin = [(N 86),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 64},
+{fin = [(N 47),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 66},
+{fin = [(N 195)], trans = 67},
+{fin = [(N 195)], trans = 68},
+{fin = [(N 195)], trans = 69},
+{fin = [(N 195)], trans = 70},
+{fin = [(N 195)], trans = 71},
+{fin = [(N 126),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 73},
+{fin = [(N 64),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 75},
+{fin = [(N 195)], trans = 76},
+{fin = [(N 37),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 78},
+{fin = [(N 53),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 80},
+{fin = [(N 195)], trans = 81},
+{fin = [(N 195)], trans = 82},
+{fin = [(N 195)], trans = 83},
+{fin = [(N 118),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 85},
+{fin = [(N 195)], trans = 86},
+{fin = [(N 195)], trans = 87},
+{fin = [(N 195)], trans = 88},
+{fin = [(N 73),(N 195)], trans = 6},
+{fin = [(N 195)], trans = 90},
+{fin = [(N 195)], trans = 91},
+{fin = [(N 195)], trans = 92},
+{fin = [(N 195)], trans = 93},
+{fin = [(N 24),(N 195)], trans = 6},
 {fin = [], trans = 95},
 {fin = [], trans = 96},
 {fin = [], trans = 97},
 {fin = [], trans = 98},
-{fin = [(N 191)], trans = 0},
-{fin = [(N 147)], trans = 0},
-{fin = [(N 145)], trans = 0},
-{fin = [(N 173)], trans = 102},
-{fin = [(N 176)], trans = 0},
-{fin = [(N 163)], trans = 0},
-{fin = [(N 168)], trans = 105},
-{fin = [(N 166)], trans = 0},
-{fin = [(N 171)], trans = 0},
-{fin = [(N 139)], trans = 0},
-{fin = [(N 137)], trans = 109},
-{fin = [(N 183)], trans = 0},
+{fin = [(N 195)], trans = 0},
+{fin = [(N 151)], trans = 0},
+{fin = [(N 149)], trans = 0},
+{fin = [(N 177)], trans = 102},
+{fin = [(N 180)], trans = 0},
+{fin = [(N 167)], trans = 0},
+{fin = [(N 172)], trans = 105},
+{fin = [(N 170)], trans = 0},
+{fin = [(N 175)], trans = 0},
+{fin = [(N 143)], trans = 0},
+{fin = [(N 141)], trans = 109},
+{fin = [(N 187)], trans = 0},
 {fin = [(N 10)], trans = 111},
-{fin = [(N 161)], trans = 112},
+{fin = [(N 165)], trans = 112},
 {fin = [], trans = 113},
 {fin = [], trans = 114},
-{fin = [(N 201)], trans = 0},
-{fin = [(N 153)], trans = 0},
+{fin = [(N 205)], trans = 0},
 {fin = [(N 157)], trans = 0},
-{fin = [(N 135)], trans = 0},
-{fin = [(N 155)], trans = 0},
+{fin = [(N 161)], trans = 0},
+{fin = [(N 139)], trans = 0},
 {fin = [(N 159)], trans = 0},
-{fin = [(N 143)], trans = 0},
-{fin = [(N 141)], trans = 0},
-{fin = [(N 178)], trans = 0},
+{fin = [(N 163)], trans = 0},
+{fin = [(N 147)], trans = 0},
+{fin = [(N 145)], trans = 0},
+{fin = [(N 182)], trans = 0},
 {fin = [], trans = 124},
-{fin = [(N 14)], trans = 0},
-{fin = [(N 5)], trans = 126},
+{fin = [(N 18)], trans = 0},
+{fin = [], trans = 126},
+{fin = [(N 14)], trans = 126},
+{fin = [(N 5)], trans = 128},
 {fin = [(N 7)], trans = 0},
-{fin = [(N 2)], trans = 128}])
+{fin = [(N 2)], trans = 130}])
 end
 structure StartStates =
 	struct
@@ -1108,111 +1121,113 @@ let fun continue() = lex() in
 
 			(* Application actions *)
 
-  10 => let val yytext=yymktext() in (*#line 26.15 "tiger.lex"*)CONST (toInt yytext) (*#line 1111.1 "tiger.lex.sml"*)
+  10 => let val yytext=yymktext() in (*#line 27.15 "tiger.lex"*)CONST (toInt yytext) (*#line 1124.1 "tiger.lex.sml"*)
  end
-| 108 => ((*#line 46.19 "tiger.lex"*)key PRIMITIVE(*#line 1113.1 "tiger.lex.sml"*)
+| 102 => ((*#line 47.17 "tiger.lex"*)key IMPORT(*#line 1126.1 "tiger.lex.sml"*)
 )
-| 114 => ((*#line 47.14 "tiger.lex"*) object CLASS(*#line 1115.1 "tiger.lex.sml"*)
+| 112 => ((*#line 48.19 "tiger.lex"*)key PRIMITIVE(*#line 1128.1 "tiger.lex.sml"*)
 )
-| 122 => ((*#line 48.15 "tiger.lex"*) object EXTENDS(*#line 1117.1 "tiger.lex.sml"*)
+| 118 => ((*#line 49.14 "tiger.lex"*) object CLASS(*#line 1130.1 "tiger.lex.sml"*)
 )
-| 129 => ((*#line 49.14 "tiger.lex"*) object METHOD(*#line 1119.1 "tiger.lex.sml"*)
+| 126 => ((*#line 50.15 "tiger.lex"*) object EXTENDS(*#line 1132.1 "tiger.lex.sml"*)
 )
-| 133 => ((*#line 50.11 "tiger.lex"*) object NEW(*#line 1121.1 "tiger.lex.sml"*)
+| 133 => ((*#line 51.14 "tiger.lex"*) object METHOD(*#line 1134.1 "tiger.lex.sml"*)
 )
-| 135 => ((*#line 51.13 "tiger.lex"*)sym Comma(*#line 1123.1 "tiger.lex.sml"*)
+| 137 => ((*#line 52.11 "tiger.lex"*) object NEW(*#line 1136.1 "tiger.lex.sml"*)
 )
-| 137 => ((*#line 52.13 "tiger.lex"*)sym Colon(*#line 1125.1 "tiger.lex.sml"*)
+| 139 => ((*#line 53.13 "tiger.lex"*)sym Comma(*#line 1138.1 "tiger.lex.sml"*)
 )
-| 139 => ((*#line 53.13 "tiger.lex"*)sym Semicolon(*#line 1127.1 "tiger.lex.sml"*)
-)
-| 14 => ((*#line 27.22 "tiger.lex"*)lex() (*#line 1129.1 "tiger.lex.sml"*)
-)
-| 141 => ((*#line 54.13 "tiger.lex"*)sym LeftB(*#line 1131.1 "tiger.lex.sml"*)
-)
-| 143 => ((*#line 55.13 "tiger.lex"*)sym RightB(*#line 1133.1 "tiger.lex.sml"*)
-)
-| 145 => ((*#line 56.13 "tiger.lex"*)sym LeftSB(*#line 1135.1 "tiger.lex.sml"*)
-)
-| 147 => ((*#line 57.13 "tiger.lex"*)sym RightSB(*#line 1137.1 "tiger.lex.sml"*)
-)
-| 149 => ((*#line 58.13 "tiger.lex"*)sym LeftCB(*#line 1139.1 "tiger.lex.sml"*)
-)
-| 151 => ((*#line 59.13 "tiger.lex"*)sym RightCB(*#line 1141.1 "tiger.lex.sml"*)
-)
-| 153 => ((*#line 60.13 "tiger.lex"*)sym Dot(*#line 1143.1 "tiger.lex.sml"*)
-)
-| 155 => ((*#line 61.13 "tiger.lex"*)sym Plus(*#line 1145.1 "tiger.lex.sml"*)
-)
-| 157 => ((*#line 62.13 "tiger.lex"*)sym Minus(*#line 1147.1 "tiger.lex.sml"*)
-)
-| 159 => ((*#line 63.13 "tiger.lex"*)sym Mul(*#line 1149.1 "tiger.lex.sml"*)
-)
-| 161 => ((*#line 64.13 "tiger.lex"*)sym Div(*#line 1151.1 "tiger.lex.sml"*)
-)
-| 163 => ((*#line 65.13 "tiger.lex"*)sym Equal(*#line 1153.1 "tiger.lex.sml"*)
-)
-| 166 => ((*#line 66.15 "tiger.lex"*)sym LTGT(*#line 1155.1 "tiger.lex.sml"*)
-)
-| 168 => ((*#line 67.13 "tiger.lex"*)sym LT(*#line 1157.1 "tiger.lex.sml"*)
-)
-| 171 => ((*#line 68.15 "tiger.lex"*)sym LTEqual(*#line 1159.1 "tiger.lex.sml"*)
-)
-| 173 => ((*#line 69.13 "tiger.lex"*)sym GT(*#line 1161.1 "tiger.lex.sml"*)
-)
-| 176 => ((*#line 70.15 "tiger.lex"*)sym GTEqual(*#line 1163.1 "tiger.lex.sml"*)
-)
-| 178 => ((*#line 71.13 "tiger.lex"*)sym AND(*#line 1165.1 "tiger.lex.sml"*)
-)
-| 180 => ((*#line 72.13 "tiger.lex"*)sym OR(*#line 1167.1 "tiger.lex.sml"*)
-)
-| 183 => ((*#line 73.15 "tiger.lex"*)sym ColonEqual(*#line 1169.1 "tiger.lex.sml"*)
-)
-| 191 => let val yytext=yymktext() in (*#line 74.19 "tiger.lex"*)(IDENTIFIER yytext )(*#line 1171.1 "tiger.lex.sml"*)
+| 14 => let val yytext=yymktext() in (*#line 28.14 "tiger.lex"*)QUOTE yytext(*#line 1140.1 "tiger.lex.sml"*)
  end
-| 2 => let val yytext=yymktext() in (*#line 23.15 "tiger.lex"*)white( TAB, size yytext) (*#line 1173.1 "tiger.lex.sml"*)
+| 141 => ((*#line 54.13 "tiger.lex"*)sym Colon(*#line 1142.1 "tiger.lex.sml"*)
+)
+| 143 => ((*#line 55.13 "tiger.lex"*)sym Semicolon(*#line 1144.1 "tiger.lex.sml"*)
+)
+| 145 => ((*#line 56.13 "tiger.lex"*)sym LeftB(*#line 1146.1 "tiger.lex.sml"*)
+)
+| 147 => ((*#line 57.13 "tiger.lex"*)sym RightB(*#line 1148.1 "tiger.lex.sml"*)
+)
+| 149 => ((*#line 58.13 "tiger.lex"*)sym LeftSB(*#line 1150.1 "tiger.lex.sml"*)
+)
+| 151 => ((*#line 59.13 "tiger.lex"*)sym RightSB(*#line 1152.1 "tiger.lex.sml"*)
+)
+| 153 => ((*#line 60.13 "tiger.lex"*)sym LeftCB(*#line 1154.1 "tiger.lex.sml"*)
+)
+| 155 => ((*#line 61.13 "tiger.lex"*)sym RightCB(*#line 1156.1 "tiger.lex.sml"*)
+)
+| 157 => ((*#line 62.13 "tiger.lex"*)sym Dot(*#line 1158.1 "tiger.lex.sml"*)
+)
+| 159 => ((*#line 63.13 "tiger.lex"*)sym Plus(*#line 1160.1 "tiger.lex.sml"*)
+)
+| 161 => ((*#line 64.13 "tiger.lex"*)sym Minus(*#line 1162.1 "tiger.lex.sml"*)
+)
+| 163 => ((*#line 65.13 "tiger.lex"*)sym Mul(*#line 1164.1 "tiger.lex.sml"*)
+)
+| 165 => ((*#line 66.13 "tiger.lex"*)sym Div(*#line 1166.1 "tiger.lex.sml"*)
+)
+| 167 => ((*#line 67.13 "tiger.lex"*)sym Equal(*#line 1168.1 "tiger.lex.sml"*)
+)
+| 170 => ((*#line 68.15 "tiger.lex"*)sym LTGT(*#line 1170.1 "tiger.lex.sml"*)
+)
+| 172 => ((*#line 69.13 "tiger.lex"*)sym LT(*#line 1172.1 "tiger.lex.sml"*)
+)
+| 175 => ((*#line 70.15 "tiger.lex"*)sym LTEqual(*#line 1174.1 "tiger.lex.sml"*)
+)
+| 177 => ((*#line 71.13 "tiger.lex"*)sym GT(*#line 1176.1 "tiger.lex.sml"*)
+)
+| 18 => ((*#line 29.22 "tiger.lex"*)lex() (*#line 1178.1 "tiger.lex.sml"*)
+)
+| 180 => ((*#line 72.15 "tiger.lex"*)sym GTEqual(*#line 1180.1 "tiger.lex.sml"*)
+)
+| 182 => ((*#line 73.13 "tiger.lex"*)sym AND(*#line 1182.1 "tiger.lex.sml"*)
+)
+| 184 => ((*#line 74.13 "tiger.lex"*)sym OR(*#line 1184.1 "tiger.lex.sml"*)
+)
+| 187 => ((*#line 75.15 "tiger.lex"*)sym ColonEqual(*#line 1186.1 "tiger.lex.sml"*)
+)
+| 195 => let val yytext=yymktext() in (*#line 76.19 "tiger.lex"*)(IDENTIFIER yytext )(*#line 1188.1 "tiger.lex.sml"*)
  end
-| 20 => ((*#line 28.17 "tiger.lex"*)key ARRAY(*#line 1175.1 "tiger.lex.sml"*)
-)
-| 201 => let val yytext=yymktext() in (*#line 75.15 "tiger.lex"*) (comment yytext)(*#line 1177.1 "tiger.lex.sml"*)
+| 2 => let val yytext=yymktext() in (*#line 24.15 "tiger.lex"*)white( TAB, size yytext) (*#line 1190.1 "tiger.lex.sml"*)
  end
-| 23 => ((*#line 29.15 "tiger.lex"*)key IF(*#line 1179.1 "tiger.lex.sml"*)
-)
-| 28 => ((*#line 30.17 "tiger.lex"*)key THEN(*#line 1181.1 "tiger.lex.sml"*)
-)
-| 33 => ((*#line 31.17 "tiger.lex"*)key ELSE(*#line 1183.1 "tiger.lex.sml"*)
-)
-| 39 => ((*#line 32.17 "tiger.lex"*)key WHILE(*#line 1185.1 "tiger.lex.sml"*)
-)
-| 43 => ((*#line 33.15 "tiger.lex"*)key FOR(*#line 1187.1 "tiger.lex.sml"*)
-)
-| 46 => ((*#line 34.15 "tiger.lex"*)key TO(*#line 1189.1 "tiger.lex.sml"*)
-)
-| 49 => ((*#line 35.15 "tiger.lex"*)key DO(*#line 1191.1 "tiger.lex.sml"*)
-)
-| 5 => let val yytext=yymktext() in (*#line 24.15 "tiger.lex"*)white( SPACE, size yytext) (*#line 1193.1 "tiger.lex.sml"*)
+| 205 => let val yytext=yymktext() in (*#line 77.15 "tiger.lex"*) (comment yytext)(*#line 1192.1 "tiger.lex.sml"*)
  end
-| 53 => ((*#line 36.15 "tiger.lex"*)key LET(*#line 1195.1 "tiger.lex.sml"*)
+| 24 => ((*#line 30.17 "tiger.lex"*)key ARRAY(*#line 1194.1 "tiger.lex.sml"*)
 )
-| 56 => ((*#line 37.15 "tiger.lex"*)key IN(*#line 1197.1 "tiger.lex.sml"*)
+| 27 => ((*#line 31.15 "tiger.lex"*)key IF(*#line 1196.1 "tiger.lex.sml"*)
 )
-| 60 => ((*#line 38.15 "tiger.lex"*)key END(*#line 1199.1 "tiger.lex.sml"*)
+| 32 => ((*#line 32.17 "tiger.lex"*)key THEN(*#line 1198.1 "tiger.lex.sml"*)
 )
-| 63 => ((*#line 39.15 "tiger.lex"*)key OF(*#line 1201.1 "tiger.lex.sml"*)
+| 37 => ((*#line 33.17 "tiger.lex"*)key ELSE(*#line 1200.1 "tiger.lex.sml"*)
 )
-| 69 => ((*#line 40.17 "tiger.lex"*)key BREAK(*#line 1203.1 "tiger.lex.sml"*)
+| 43 => ((*#line 34.17 "tiger.lex"*)key WHILE(*#line 1202.1 "tiger.lex.sml"*)
 )
-| 7 => ((*#line 25.13 "tiger.lex"*)NEWLINE(*#line 1205.1 "tiger.lex.sml"*)
+| 47 => ((*#line 35.15 "tiger.lex"*)key FOR(*#line 1204.1 "tiger.lex.sml"*)
 )
-| 73 => ((*#line 41.15 "tiger.lex"*)key NIL(*#line 1207.1 "tiger.lex.sml"*)
+| 5 => let val yytext=yymktext() in (*#line 25.15 "tiger.lex"*)white( SPACE, size yytext) (*#line 1206.1 "tiger.lex.sml"*)
+ end
+| 50 => ((*#line 36.15 "tiger.lex"*)key TO(*#line 1208.1 "tiger.lex.sml"*)
 )
-| 82 => ((*#line 42.19 "tiger.lex"*)key FUNCTION(*#line 1209.1 "tiger.lex.sml"*)
+| 53 => ((*#line 37.15 "tiger.lex"*)key DO(*#line 1210.1 "tiger.lex.sml"*)
 )
-| 86 => ((*#line 43.15 "tiger.lex"*)key VAR(*#line 1211.1 "tiger.lex.sml"*)
+| 57 => ((*#line 38.15 "tiger.lex"*)key LET(*#line 1212.1 "tiger.lex.sml"*)
 )
-| 91 => ((*#line 44.17 "tiger.lex"*)key TYPE(*#line 1213.1 "tiger.lex.sml"*)
+| 60 => ((*#line 39.15 "tiger.lex"*)key IN(*#line 1214.1 "tiger.lex.sml"*)
 )
-| 98 => ((*#line 45.17 "tiger.lex"*)key IMPORT(*#line 1215.1 "tiger.lex.sml"*)
+| 64 => ((*#line 40.15 "tiger.lex"*)key END(*#line 1216.1 "tiger.lex.sml"*)
+)
+| 67 => ((*#line 41.15 "tiger.lex"*)key OF(*#line 1218.1 "tiger.lex.sml"*)
+)
+| 7 => ((*#line 26.13 "tiger.lex"*)NEWLINE(*#line 1220.1 "tiger.lex.sml"*)
+)
+| 73 => ((*#line 42.17 "tiger.lex"*)key BREAK(*#line 1222.1 "tiger.lex.sml"*)
+)
+| 77 => ((*#line 43.15 "tiger.lex"*)key NIL(*#line 1224.1 "tiger.lex.sml"*)
+)
+| 86 => ((*#line 44.19 "tiger.lex"*)key FUNCTION(*#line 1226.1 "tiger.lex.sml"*)
+)
+| 90 => ((*#line 45.15 "tiger.lex"*)key VAR(*#line 1228.1 "tiger.lex.sml"*)
+)
+| 95 => ((*#line 46.17 "tiger.lex"*)key TYPE(*#line 1230.1 "tiger.lex.sml"*)
 )
 | _ => raise Internal.LexerError
 

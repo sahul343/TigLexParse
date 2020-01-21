@@ -54,6 +54,7 @@ fun tostring token = case token of
 	| (white (x,n) ) => ws(n,x)
 	| (CONST x) => Int.toString(x)
 	| (IDENTIFIER x) => x
+	| (QUOTE x) => x
 
 
 
@@ -68,5 +69,6 @@ fun myprint inst = (case inst of
 	|(NEWLINE) => print("\027[0m\n")
 	|(CONST _) =>print("\027[0m"^(tostring inst))
 	|(IDENTIFIER _) => print("\027[33m"^(tostring inst))
+	|(QUOTE _) => print("\027[37m"^(tostring inst))
 	)
 

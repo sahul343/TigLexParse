@@ -19,11 +19,13 @@ digit=[0-9];
 str = [a-z_A-Z]+;
 id  = [a-zA-Z]([a-z_A-Z1-9])*;
 comment = "/*"([^*]|\*+[^*/])*\*+"/";
+quotes = "\"".*"\"";
 %%
 [\t]+     => (white( TAB, size yytext) );
 [\ ]+     => (white( SPACE, size yytext) );
 [\n] 	  => (NEWLINE);
 {digit}+  => (CONST (toInt yytext) );
+{quotes} => (QUOTE yytext);
 "#".*\n          => (lex() );
 "array"     => (key ARRAY);
 "if"      => (key IF);
