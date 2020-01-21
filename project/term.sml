@@ -1,3 +1,9 @@
+fun ws (1,TAB) = "\t"
+    | ws (n,TAB) = "\t"^ws(n-1,TAB)
+    | ws (1,SPACE) = " "
+    | ws (n,SPACE) = " "^ws(n-1,SPACE)
+
+
 fun tostring token = case token of
 	 (key ARRAY) => "array"
         | (key IF) => "if"
@@ -45,6 +51,7 @@ fun tostring token = case token of
         | (sym AND) => "&"
         | (sym OR) => "|"
         | (sym ColonEqual) => ":="
+	| (white (x,n) ) => ws(n,x)
 
 
 
@@ -55,5 +62,7 @@ fun myprint inst = (case inst of
 	|(sym _) => print("\027[36m"^(tostring inst))
 	|(var str) => print("\027[31m"^str)
 	|(comment str) => print("\027[34m"^str)
+	|(white _) => print("\027[0m"^(tostring inst))
+	|(NEWLINE) => print("\027[0m\n")
 	)
 

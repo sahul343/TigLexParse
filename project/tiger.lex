@@ -8,7 +8,7 @@ fun charsToInt m (x :: xs) = charsToInt (10 * m + ord x - ord #"0") xs
 fun toSigned (#"-" :: xs) = ~ (charsToInt 0 xs)
   | toSigned (#"~" :: xs) = ~ (charsToInt 0 xs)
   | toSigned (#"+" :: xs) =   charsToInt 0 xs
-  | toSigned xsym           =   charsToInt 0 xs
+  | toSigned xs           =   charsToInt 0 xs
 
 val toInt  = toSigned o String.explode
 
@@ -20,8 +20,10 @@ str = [a-z_A-Z]+;
 id  = [a-zA-Z]([a-z_A-Z1-9])*;
 comment = "/*"([^*]|\*+[^*/])*\*+"/";
 %%
-{whitespace}+     => (lex() );
-"#".*\n           => (lex() );
+[\t]+     => (white( TAB, size yytext) );
+[\ ]+     => (white( SPACE, size yytext) );
+[\n] 	  => (NEWLINE);
+"#".*\n          => (lex() );
 "array"     => (key ARRAY);
 "if"      => (key IF);
 "then"      => (key THEN);
