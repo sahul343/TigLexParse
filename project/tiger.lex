@@ -26,7 +26,6 @@ quotes = "\"".*"\"";
 [\n] 	  => (NEWLINE);
 {digit}+  => (CONST (toInt yytext) );
 {quotes} => (QUOTE yytext);
-"#".*\n          => (lex() );
 "array"     => (key ARRAY);
 "if"      => (key IF);
 "then"      => (key THEN);
@@ -75,4 +74,4 @@ quotes = "\"".*"\"";
 ":="      => (sym ColonEqual);
 {id}|"_main"			=>((IDENTIFIER yytext ));
 {comment}		=>( (comment yytext));
- 
+.	=>(print("\027[1;31m "^yytext^"is a invalid token\n");lex());

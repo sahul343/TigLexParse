@@ -55,6 +55,7 @@ fun tostring token = case token of
 	| (CONST x) => Int.toString(x)
 	| (IDENTIFIER x) => x
 	| (QUOTE x) => x
+	
 
 
 
@@ -71,5 +72,6 @@ fun myprint inst = (case inst of
 	|(CONST _) =>print("\027[0m"^(tostring inst))
 	|(IDENTIFIER _) => print("\027[33m"^(tostring inst))
 	|(QUOTE _) => print("\027[96m"^(tostring inst))
-	)
+	(*|(Error _) => print("\027[31m"^(tostring inst)^" is a invalid token\n") *)
+ 	)
 
