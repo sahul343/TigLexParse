@@ -1,5 +1,5 @@
 (* The compiler from expression to rp *)
-structure EC =
+structure Tiger =
 struct
 
 (*
@@ -57,8 +57,8 @@ fun print_error (s,i:int,_) = TextIO.output(TextIO.stdErr,
 					    "Error, line " ^ (Int.toString i) ^ ", " ^ s ^ "\n")
 
 val (program,_) = ExprParser.parse (0,thisLexer,print_error,()) (* parsing *)
-val executable  = Translate.compile program                     (* compiling/code generation *)
-val _           = TextIO.output(TextIO.stdOut, Machine.programToString executable)
+val x  = beautify.indentlist 0 program                    (* compiling/code generation *)
+val _           = TextIO.output(TextIO.stdOut, x)
 			       (* writing out the executable (in this case rp expression ) *)
 
 end
