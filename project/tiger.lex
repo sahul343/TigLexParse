@@ -59,7 +59,7 @@ letter = [a-zA-Z];
 id  = [a-zA-Z]([a-z_A-Z1-9])*;
 %%
 {ws}+         => ( lex() );
-\n({ws}*\n)*  => ( Tokens.NEWLINE (!lineRef, !lineRef));
+\n({ws}*\n)*  => ( lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*));
 {digit}+      => ( Tokens.CONST (toInt yytext, !lineRef, !lineRef) );
 "+"           => ( Tokens.PLUS  (!lineRef,!lineRef) );
 "-"           => ( Tokens.MINUS  (!lineRef,!lineRef) );
@@ -73,5 +73,7 @@ id  = [a-zA-Z]([a-z_A-Z1-9])*;
 "do"	      => ( Tokens.DO (!lineRef,!lineRef) );
 "for"	      => ( Tokens.FOR (!lineRef,!lineRef) );
 "to"	      => ( Tokens.TO (!lineRef,!lineRef) );
+"else"	      => ( Tokens.ELSE (!lineRef,!lineRef) );
+"then"	      => ( Tokens.THEN (!lineRef,!lineRef) );
 {id}|"_main"  => (Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) );
 

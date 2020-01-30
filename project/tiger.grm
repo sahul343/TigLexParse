@@ -19,6 +19,8 @@ it is empty *)
     | NEWLINE
     | EOF
     | IF
+    | ELSE
+    | THEN
     | ASSIGN
     | LPAREN 
     | RPAREN
@@ -55,7 +57,7 @@ PROGRAM : EXPS                 ( EXPS )
     | EXPS EOF              (EXPS)
 
 EXPS    : (* empty *)          ( []                  )
-	| EXP NEWLINE EXPS     ( EXP :: EXPS         )
+	| EXP EXPS     ( EXP :: EXPS         )
 
 EXP     : CONST                ( Ast.Const CONST     )
 	| IDENTIFIER 	       ( Ast.Var   IDENTIFIER)
@@ -68,3 +70,5 @@ EXP     : CONST                ( Ast.Const CONST     )
 	| LPAREN EXP RPAREN  	(EXP)
 	| WHILE EXP DO EXP     (Ast.While EXP1 EXP2)
 	| FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP (Ast.For (Ast.Var IDENTIFIER) EXP1 EXP2 EXP3)
+	| IF EXP THEN EXP ELSE EXP (Ast.Closedif EXP1 EXP2 EXP3)
+	| IF EXP THEN EXP  	(Ast.Openif EXP1 EXP2 )
