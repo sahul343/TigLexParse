@@ -12,14 +12,16 @@ it is empty *)
 
 (* The terminals or tokens of the language *)
 %term CONST of int
-    | PLUS
+    | PLUS    
     | MINUS
     | MUL
-    | EOF
+    | DIV
     | NEWLINE
-    | DIV 
+    | EOF
     | IF
     | ASSIGN
+    | LPAREN 
+    | RPAREN
     | IDENTIFIER of string
     
 
@@ -59,3 +61,4 @@ EXP     : CONST                ( Ast.Const CONST     )
     	| EXP DIV EXP          (Ast.divide  EXP1 EXP2)
 	| IDENTIFIER ASSIGN EXP (Ast.assign (Ast.Var IDENTIFIER) EXP)
 	| IF		       (Ast.IF)
+	| LPAREN EXP RPAREN  	(EXP)
