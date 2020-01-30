@@ -10,3 +10,4 @@ flag2 := flag + 1
 for id := exp1 to exp2 do 
   exp3
 if (10 + 20) then if 30 then 40 else 40	
+if exp1 then exp2 := (2+3)*4+(2-2) else exp3 := 2+3/4
