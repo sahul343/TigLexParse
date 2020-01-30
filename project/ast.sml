@@ -1,8 +1,9 @@
 structure Ast =
 struct
   datatype Expr = Const of int
+	         | Var of string
                  | Op of Expr * BinOp * Expr
-		 | Assign of string*Expr
+		 | Assign of Expr*Expr
 		 | IF
             and BinOp = Plus
                         |Minus

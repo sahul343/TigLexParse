@@ -5,10 +5,10 @@ non-shiftable terminal used on the rhs of 0 rules
 warning: rule <PROGRAM : EXPS > will never be reduced
 warning: non-shiftable terminal EOFappears on the rhs of <PROGRAM : EXPS EOF >
 error:  state 1: shift/reduce conflict (shift EOF, reduce by rule 0)
-error:  state 19: shift/reduce conflict (shift DIV, reduce by rule 10)
-error:  state 19: shift/reduce conflict (shift MUL, reduce by rule 10)
-error:  state 19: shift/reduce conflict (shift MINUS, reduce by rule 10)
-error:  state 19: shift/reduce conflict (shift PLUS, reduce by rule 10)
+error:  state 19: shift/reduce conflict (shift DIV, reduce by rule 11)
+error:  state 19: shift/reduce conflict (shift MUL, reduce by rule 11)
+error:  state 19: shift/reduce conflict (shift MINUS, reduce by rule 11)
+error:  state 19: shift/reduce conflict (shift PLUS, reduce by rule 11)
 
 state 0:
 
@@ -61,21 +61,22 @@ state 2:
 
 state 3:
 
+	EXP : IDENTIFIER .  (reduce by rule 6)
 	EXP : IDENTIFIER . ASSIGN EXP 
 
 	ASSIGN	shift 13
 
 
-	.	error
+	.	reduce by rule 6
 
 
 state 4:
 
-	EXP : IF .  (reduce by rule 11)
+	EXP : IF .  (reduce by rule 12)
 
 
 
-	.	reduce by rule 11
+	.	reduce by rule 12
 
 
 state 5:
@@ -190,11 +191,11 @@ state 14:
 	EXP : EXP . MINUS EXP 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
-	EXP : EXP DIV EXP .  (reduce by rule 9)
+	EXP : EXP DIV EXP .  (reduce by rule 10)
 
 
 
-	.	reduce by rule 9
+	.	reduce by rule 10
 
 
 state 15:
@@ -211,19 +212,34 @@ state 16:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 	EXP : EXP . MUL EXP 
-	EXP : EXP MUL EXP .  (reduce by rule 8)
+	EXP : EXP MUL EXP .  (reduce by rule 9)
 	EXP : EXP . DIV EXP 
 
 
 
-	.	reduce by rule 8
+	.	reduce by rule 9
 
 
 state 17:
 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
-	EXP : EXP MINUS EXP .  (reduce by rule 7)
+	EXP : EXP MINUS EXP .  (reduce by rule 8)
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+
+	MUL	shift 10
+	DIV	shift 8
+
+
+	.	reduce by rule 8
+
+
+state 18:
+
+	EXP : EXP . PLUS EXP 
+	EXP : EXP PLUS EXP .  (reduce by rule 7)
+	EXP : EXP . MINUS EXP 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
 
@@ -233,25 +249,10 @@ state 17:
 
 	.	reduce by rule 7
 
-
-state 18:
-
-	EXP : EXP . PLUS EXP 
-	EXP : EXP PLUS EXP .  (reduce by rule 6)
-	EXP : EXP . MINUS EXP 
-	EXP : EXP . MUL EXP 
-	EXP : EXP . DIV EXP 
-
-	MUL	shift 10
-	DIV	shift 8
-
-
-	.	reduce by rule 6
-
-error:  state 19: shift/reduce conflict (shift DIV, reduce by rule 10)
-error:  state 19: shift/reduce conflict (shift MUL, reduce by rule 10)
-error:  state 19: shift/reduce conflict (shift MINUS, reduce by rule 10)
-error:  state 19: shift/reduce conflict (shift PLUS, reduce by rule 10)
+error:  state 19: shift/reduce conflict (shift DIV, reduce by rule 11)
+error:  state 19: shift/reduce conflict (shift MUL, reduce by rule 11)
+error:  state 19: shift/reduce conflict (shift MINUS, reduce by rule 11)
+error:  state 19: shift/reduce conflict (shift PLUS, reduce by rule 11)
 
 state 19:
 
@@ -259,7 +260,7 @@ state 19:
 	EXP : EXP . MINUS EXP 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
-	EXP : IDENTIFIER ASSIGN EXP .  (reduce by rule 10)
+	EXP : IDENTIFIER ASSIGN EXP .  (reduce by rule 11)
 
 	PLUS	shift 12
 	MINUS	shift 11
@@ -267,7 +268,7 @@ state 19:
 	DIV	shift 8
 
 
-	.	reduce by rule 10
+	.	reduce by rule 11
 
 
 state 20:

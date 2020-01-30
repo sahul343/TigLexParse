@@ -5,8 +5,9 @@ struct
     |indent space (Ast.Op(a, Ast.Mul, b)) = (indent space a)^"*"^(indent space b)
     |indent space (Ast.Op(a, Ast.Divide, b)) = (indent space a)^"/"^(indent space b)
     |indent space (Ast.Const x) = (Int.toString x)
+    |indent space (Ast.Var x) 	= x
     |indent space  (Ast.IF ) = "if"
-    |indent space  (Ast.Assign (x, y) ) = x^" := "^(indent space y)
+    |indent space  (Ast.Assign (x, y) ) = (indent space x)^" := "^(indent space y)
  
 
 
