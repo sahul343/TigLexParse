@@ -72,6 +72,6 @@ id  = [a-zA-Z]([a-z_A-Z1-9])*;
 "while"	      => ( Tokens.WHILE (!lineRef,!lineRef) );
 "do"	      => ( Tokens.DO (!lineRef,!lineRef) );
 "for"	      => ( Tokens.FOR (!lineRef,!lineRef) );
-"TO"	      => ( Tokens.TO (!lineRef,!lineRef) );
+"to"	      => ( Tokens.TO (!lineRef,!lineRef) );
 {id}|"_main"  => (Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) );
 
