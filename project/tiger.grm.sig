@@ -2,6 +2,9 @@ signature Expr_TOKENS =
 sig
 type ('a,'b) token
 type svalue
+val IDENTIFIER: (string) *  'a * 'a -> (svalue,'a) token
+val ASSIGN:  'a * 'a -> (svalue,'a) token
+val IF:  'a * 'a -> (svalue,'a) token
 val DIV:  'a * 'a -> (svalue,'a) token
 val NEWLINE:  'a * 'a -> (svalue,'a) token
 val EOF:  'a * 'a -> (svalue,'a) token
