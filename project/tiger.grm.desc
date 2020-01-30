@@ -1,14 +1,22 @@
-5 shift/reduce conflicts
+13 shift/reduce conflicts
 non-shiftable terminal used on the rhs of 0 rules
 1 rule not reduced
 
 warning: rule <PROGRAM : EXPS > will never be reduced
 warning: non-shiftable terminal EOFappears on the rhs of <PROGRAM : EXPS EOF >
 error:  state 1: shift/reduce conflict (shift EOF, reduce by rule 0)
-error:  state 21: shift/reduce conflict (shift DIV, reduce by rule 11)
-error:  state 21: shift/reduce conflict (shift MUL, reduce by rule 11)
-error:  state 21: shift/reduce conflict (shift MINUS, reduce by rule 11)
-error:  state 21: shift/reduce conflict (shift PLUS, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift DIV, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift MUL, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift MINUS, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift PLUS, reduce by rule 11)
+error:  state 30: shift/reduce conflict (shift DIV, reduce by rule 14)
+error:  state 30: shift/reduce conflict (shift MUL, reduce by rule 14)
+error:  state 30: shift/reduce conflict (shift MINUS, reduce by rule 14)
+error:  state 30: shift/reduce conflict (shift PLUS, reduce by rule 14)
+error:  state 34: shift/reduce conflict (shift DIV, reduce by rule 15)
+error:  state 34: shift/reduce conflict (shift MUL, reduce by rule 15)
+error:  state 34: shift/reduce conflict (shift MINUS, reduce by rule 15)
+error:  state 34: shift/reduce conflict (shift PLUS, reduce by rule 15)
 
 state 0:
 
@@ -16,14 +24,16 @@ state 0:
 	PROGRAM : . EXPS NEWLINE 
 	PROGRAM : . EXPS EOF 
 
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
 	IDENTIFIER	shift 3
 
 	EXP	goto 2
 	EXPS	goto 1
-	PROGRAM	goto 23
+	PROGRAM	goto 35
 
 	.	reduce by rule 3
 
@@ -35,8 +45,8 @@ state 1:
 	PROGRAM : EXPS . NEWLINE 
 	PROGRAM : EXPS . EOF 
 
-	NEWLINE	shift 8
-	EOF	shift 7
+	NEWLINE	shift 10
+	EOF	shift 9
 
 
 	.	error
@@ -50,11 +60,11 @@ state 2:
 	EXP : EXP . DIV EXP 
 	EXPS : EXP . NEWLINE EXPS 
 
-	PLUS	shift 13
-	MINUS	shift 12
-	MUL	shift 11
-	DIV	shift 10
-	NEWLINE	shift 9
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
+	NEWLINE	shift 11
 
 
 	.	error
@@ -65,7 +75,7 @@ state 3:
 	EXP : IDENTIFIER .  (reduce by rule 6)
 	EXP : IDENTIFIER . ASSIGN EXP 
 
-	ASSIGN	shift 14
+	ASSIGN	shift 16
 
 
 	.	reduce by rule 6
@@ -73,19 +83,47 @@ state 3:
 
 state 4:
 
-	EXP : LPAREN . EXP RPAREN 
+	EXP : FOR . IDENTIFIER ASSIGN EXP TO EXP DO EXP 
 
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
-	IDENTIFIER	shift 3
+	IDENTIFIER	shift 17
 
-	EXP	goto 15
 
 	.	error
 
 
 state 5:
+
+	EXP : WHILE . EXP DO EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 18
+
+	.	error
+
+
+state 6:
+
+	EXP : LPAREN . EXP RPAREN 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 19
+
+	.	error
+
+
+state 7:
 
 	EXP : IF .  (reduce by rule 12)
 
@@ -94,7 +132,7 @@ state 5:
 	.	reduce by rule 12
 
 
-state 6:
+state 8:
 
 	EXP : CONST .  (reduce by rule 5)
 
@@ -103,7 +141,7 @@ state 6:
 	.	reduce by rule 5
 
 
-state 7:
+state 9:
 
 	PROGRAM : EXPS EOF .  (reduce by rule 2)
 
@@ -112,7 +150,7 @@ state 7:
 	.	reduce by rule 2
 
 
-state 8:
+state 10:
 
 	PROGRAM : EXPS NEWLINE .  (reduce by rule 1)
 
@@ -121,84 +159,32 @@ state 8:
 	.	reduce by rule 1
 
 
-state 9:
+state 11:
 
 	EXPS : EXP NEWLINE . EXPS 
 
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
 	IDENTIFIER	shift 3
 
 	EXP	goto 2
-	EXPS	goto 16
+	EXPS	goto 20
 
 	.	reduce by rule 3
 
 
-state 10:
+state 12:
 
 	EXP : EXP DIV . EXP 
 
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
-	IDENTIFIER	shift 3
-
-	EXP	goto 17
-
-	.	error
-
-
-state 11:
-
-	EXP : EXP MUL . EXP 
-
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
-	IDENTIFIER	shift 3
-
-	EXP	goto 18
-
-	.	error
-
-
-state 12:
-
-	EXP : EXP MINUS . EXP 
-
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
-	IDENTIFIER	shift 3
-
-	EXP	goto 19
-
-	.	error
-
-
-state 13:
-
-	EXP : EXP PLUS . EXP 
-
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
-	IDENTIFIER	shift 3
-
-	EXP	goto 20
-
-	.	error
-
-
-state 14:
-
-	EXP : IDENTIFIER ASSIGN . EXP 
-
-	CONST	shift 6
-	IF	shift 5
-	LPAREN	shift 4
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
 	IDENTIFIER	shift 3
 
 	EXP	goto 21
@@ -206,7 +192,99 @@ state 14:
 	.	error
 
 
+state 13:
+
+	EXP : EXP MUL . EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 22
+
+	.	error
+
+
+state 14:
+
+	EXP : EXP MINUS . EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 23
+
+	.	error
+
+
 state 15:
+
+	EXP : EXP PLUS . EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 24
+
+	.	error
+
+
+state 16:
+
+	EXP : IDENTIFIER ASSIGN . EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 25
+
+	.	error
+
+
+state 17:
+
+	EXP : FOR IDENTIFIER . ASSIGN EXP TO EXP DO EXP 
+
+	ASSIGN	shift 26
+
+
+	.	error
+
+
+state 18:
+
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : WHILE EXP . DO EXP 
+
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
+	DO	shift 27
+
+
+	.	error
+
+
+state 19:
 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
@@ -214,17 +292,17 @@ state 15:
 	EXP : EXP . DIV EXP 
 	EXP : LPAREN EXP . RPAREN 
 
-	PLUS	shift 13
-	MINUS	shift 12
-	MUL	shift 11
-	DIV	shift 10
-	RPAREN	shift 22
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
+	RPAREN	shift 28
 
 
 	.	error
 
 
-state 16:
+state 20:
 
 	EXPS : EXP NEWLINE EXPS .  (reduce by rule 4)
 
@@ -233,7 +311,7 @@ state 16:
 	.	reduce by rule 4
 
 
-state 17:
+state 21:
 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
@@ -246,7 +324,7 @@ state 17:
 	.	reduce by rule 10
 
 
-state 18:
+state 22:
 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
@@ -259,7 +337,7 @@ state 18:
 	.	reduce by rule 9
 
 
-state 19:
+state 23:
 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
@@ -267,14 +345,14 @@ state 19:
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
 
-	MUL	shift 11
-	DIV	shift 10
+	MUL	shift 13
+	DIV	shift 12
 
 
 	.	reduce by rule 8
 
 
-state 20:
+state 24:
 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP PLUS EXP .  (reduce by rule 7)
@@ -282,18 +360,18 @@ state 20:
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
 
-	MUL	shift 11
-	DIV	shift 10
+	MUL	shift 13
+	DIV	shift 12
 
 
 	.	reduce by rule 7
 
-error:  state 21: shift/reduce conflict (shift DIV, reduce by rule 11)
-error:  state 21: shift/reduce conflict (shift MUL, reduce by rule 11)
-error:  state 21: shift/reduce conflict (shift MINUS, reduce by rule 11)
-error:  state 21: shift/reduce conflict (shift PLUS, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift DIV, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift MUL, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift MINUS, reduce by rule 11)
+error:  state 25: shift/reduce conflict (shift PLUS, reduce by rule 11)
 
-state 21:
+state 25:
 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
@@ -301,16 +379,48 @@ state 21:
 	EXP : EXP . DIV EXP 
 	EXP : IDENTIFIER ASSIGN EXP .  (reduce by rule 11)
 
-	PLUS	shift 13
-	MINUS	shift 12
-	MUL	shift 11
-	DIV	shift 10
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
 
 
 	.	reduce by rule 11
 
 
-state 22:
+state 26:
+
+	EXP : FOR IDENTIFIER ASSIGN . EXP TO EXP DO EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 29
+
+	.	error
+
+
+state 27:
+
+	EXP : WHILE EXP DO . EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 30
+
+	.	error
+
+
+state 28:
 
 	EXP : LPAREN EXP RPAREN .  (reduce by rule 13)
 
@@ -319,7 +429,117 @@ state 22:
 	.	reduce by rule 13
 
 
-state 23:
+state 29:
+
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : FOR IDENTIFIER ASSIGN EXP . TO EXP DO EXP 
+
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
+	TO	shift 31
+
+
+	.	error
+
+error:  state 30: shift/reduce conflict (shift DIV, reduce by rule 14)
+error:  state 30: shift/reduce conflict (shift MUL, reduce by rule 14)
+error:  state 30: shift/reduce conflict (shift MINUS, reduce by rule 14)
+error:  state 30: shift/reduce conflict (shift PLUS, reduce by rule 14)
+
+state 30:
+
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : WHILE EXP DO EXP .  (reduce by rule 14)
+
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
+
+
+	.	reduce by rule 14
+
+
+state 31:
+
+	EXP : FOR IDENTIFIER ASSIGN EXP TO . EXP DO EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 32
+
+	.	error
+
+
+state 32:
+
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP . DO EXP 
+
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
+	DO	shift 33
+
+
+	.	error
+
+
+state 33:
+
+	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO . EXP 
+
+	CONST	shift 8
+	IF	shift 7
+	LPAREN	shift 6
+	WHILE	shift 5
+	FOR	shift 4
+	IDENTIFIER	shift 3
+
+	EXP	goto 34
+
+	.	error
+
+error:  state 34: shift/reduce conflict (shift DIV, reduce by rule 15)
+error:  state 34: shift/reduce conflict (shift MUL, reduce by rule 15)
+error:  state 34: shift/reduce conflict (shift MINUS, reduce by rule 15)
+error:  state 34: shift/reduce conflict (shift PLUS, reduce by rule 15)
+
+state 34:
+
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP .  (reduce by rule 15)
+
+	PLUS	shift 15
+	MINUS	shift 14
+	MUL	shift 13
+	DIV	shift 12
+
+
+	.	reduce by rule 15
+
+
+state 35:
 
 
 	EOF	accept
@@ -327,5 +547,5 @@ state 23:
 
 	.	error
 
-30 of 78 action table entries left after compaction
-11 goto table entries
+59 of 161 action table entries left after compaction
+16 goto table entries

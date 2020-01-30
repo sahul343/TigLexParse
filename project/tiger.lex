@@ -69,5 +69,9 @@ id  = [a-zA-Z]([a-z_A-Z1-9])*;
 "if"	      => ( Tokens.IF  (yypos,yypos+2) );
 "("	      => ( Tokens.LPAREN (!lineRef,!lineRef) );
 ")"	      => ( Tokens.RPAREN (!lineRef,!lineRef) );
+"while"	      => ( Tokens.WHILE (!lineRef,!lineRef) );
+"do"	      => ( Tokens.DO (!lineRef,!lineRef) );
+"for"	      => ( Tokens.FOR (!lineRef,!lineRef) );
+"TO"	      => ( Tokens.TO (!lineRef,!lineRef) );
 {id}|"_main"  => (Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) );
 

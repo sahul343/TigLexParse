@@ -8,7 +8,8 @@ struct
     |indent space (Ast.Var x) 	= x
     |indent space  (Ast.IF ) = "if"
     |indent space  (Ast.Assign (x, y) ) = (indent space x)^" := "^(indent space y)
- 
+    |indent space  (Ast.WHILE (x,y) )   = "while "^(indent space x)^" do\n"^(indent space y)
+    |indent space  (Ast.FOR   (a, b, c, d) )= "for "^(indent space a)^" := "^(indent space b)^" to "^(indent space c)^" do "^(indent space d)
 
 
 

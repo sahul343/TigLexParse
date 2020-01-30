@@ -5,3 +5,5 @@ flag2:=2*4+5
 flag3 := flag
 dummy := (2+3)*4
 flag  := (2*3)+4
+while flag do flag2 := flag + 1
+

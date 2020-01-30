@@ -3,6 +3,10 @@ sig
 type ('a,'b) token
 type svalue
 val IDENTIFIER: (string) *  'a * 'a -> (svalue,'a) token
+val TO:  'a * 'a -> (svalue,'a) token
+val FOR:  'a * 'a -> (svalue,'a) token
+val DO:  'a * 'a -> (svalue,'a) token
+val WHILE:  'a * 'a -> (svalue,'a) token
 val RPAREN:  'a * 'a -> (svalue,'a) token
 val LPAREN:  'a * 'a -> (svalue,'a) token
 val ASSIGN:  'a * 'a -> (svalue,'a) token
