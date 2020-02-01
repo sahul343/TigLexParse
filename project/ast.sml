@@ -22,6 +22,21 @@ struct
 		 | FOR of Expr*Expr*Expr*Expr
 		 | OPENIF of (Expr*Expr)
 		 | CLOSEDIF of (Expr*Expr*Expr)
+
+
+    fun binOPtoString x = case x of Mul => "*"
+				 |  Divide  => "/"
+				 |  Plus  => "+"
+				 |  Minus  => "-"
+				 |  Less  => "<"
+				 |  Great  => ">"
+				 |  NotEq  => "<>"
+				 |  Equal  => "="
+				 |  LessEq  => "<="
+				 |  GreatEq  => ">="
+				 |  And  => "&"
+				 |  Or  => "|"
+				 
     fun plus  a b = Op (a, Plus, b)
     fun minus a b = Op (a, Minus, b)
     fun mul   a b = Op (a, Mul, b)
@@ -33,7 +48,7 @@ struct
     fun lessequal a b = Op(a, LessEq, b)
     fun greatequal a b = Op(a, GreatEq, b)
     fun or a b = Op(a, Or, b)
-    fun and a b = Op(a, And, b)
+    fun logicaland a b = Op(a, And, b)
     fun assign a b = Assign(a, b)
     fun While a b = WHILE(a, b)
     fun For a b c d = FOR (a, b, c, d)

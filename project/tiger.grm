@@ -16,7 +16,7 @@ it is empty *)
     | MINUS
     | MUL
     | DIV
-    | LT | EQ | LTEQ | GTEQ | GT | LT | AND | OR | NTEQ
+    | LT | EQ | LTEQ | GTEQ | GT  | AND | OR | NTEQ
     | NEWLINE
     | EOF
     | IF
@@ -45,6 +45,9 @@ left associative and the precedence increase as you go down this list.
 
 *)
 
+%left OR
+%left AND
+%nonassoc LT GT EQ NTEQ GTEQ LTEQ
 %left PLUS MINUS  (* + and - are of same precedence *)
 %left MUL   DIV      (* higher than + and -            *)
 
@@ -62,18 +65,18 @@ EXPS    : (* empty *)          ( []                  )
 
 EXP     : CONST                ( Ast.Const CONST     )
 	| IDENTIFIER 	       ( Ast.Var   IDENTIFIER)
-        | EXP PLUS EXP         ( Ast.plus  EXP1 EXP2 )
-	| EXP MINUS EXP        ( Ast.minus EXP1 EXP2 )
 	| EXP MUL   EXP        ( Ast.mul   EXP1 EXP2 )
     	| EXP DIV EXP          (Ast.divide  EXP1 EXP2)
-	| EXP LT EXP          (Ast.less  EXP1 EXP2)
-	| EXP GT EXP          (Ast.great  EXP1 EXP2)
+        | EXP PLUS EXP         ( Ast.plus  EXP1 EXP2 )
+	| EXP MINUS EXP        ( Ast.minus EXP1 EXP2 )
 	| EXP EQ EXP          (Ast.equal  EXP1 EXP2)
 	| EXP NTEQ EXP          (Ast.notequal  EXP1 EXP2)
 	| EXP LTEQ EXP          (Ast.lessequal  EXP1 EXP2)
+	| EXP LT EXP          (Ast.less  EXP1 EXP2)
 	| EXP GTEQ EXP          (Ast.greatequal  EXP1 EXP2)
+	| EXP GT EXP          (Ast.great  EXP1 EXP2)
+	| EXP AND EXP          (Ast.logicaland  EXP1 EXP2)
 	| EXP OR EXP          (Ast.or  EXP1 EXP2)
-	| EXP AND EXP          (Ast.and  EXP1 EXP2)
 	| IDENTIFIER ASSIGN EXP (Ast.assign (Ast.Var IDENTIFIER) EXP)
 	| IF		       (Ast.IF)
 	| LPAREN EXP RPAREN  	(EXP)

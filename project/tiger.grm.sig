@@ -15,6 +15,14 @@ val ELSE:  'a * 'a -> (svalue,'a) token
 val IF:  'a * 'a -> (svalue,'a) token
 val EOF:  'a * 'a -> (svalue,'a) token
 val NEWLINE:  'a * 'a -> (svalue,'a) token
+val NTEQ:  'a * 'a -> (svalue,'a) token
+val OR:  'a * 'a -> (svalue,'a) token
+val AND:  'a * 'a -> (svalue,'a) token
+val GT:  'a * 'a -> (svalue,'a) token
+val GTEQ:  'a * 'a -> (svalue,'a) token
+val LTEQ:  'a * 'a -> (svalue,'a) token
+val EQ:  'a * 'a -> (svalue,'a) token
+val LT:  'a * 'a -> (svalue,'a) token
 val DIV:  'a * 'a -> (svalue,'a) token
 val MUL:  'a * 'a -> (svalue,'a) token
 val MINUS:  'a * 'a -> (svalue,'a) token
