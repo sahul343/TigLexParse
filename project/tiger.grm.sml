@@ -1,6 +1,6 @@
-functor ExprLrValsFun(structure Token : TOKEN)
+functor TigerLrValsFun(structure Token : TOKEN)
  : sig structure ParserData : PARSER_DATA
-       structure Tokens : Expr_TOKENS
+       structure Tokens : Tiger_TOKENS
    end
  = 
 struct
@@ -419,7 +419,7 @@ val extract = fn a => (fn MlyValue.PROGRAM x => x
 	in raise ParseInternal end) a 
 end
 end
-structure Tokens : Expr_TOKENS =
+structure Tokens : Tiger_TOKENS =
 struct
 type svalue = ParserData.svalue
 type ('a,'b) token = ('a,'b) Token.token
