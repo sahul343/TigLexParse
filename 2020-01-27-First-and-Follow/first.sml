@@ -39,5 +39,29 @@ type Productions = RHSSet.set
 
 type Rules = Productions AtomMap.map
 
+(* find next approximate first set and return *)
+
+
+
+fun ApproxFirst g curr = 
+
+
+fun first_helper g  currfirst= let 
+			nextfirst = ApproxFirst g currfirst
+	      	in 
+			if currfirst = nextfirst then currfirst else (first_helper g nextfirst)	
+	     	end
+
+
+fun first g = let 
+		intialise = (* intialise termianl first set as itself and 
+				non-terminals as empty set *)
+	      in 
+		 	first_helper g intialise
+	      end
+
+
 
 type Grammar    = { symbols : Symbols, tokens : Tokens, rules : Rules }
+
+(*  update Grammar* (AtomSet.set AtomMap.map) ->( AtomSet.set AtomMap.map) *)
