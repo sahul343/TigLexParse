@@ -16,6 +16,7 @@ it is empty *)
     | MINUS
     | MUL
     | DIV
+    | LT | EQ | LTEQ | GTEQ | GT | LT | AND | OR | NTEQ
     | NEWLINE
     | EOF
     | IF
