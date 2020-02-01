@@ -3,6 +3,7 @@ sig
 type ('a,'b) token
 type svalue
 val IDENTIFIER: (string) *  'a * 'a -> (svalue,'a) token
+val BREAK:  'a * 'a -> (svalue,'a) token
 val TO:  'a * 'a -> (svalue,'a) token
 val FOR:  'a * 'a -> (svalue,'a) token
 val DO:  'a * 'a -> (svalue,'a) token

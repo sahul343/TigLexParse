@@ -29,6 +29,7 @@ it is empty *)
     | DO
     | FOR
     | TO
+    | BREAK
     | IDENTIFIER of string
     
 
@@ -57,8 +58,7 @@ left associative and the precedence increase as you go down this list.
 %%
 
 PROGRAM : EXPS                 ( EXPS )
-	| EXPS NEWLINE         ( EXPS )
-    | EXPS EOF              (EXPS)
+    	| EXPS EOF              (EXPS)
 
 EXPS    : (* empty *)          ( []                  )
 	| EXP EXPS     ( EXP :: EXPS         )
@@ -78,9 +78,9 @@ EXP     : CONST                ( Ast.Const CONST     )
 	| EXP AND EXP          (Ast.logicaland  EXP1 EXP2)
 	| EXP OR EXP          (Ast.or  EXP1 EXP2)
 	| IDENTIFIER ASSIGN EXP (Ast.assign (Ast.Var IDENTIFIER) EXP)
-	| IF		       (Ast.IF)
 	| LPAREN EXP RPAREN  	(EXP)
 	| WHILE EXP DO EXP     (Ast.While EXP1 EXP2)
 	| FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP (Ast.For (Ast.Var IDENTIFIER) EXP1 EXP2 EXP3)
 	| IF EXP THEN EXP ELSE EXP (Ast.Closedif EXP1 EXP2 EXP3)
 	| IF EXP THEN EXP  	(Ast.Openif EXP1 EXP2 )
+	| BREAK 		(Ast.BREAK	)

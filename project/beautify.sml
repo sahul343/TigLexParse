@@ -9,6 +9,7 @@ struct
     |indent space  (Ast.FOR   (a, b, c, d) )= (put space)^"for "^(indent space a)^" := "^(indent space b)^" to "^(indent space c)^" do \n"^(indent (space+1) d)
     |indent space (Ast.OPENIF (a,b) ) =(put space)^"if " ^ (indent space a) ^" then (\n "^(indent (space+1) b)^"\n"^(put space)^")\n" 
     |indent space (Ast.CLOSEDIF (a,b, c) ) = (indent space (Ast.OPENIF(a, b)))^(put space)^"else (\n" ^(indent (space+1) c)^"\n"^(put space)^")\n"
+    |indent space (Ast.BREAK) = (put space)^"break\n"
 
 
 

@@ -22,6 +22,7 @@ struct
 		 | FOR of Expr*Expr*Expr*Expr
 		 | OPENIF of (Expr*Expr)
 		 | CLOSEDIF of (Expr*Expr*Expr)
+		 | BREAK
 
 
     fun binOPtoString x = case x of Mul => "*"
@@ -54,4 +55,5 @@ struct
     fun For a b c d = FOR (a, b, c, d)
     fun Openif a b = OPENIF(a, b)
     fun Closedif a b c = CLOSEDIF (a, b, c)
+    fun MinusConst (Const x) = (Const (~x) )
 end
