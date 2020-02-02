@@ -1,13 +1,8 @@
-2+3
-4*5+4*5
-flag1 := 2+3*4+5
-flag2:=2*4+5
-flag3 := flag
-dummy := (2+3)*4
-flag  := (2*3)+4
-while flag do 
-flag2 := flag + 1
-for id := exp1 to exp2 do 
-  exp3
-if (10 + 20) then if 30 then 40 else 40	
-if exp1 then exp2 := (2+3)*4+(2-2) else exp3 := 2+3/4
+let
+var x:=2
+var y:=3
+var z:=4
+in
+if x<y then if y<z then z else y else if x<z then z else x;
+for i := 1 to 10 do 5
+end

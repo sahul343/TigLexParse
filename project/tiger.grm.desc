@@ -2,67 +2,67 @@
 non-shiftable terminal used on the rhs of 0 rules
 
 warning: non-shiftable terminal EOFappears on the rhs of <PROGRAM : EXP EOF >
-error:  state 42: shift/reduce conflict (shift NTEQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift OR, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift AND, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift GT, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift GTEQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift LTEQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift EQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift LT, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift DIV, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift MUL, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift MINUS, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift PLUS, reduce by rule 18)
-error:  state 50: shift/reduce conflict (shift NTEQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift OR, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift AND, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift GT, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift GTEQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift LTEQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift EQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift LT, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift DIV, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift MUL, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift MINUS, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift PLUS, reduce by rule 20)
-error:  state 51: shift/reduce conflict (shift ELSE, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift NTEQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift OR, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift AND, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift GT, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift GTEQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift LTEQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift EQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift LT, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift DIV, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift MUL, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift MINUS, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift PLUS, reduce by rule 23)
-error:  state 58: shift/reduce conflict (shift NTEQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift OR, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift AND, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift GT, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift GTEQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift LTEQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift EQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift LT, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift DIV, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift MUL, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift MINUS, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift PLUS, reduce by rule 22)
-error:  state 60: shift/reduce conflict (shift NTEQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift OR, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift AND, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift GT, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift GTEQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift LTEQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift EQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift LT, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift DIV, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift MUL, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift MINUS, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift PLUS, reduce by rule 21)
+error:  state 46: shift/reduce conflict (shift NTEQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift OR, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift AND, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift GT, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift GTEQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift LTEQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift EQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift LT, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift DIV, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift MUL, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift MINUS, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift PLUS, reduce by rule 18)
+error:  state 55: shift/reduce conflict (shift NTEQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift OR, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift AND, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift GT, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift GTEQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift LTEQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift EQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift LT, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift DIV, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift MUL, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift MINUS, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift PLUS, reduce by rule 20)
+error:  state 56: shift/reduce conflict (shift ELSE, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift NTEQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift OR, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift AND, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift GT, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift GTEQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift LTEQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift EQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift LT, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift DIV, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift MUL, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift MINUS, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift PLUS, reduce by rule 23)
+error:  state 64: shift/reduce conflict (shift NTEQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift OR, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift AND, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift GT, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift GTEQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift LTEQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift EQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift LT, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift DIV, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift MUL, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift MINUS, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift PLUS, reduce by rule 22)
+error:  state 66: shift/reduce conflict (shift NTEQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift OR, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift AND, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift GT, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift GTEQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift LTEQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift EQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift LT, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift DIV, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift MUL, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift MINUS, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift PLUS, reduce by rule 21)
 
 state 0:
 
@@ -78,7 +78,7 @@ state 0:
 	LET	shift 2
 
 	EXP	goto 1
-	PROGRAM	goto 61
+	PROGRAM	goto 67
 
 	.	error
 
@@ -119,20 +119,14 @@ state 1:
 
 state 2:
 
-	EXP : LET . EXP IN EXPS END 
+	EXP : LET . DECS IN EXPS END 
 
-	CONST	shift 9
-	IF	shift 8
-	LPAREN	shift 7
-	WHILE	shift 6
-	FOR	shift 5
-	BREAK	shift 4
-	IDENTIFIER	shift 3
-	LET	shift 2
+	VAR	shift 25
 
-	EXP	goto 23
+	DECS	goto 24
+	DEC	goto 23
 
-	.	error
+	.	reduce by rule 26
 
 
 state 3:
@@ -140,7 +134,7 @@ state 3:
 	EXP : IDENTIFIER .  (reduce by rule 5)
 	EXP : IDENTIFIER . ASSIGN EXP 
 
-	ASSIGN	shift 24
+	ASSIGN	shift 26
 
 
 	.	reduce by rule 5
@@ -159,7 +153,7 @@ state 5:
 
 	EXP : FOR . IDENTIFIER ASSIGN EXP TO EXP DO EXP 
 
-	IDENTIFIER	shift 25
+	IDENTIFIER	shift 27
 
 
 	.	error
@@ -178,7 +172,7 @@ state 6:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 26
+	EXP	goto 28
 
 	.	error
 
@@ -196,7 +190,7 @@ state 7:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 27
+	EXP	goto 29
 
 	.	error
 
@@ -215,7 +209,7 @@ state 8:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 28
+	EXP	goto 30
 
 	.	error
 
@@ -251,7 +245,7 @@ state 11:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 29
+	EXP	goto 31
 
 	.	error
 
@@ -269,7 +263,7 @@ state 12:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 30
+	EXP	goto 32
 
 	.	error
 
@@ -287,7 +281,7 @@ state 13:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 31
+	EXP	goto 33
 
 	.	error
 
@@ -305,7 +299,7 @@ state 14:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 32
+	EXP	goto 34
 
 	.	error
 
@@ -323,7 +317,7 @@ state 15:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 33
+	EXP	goto 35
 
 	.	error
 
@@ -341,7 +335,7 @@ state 16:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 34
+	EXP	goto 36
 
 	.	error
 
@@ -359,7 +353,7 @@ state 17:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 35
+	EXP	goto 37
 
 	.	error
 
@@ -377,7 +371,7 @@ state 18:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 36
+	EXP	goto 38
 
 	.	error
 
@@ -395,7 +389,7 @@ state 19:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 37
+	EXP	goto 39
 
 	.	error
 
@@ -413,7 +407,7 @@ state 20:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 38
+	EXP	goto 40
 
 	.	error
 
@@ -431,7 +425,7 @@ state 21:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 39
+	EXP	goto 41
 
 	.	error
 
@@ -449,46 +443,44 @@ state 22:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 40
+	EXP	goto 42
 
 	.	error
 
 
 state 23:
 
-	EXP : EXP . MUL EXP 
-	EXP : EXP . DIV EXP 
-	EXP : EXP . PLUS EXP 
-	EXP : EXP . MINUS EXP 
-	EXP : EXP . EQ EXP 
-	EXP : EXP . NTEQ EXP 
-	EXP : EXP . LTEQ EXP 
-	EXP : EXP . LT EXP 
-	EXP : EXP . GTEQ EXP 
-	EXP : EXP . GT EXP 
-	EXP : EXP . AND EXP 
-	EXP : EXP . OR EXP 
-	EXP : LET EXP . IN EXPS END 
+	DECS : DEC . DECS 
 
-	PLUS	shift 22
-	MINUS	shift 21
-	MUL	shift 20
-	DIV	shift 19
-	LT	shift 18
-	EQ	shift 17
-	LTEQ	shift 16
-	GTEQ	shift 15
-	GT	shift 14
-	AND	shift 13
-	OR	shift 12
-	NTEQ	shift 11
-	IN	shift 41
+	VAR	shift 25
+
+	DECS	goto 43
+	DEC	goto 23
+
+	.	reduce by rule 26
+
+
+state 24:
+
+	EXP : LET DECS . IN EXPS END 
+
+	IN	shift 44
 
 
 	.	error
 
 
-state 24:
+state 25:
+
+	DEC : VAR . IDENTIFIER ASSIGN EXP 
+
+	IDENTIFIER	shift 45
+
+
+	.	error
+
+
+state 26:
 
 	EXP : IDENTIFIER ASSIGN . EXP 
 
@@ -501,22 +493,22 @@ state 24:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 42
+	EXP	goto 46
 
 	.	error
 
 
-state 25:
+state 27:
 
 	EXP : FOR IDENTIFIER . ASSIGN EXP TO EXP DO EXP 
 
-	ASSIGN	shift 43
+	ASSIGN	shift 47
 
 
 	.	error
 
 
-state 26:
+state 28:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -544,13 +536,13 @@ state 26:
 	AND	shift 13
 	OR	shift 12
 	NTEQ	shift 11
-	DO	shift 44
+	DO	shift 48
 
 
 	.	error
 
 
-state 27:
+state 29:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -578,13 +570,13 @@ state 27:
 	AND	shift 13
 	OR	shift 12
 	NTEQ	shift 11
-	RPAREN	shift 45
+	RPAREN	shift 49
 
 
 	.	error
 
 
-state 28:
+state 30:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -613,13 +605,13 @@ state 28:
 	AND	shift 13
 	OR	shift 12
 	NTEQ	shift 11
-	THEN	shift 46
+	THEN	shift 50
 
 
 	.	error
 
 
-state 29:
+state 31:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -650,12 +642,13 @@ state 29:
 	SEMICOLON	reduce by rule 11
 	IN	reduce by rule 11
 	END	reduce by rule 11
+	VAR	reduce by rule 11
 
 
 	.	error
 
 
-state 30:
+state 32:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -687,7 +680,7 @@ state 30:
 	.	reduce by rule 17
 
 
-state 31:
+state 33:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -718,7 +711,7 @@ state 31:
 	.	reduce by rule 16
 
 
-state 32:
+state 34:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -749,12 +742,13 @@ state 32:
 	SEMICOLON	reduce by rule 15
 	IN	reduce by rule 15
 	END	reduce by rule 15
+	VAR	reduce by rule 15
 
 
 	.	error
 
 
-state 33:
+state 35:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -785,12 +779,13 @@ state 33:
 	SEMICOLON	reduce by rule 14
 	IN	reduce by rule 14
 	END	reduce by rule 14
+	VAR	reduce by rule 14
 
 
 	.	error
 
 
-state 34:
+state 36:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -821,12 +816,13 @@ state 34:
 	SEMICOLON	reduce by rule 12
 	IN	reduce by rule 12
 	END	reduce by rule 12
+	VAR	reduce by rule 12
 
 
 	.	error
 
 
-state 35:
+state 37:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -857,12 +853,13 @@ state 35:
 	SEMICOLON	reduce by rule 10
 	IN	reduce by rule 10
 	END	reduce by rule 10
+	VAR	reduce by rule 10
 
 
 	.	error
 
 
-state 36:
+state 38:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -893,12 +890,13 @@ state 36:
 	SEMICOLON	reduce by rule 13
 	IN	reduce by rule 13
 	END	reduce by rule 13
+	VAR	reduce by rule 13
 
 
 	.	error
 
 
-state 37:
+state 39:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -919,7 +917,7 @@ state 37:
 	.	reduce by rule 7
 
 
-state 38:
+state 40:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP MUL EXP .  (reduce by rule 6)
@@ -940,7 +938,7 @@ state 38:
 	.	reduce by rule 6
 
 
-state 39:
+state 41:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -963,7 +961,7 @@ state 39:
 	.	reduce by rule 9
 
 
-state 40:
+state 42:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -986,9 +984,18 @@ state 40:
 	.	reduce by rule 8
 
 
-state 41:
+state 43:
 
-	EXP : LET EXP IN . EXPS END 
+	DECS : DEC DECS .  (reduce by rule 27)
+
+
+
+	.	reduce by rule 27
+
+
+state 44:
+
+	EXP : LET DECS IN . EXPS END 
 
 	CONST	shift 9
 	IF	shift 8
@@ -999,25 +1006,35 @@ state 41:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 48
-	EXPS	goto 47
+	EXP	goto 52
+	EXPS	goto 51
 
 	.	reduce by rule 1
 
-error:  state 42: shift/reduce conflict (shift NTEQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift OR, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift AND, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift GT, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift GTEQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift LTEQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift EQ, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift LT, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift DIV, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift MUL, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift MINUS, reduce by rule 18)
-error:  state 42: shift/reduce conflict (shift PLUS, reduce by rule 18)
 
-state 42:
+state 45:
+
+	DEC : VAR IDENTIFIER . ASSIGN EXP 
+
+	ASSIGN	shift 53
+
+
+	.	error
+
+error:  state 46: shift/reduce conflict (shift NTEQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift OR, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift AND, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift GT, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift GTEQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift LTEQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift EQ, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift LT, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift DIV, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift MUL, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift MINUS, reduce by rule 18)
+error:  state 46: shift/reduce conflict (shift PLUS, reduce by rule 18)
+
+state 46:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1050,7 +1067,7 @@ state 42:
 	.	reduce by rule 18
 
 
-state 43:
+state 47:
 
 	EXP : FOR IDENTIFIER ASSIGN . EXP TO EXP DO EXP 
 
@@ -1063,12 +1080,12 @@ state 43:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 49
+	EXP	goto 54
 
 	.	error
 
 
-state 44:
+state 48:
 
 	EXP : WHILE EXP DO . EXP 
 
@@ -1081,12 +1098,12 @@ state 44:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 50
+	EXP	goto 55
 
 	.	error
 
 
-state 45:
+state 49:
 
 	EXP : LPAREN EXP RPAREN .  (reduce by rule 19)
 
@@ -1095,7 +1112,7 @@ state 45:
 	.	reduce by rule 19
 
 
-state 46:
+state 50:
 
 	EXP : IF EXP THEN . EXP ELSE EXP 
 	EXP : IF EXP THEN . EXP 
@@ -1109,22 +1126,22 @@ state 46:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 51
+	EXP	goto 56
 
 	.	error
 
 
-state 47:
+state 51:
 
-	EXP : LET EXP IN EXPS . END 
+	EXP : LET DECS IN EXPS . END 
 
-	END	shift 52
+	END	shift 57
 
 
 	.	error
 
 
-state 48:
+state 52:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1153,13 +1170,31 @@ state 48:
 	AND	shift 13
 	OR	shift 12
 	NTEQ	shift 11
-	SEMICOLON	shift 53
+	SEMICOLON	shift 58
 
 
 	.	reduce by rule 2
 
 
-state 49:
+state 53:
+
+	DEC : VAR IDENTIFIER ASSIGN . EXP 
+
+	CONST	shift 9
+	IF	shift 8
+	LPAREN	shift 7
+	WHILE	shift 6
+	FOR	shift 5
+	BREAK	shift 4
+	IDENTIFIER	shift 3
+	LET	shift 2
+
+	EXP	goto 59
+
+	.	error
+
+
+state 54:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1187,25 +1222,25 @@ state 49:
 	AND	shift 13
 	OR	shift 12
 	NTEQ	shift 11
-	TO	shift 54
+	TO	shift 60
 
 
 	.	error
 
-error:  state 50: shift/reduce conflict (shift NTEQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift OR, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift AND, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift GT, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift GTEQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift LTEQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift EQ, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift LT, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift DIV, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift MUL, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift MINUS, reduce by rule 20)
-error:  state 50: shift/reduce conflict (shift PLUS, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift NTEQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift OR, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift AND, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift GT, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift GTEQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift LTEQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift EQ, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift LT, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift DIV, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift MUL, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift MINUS, reduce by rule 20)
+error:  state 55: shift/reduce conflict (shift PLUS, reduce by rule 20)
 
-state 50:
+state 55:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1237,21 +1272,21 @@ state 50:
 
 	.	reduce by rule 20
 
-error:  state 51: shift/reduce conflict (shift ELSE, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift NTEQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift OR, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift AND, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift GT, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift GTEQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift LTEQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift EQ, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift LT, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift DIV, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift MUL, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift MINUS, reduce by rule 23)
-error:  state 51: shift/reduce conflict (shift PLUS, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift ELSE, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift NTEQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift OR, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift AND, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift GT, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift GTEQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift LTEQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift EQ, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift LT, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift DIV, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift MUL, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift MINUS, reduce by rule 23)
+error:  state 56: shift/reduce conflict (shift PLUS, reduce by rule 23)
 
-state 51:
+state 56:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1280,22 +1315,22 @@ state 51:
 	AND	shift 13
 	OR	shift 12
 	NTEQ	shift 11
-	ELSE	shift 55
+	ELSE	shift 61
 
 
 	.	reduce by rule 23
 
 
-state 52:
+state 57:
 
-	EXP : LET EXP IN EXPS END .  (reduce by rule 25)
+	EXP : LET DECS IN EXPS END .  (reduce by rule 25)
 
 
 
 	.	reduce by rule 25
 
 
-state 53:
+state 58:
 
 	EXPS : EXP SEMICOLON . EXPS 
 
@@ -1308,13 +1343,46 @@ state 53:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 48
-	EXPS	goto 56
+	EXP	goto 52
+	EXPS	goto 62
 
 	.	reduce by rule 1
 
 
-state 54:
+state 59:
+
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	EXP : EXP . EQ EXP 
+	EXP : EXP . NTEQ EXP 
+	EXP : EXP . LTEQ EXP 
+	EXP : EXP . LT EXP 
+	EXP : EXP . GTEQ EXP 
+	EXP : EXP . GT EXP 
+	EXP : EXP . AND EXP 
+	EXP : EXP . OR EXP 
+	DEC : VAR IDENTIFIER ASSIGN EXP .  (reduce by rule 28)
+
+	PLUS	shift 22
+	MINUS	shift 21
+	MUL	shift 20
+	DIV	shift 19
+	LT	shift 18
+	EQ	shift 17
+	LTEQ	shift 16
+	GTEQ	shift 15
+	GT	shift 14
+	AND	shift 13
+	OR	shift 12
+	NTEQ	shift 11
+
+
+	.	reduce by rule 28
+
+
+state 60:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO . EXP DO EXP 
 
@@ -1327,12 +1395,12 @@ state 54:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 57
+	EXP	goto 63
 
 	.	error
 
 
-state 55:
+state 61:
 
 	EXP : IF EXP THEN EXP ELSE . EXP 
 
@@ -1345,12 +1413,12 @@ state 55:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 58
+	EXP	goto 64
 
 	.	error
 
 
-state 56:
+state 62:
 
 	EXPS : EXP SEMICOLON EXPS .  (reduce by rule 3)
 
@@ -1359,7 +1427,7 @@ state 56:
 	.	reduce by rule 3
 
 
-state 57:
+state 63:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1387,25 +1455,25 @@ state 57:
 	AND	shift 13
 	OR	shift 12
 	NTEQ	shift 11
-	DO	shift 59
+	DO	shift 65
 
 
 	.	error
 
-error:  state 58: shift/reduce conflict (shift NTEQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift OR, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift AND, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift GT, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift GTEQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift LTEQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift EQ, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift LT, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift DIV, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift MUL, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift MINUS, reduce by rule 22)
-error:  state 58: shift/reduce conflict (shift PLUS, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift NTEQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift OR, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift AND, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift GT, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift GTEQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift LTEQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift EQ, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift LT, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift DIV, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift MUL, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift MINUS, reduce by rule 22)
+error:  state 64: shift/reduce conflict (shift PLUS, reduce by rule 22)
 
-state 58:
+state 64:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1438,7 +1506,7 @@ state 58:
 	.	reduce by rule 22
 
 
-state 59:
+state 65:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO . EXP 
 
@@ -1451,24 +1519,24 @@ state 59:
 	IDENTIFIER	shift 3
 	LET	shift 2
 
-	EXP	goto 60
+	EXP	goto 66
 
 	.	error
 
-error:  state 60: shift/reduce conflict (shift NTEQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift OR, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift AND, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift GT, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift GTEQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift LTEQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift EQ, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift LT, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift DIV, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift MUL, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift MINUS, reduce by rule 21)
-error:  state 60: shift/reduce conflict (shift PLUS, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift NTEQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift OR, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift AND, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift GT, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift GTEQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift LTEQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift EQ, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift LT, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift DIV, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift MUL, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift MINUS, reduce by rule 21)
+error:  state 66: shift/reduce conflict (shift PLUS, reduce by rule 21)
 
-state 60:
+state 66:
 
 	EXP : EXP . MUL EXP 
 	EXP : EXP . DIV EXP 
@@ -1501,7 +1569,7 @@ state 60:
 	.	reduce by rule 21
 
 
-state 61:
+state 67:
 
 
 	EOF	accept
@@ -1509,5 +1577,5 @@ state 61:
 
 	.	error
 
-301 of 555 action table entries left after compaction
-29 goto table entries
+310 of 571 action table entries left after compaction
+33 goto table entries

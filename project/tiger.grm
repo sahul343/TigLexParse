@@ -36,13 +36,15 @@ it is empty *)
     | LET
     | IN
     | END
+    | VAR
     
 
 (* The nonterminals of the language *)
 %nonterm EXP     of Ast.Expr
        | EXPS    of Ast.Expr list
        | PROGRAM of Ast.Expr 
-
+       | DECS	 of Ast.Dec list	
+       | DEC	 of Ast.Dec
 %noshift EOF
 (*
 
@@ -89,6 +91,10 @@ EXP     : CONST                ( Ast.Const CONST     )
 	| IF EXP THEN EXP ELSE EXP (Ast.Closedif EXP1 EXP2 EXP3)
 	| IF EXP THEN EXP  	(Ast.Openif EXP1 EXP2 )
 	| BREAK 		(Ast.BREAK	)
-	| LET EXP IN EXPS END  (Ast.LET (EXP, EXPS) )
+	| LET DECS IN EXPS END  (Ast.LET (DECS, EXPS) )
+DECS    :(*empty*)			([])
+	|DEC DECS		(DEC :: DECS	)
+
+DEC	: VAR IDENTIFIER ASSIGN EXP (Ast.VarDec( (Ast.Var IDENTIFIER) , EXP) )
 
 
