@@ -23,6 +23,7 @@ struct
 		 | OPENIF of (Expr*Expr)
 		 | CLOSEDIF of (Expr*Expr*Expr)
 		 | BREAK
+		 | LET of Expr * Expr list
 
 
     fun binOPtoString x = case x of Mul => "*"

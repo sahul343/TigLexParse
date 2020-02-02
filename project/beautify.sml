@@ -10,9 +10,8 @@ struct
     |indent space (Ast.OPENIF (a,b) ) =(put space)^"\027[1;34mif\027[0m " ^ (indent space a) ^" \027[1;34mthen\027[0m (\n"^(indent (space+1) b)^"\n"^(put space)^")\n" 
     |indent space (Ast.CLOSEDIF (a,b, c) ) = (indent space (Ast.OPENIF(a, b)))^(put space)^"\027[1;34melse\027[0m (\n" ^(indent (space+1) c)^"\n"^(put space)^")\n"
     |indent space (Ast.BREAK) = (put space)^"\027[1;34mbreak\027[0m\n"
-
-
-
- fun indentlist space []      = ""
+    |indent space (Ast.LET(a, b) ) = (put space)^"\027[1;34mlet\027[0m\n"^(indent (space+1) a)^"\027[1;34m\nin\027[0m\n"^(indentlist (space+1) b)^(put space)^"\027[1;34mend\027[0m\n"
+and 
+      indentlist space []      = ""
      |indentlist space (x::xs) = (indent space x)^"\n"^(indentlist space xs)
 end

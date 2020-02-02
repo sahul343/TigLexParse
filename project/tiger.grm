@@ -33,12 +33,15 @@ it is empty *)
     | BREAK
     | IDENTIFIER of string
     | SEMICOLON
+    | LET
+    | IN
+    | END
     
 
 (* The nonterminals of the language *)
 %nonterm EXP     of Ast.Expr
        | EXPS    of Ast.Expr list
-       | PROGRAM of Ast.Expr list
+       | PROGRAM of Ast.Expr 
 
 %noshift EOF
 (*
@@ -59,12 +62,12 @@ left associative and the precedence increase as you go down this list.
 
 %%
 
-PROGRAM : EXPS                 ( EXPS )
-    	| EXPS EOF              (EXPS)
+PROGRAM : EXP  EOF                ( EXP )
 
 EXPS    : (* empty *)          ( []                  )
-	| EXP EXPS     ( EXP :: EXPS         )
-
+	| EXP 		       ( EXP :: []         )	      
+	| EXP SEMICOLON EXPS     ( EXP :: EXPS         )
+	
 EXP     : CONST                ( Ast.Const CONST     )
 	| IDENTIFIER 	       ( Ast.Var   IDENTIFIER)
 	| EXP MUL   EXP        ( Ast.mul   EXP1 EXP2 )
@@ -86,3 +89,6 @@ EXP     : CONST                ( Ast.Const CONST     )
 	| IF EXP THEN EXP ELSE EXP (Ast.Closedif EXP1 EXP2 EXP3)
 	| IF EXP THEN EXP  	(Ast.Openif EXP1 EXP2 )
 	| BREAK 		(Ast.BREAK	)
+	| LET EXP IN EXPS END  (Ast.LET (EXP, EXPS) )
+
+

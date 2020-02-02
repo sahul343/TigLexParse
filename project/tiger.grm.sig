@@ -2,6 +2,9 @@ signature Tiger_TOKENS =
 sig
 type ('a,'b) token
 type svalue
+val END:  'a * 'a -> (svalue,'a) token
+val IN:  'a * 'a -> (svalue,'a) token
+val LET:  'a * 'a -> (svalue,'a) token
 val SEMICOLON:  'a * 'a -> (svalue,'a) token
 val IDENTIFIER: (string) *  'a * 'a -> (svalue,'a) token
 val BREAK:  'a * 'a -> (svalue,'a) token
