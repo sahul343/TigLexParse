@@ -3,13 +3,13 @@ struct
   fun put space = if (space = 0) then ("") else ("  "^(put (space-1)))
   fun indent space (Ast.Op(a, oper, b)) = "("^(indent 0 a)^(Ast.binOPtoString oper)^(indent 0 b)^")"
     |indent space (Ast.Const x) = (put space)^(Int.toString x)
-    |indent space (Ast.Var x) 	= (put space) ^ x
+    |indent space (Ast.Var x) 	= (put space) ^ "\027[0;33m"^x^"\027[0m"
     |indent space  (Ast.Assign (x, y) ) = (put space) ^ (indent space x)^" := "^(indent space y)
-    |indent space  (Ast.WHILE (x,y) )   = (put space)^"while "^(indent space x)^" do\n"^(put (space+1))^(indent space y)
-    |indent space  (Ast.FOR   (a, b, c, d) )= (put space)^"for "^(indent space a)^" := "^(indent space b)^" to "^(indent space c)^" do \n"^(indent (space+1) d)
-    |indent space (Ast.OPENIF (a,b) ) =(put space)^"if " ^ (indent space a) ^" then (\n "^(indent (space+1) b)^"\n"^(put space)^")\n" 
-    |indent space (Ast.CLOSEDIF (a,b, c) ) = (indent space (Ast.OPENIF(a, b)))^(put space)^"else (\n" ^(indent (space+1) c)^"\n"^(put space)^")\n"
-    |indent space (Ast.BREAK) = (put space)^"break\n"
+    |indent space  (Ast.WHILE (x,y) )   = (put space)^"\027[1;34mwhile\027[0m "^(indent space x)^" \027[1;34mdo\027[0m\n"^(put (space+1))^(indent space y)
+    |indent space  (Ast.FOR   (a, b, c, d) )= (put space)^"\027[1;34mfor\027[0m "^(indent space a)^" := "^(indent space b)^" \027[1;34mto\027[0m "^(indent space c)^" \027[1;34mdo\027[0m \n"^(indent (space+1) d)
+    |indent space (Ast.OPENIF (a,b) ) =(put space)^"\027[1;34mif\027[0m " ^ (indent space a) ^" \027[1;34mthen\027[0m (\n"^(indent (space+1) b)^"\n"^(put space)^")\n" 
+    |indent space (Ast.CLOSEDIF (a,b, c) ) = (indent space (Ast.OPENIF(a, b)))^(put space)^"\027[1;34melse\027[0m (\n" ^(indent (space+1) c)^"\n"^(put space)^")\n"
+    |indent space (Ast.BREAK) = (put space)^"\027[1;34mbreak\027[0m\n"
 
 
 
