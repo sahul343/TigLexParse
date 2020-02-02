@@ -73,6 +73,7 @@ id  = [a-zA-Z]([a-z_A-Z1-9])*;
 "|"           => ( Tokens.OR (!lineRef,!lineRef) );
 "<"           => ( Tokens.LT (!lineRef,!lineRef) );
 ">"           => ( Tokens.GT (!lineRef,!lineRef) );
+";"           => ( Tokens.SEMICOLON (!lineRef,!lineRef) );
 ":="	      => ( Tokens.ASSIGN (!lineRef,!lineRef) );
 "if"	      => ( Tokens.IF  (yypos,yypos+2) );
 "("	      => ( Tokens.LPAREN (!lineRef,!lineRef) );
