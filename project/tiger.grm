@@ -41,6 +41,7 @@ it is empty *)
     | RBRACK
     | DOT
     | NIL
+    | OF
     
 
 (* The nonterminals of the language *)
@@ -60,8 +61,11 @@ Operator precedence and associativity. The %left says the operator is
 left associative and the precedence increase as you go down this list.
 
 *)
-%nonassoc DO FOR ASSIGN THEN
-%nonassoc ELSE
+%nonassoc ASSIGN
+%nonassoc IDENTIFIER
+%nonassoc DO FOR THEN  
+%nonassoc ELSE 
+%nonassoc OF LBRACK
 %left OR
 %left AND
 %nonassoc LT GT EQ NTEQ GTEQ LTEQ
@@ -103,6 +107,7 @@ EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	|MINUS CONST     %prec UMINUS 	(Ast.NegConst  CONST   )
 	| LVALUE		(LVALUE)
 	| NIL 			(Ast.NIL)
+	| IDENTIFIER LBRACK EXP RBRACK OF EXP %prec OF(Ast.Array(IDENTIFIER,EXP1,EXP2) )
 
 DECS    :(*empty*)			([])
 	|DEC DECS		(DEC :: DECS	)
@@ -111,6 +116,7 @@ DEC	: VAR IDENTIFIER ASSIGN EXP (Ast.VarDec(IDENTIFIER, EXP) )
 
 LVALUE	: IDENTIFIER			(Ast.Name IDENTIFIER)
 	|LVALUE DOT IDENTIFIER		(Ast.Method ( LVALUE, IDENTIFIER ))
-	|LVALUE LBRACK EXP RBRACK	(Ast.Access( LVALUE, EXP))
+	|LVALUE LBRACK EXP RBRACK (Ast.Access( LVALUE, EXP))
+	|IDENTIFIER LBRACK EXP RBRACK (Ast.Access( (Ast.Name IDENTIFIER), EXP))
 
 

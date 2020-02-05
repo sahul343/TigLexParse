@@ -1,3 +1,5 @@
 tigc
-%.grm.%
-%.lex.%
+tiger.grm.sig
+tiger.grm.desc
+tiger.grm.sml
+tiger.lex.sml
