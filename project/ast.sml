@@ -15,19 +15,19 @@ struct
 
   datatype Expr = Const of int
                  | Op of Expr * BinOp * Expr
-		 | Assign of LValue*Expr
+		 | Assign of Expr*Expr
 		 | IF
 		 | WHILE of Expr*Expr
-		 | FOR of Expr*Expr*Expr*Expr
+		 | FOR of string*Expr*Expr*Expr
 		 | OPENIF of (Expr*Expr)
 		 | CLOSEDIF of (Expr*Expr*Expr)
 		 | BREAK
 		 | LET of (Dec list) * Expr list
-	and Dec = VarDec of Expr * Expr
-        and LValue = Method of LValue * ID
-                | Access of LValue * Expr
-                | Name of ID
-        and ID = Var of string
+		 | Method of Expr * string
+		 | Access of Expr * Expr
+                 | Name of string
+	and Dec = VarDec of string * Expr
+         
 
 
     fun binOPtoString x = case x of Mul => "*"

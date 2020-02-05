@@ -48,7 +48,7 @@ it is empty *)
        | PROGRAM of Ast.Expr 
        | DECS	 of Ast.Dec list	
        | DEC	 of Ast.Dec
-       | LVALUE  of Ast.Lvalue
+       | LVALUE  of Ast.Expr
 %noshift EOF
 
 
@@ -78,9 +78,9 @@ EXPS    : (* empty *)          ( []                  )
 	| EXP 		       ( EXP :: []         )	      
 	| EXP SEMICOLON EXPS     ( EXP :: EXPS         )
 	
-EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.assign (LVALUE, EXP))
+EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	| WHILE EXP DO EXP  (Ast.While EXP1 EXP2)
-	| FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP  %prec FOR(Ast.For (Ast.Var IDENTIFIER) EXP1 EXP2 EXP)
+	| FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP  %prec FOR(Ast.For IDENTIFIER EXP1 EXP2 EXP)
 	| IF EXP THEN EXP    	(Ast.Openif EXP1 EXP2 )
 	| IF EXP THEN EXP ELSE EXP (Ast.Closedif  EXP1 EXP2 EXP3)
 	| BREAK 		(Ast.BREAK	)
@@ -99,14 +99,16 @@ EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.assign (LVALUE, EXP))
 	| EXP MINUS EXP        ( Ast.minus EXP1 EXP2 )
 	| CONST                ( Ast.Const CONST     )
 	| LPAREN EXP RPAREN  	(EXP)
-	|IDENTIFIER 	       ( Ast.Var   IDENTIFIER)
 	|MINUS CONST     %prec UMINUS 	(Ast.NegConst  CONST   )
+	| LVALUE		(LVALUE)
 
 DECS    :(*empty*)			([])
 	|DEC DECS		(DEC :: DECS	)
 
-DEC	: VAR IDENTIFIER ASSIGN EXP (Ast.VarDec( (Ast.Var IDENTIFIER) , EXP) )
+DEC	: VAR IDENTIFIER ASSIGN EXP (Ast.VarDec(IDENTIFIER, EXP) )
 
-LVALUE	: IDENTIFIER			(Ast.Var IDENTIFIER)
-	|LVALUE DOT IDENTIFIER		(Ast.Dot LVALUE (Ast.Var IDENTIFIER) )
-	|LVALUE LBRACK EXP RBRACK	(Ast.Box LVALUE EXP)
+LVALUE	: IDENTIFIER			(Ast.Name IDENTIFIER)
+	|LVALUE DOT IDENTIFIER		(Ast.Method ( LVALUE, IDENTIFIER ))
+	|LVALUE LBRACK EXP RBRACK	(Ast.Access( LVALUE, EXP))
+
+

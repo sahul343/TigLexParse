@@ -23,6 +23,7 @@ state 0:
 state 1:
 
 	EXP : LVALUE . ASSIGN EXP 
+	EXP : LVALUE .  (reduce by rule 26)
 	LVALUE : LVALUE . DOT IDENTIFIER 
 	LVALUE : LVALUE . LBRACK EXP RBRACK 
 
@@ -31,7 +32,7 @@ state 1:
 	DOT	shift 12
 
 
-	.	error
+	.	reduce by rule 26
 
 
 state 2:
@@ -81,38 +82,11 @@ state 3:
 
 state 4:
 
-	EXP : IDENTIFIER .  (reduce by rule 25)
 	LVALUE : IDENTIFIER .  (reduce by rule 30)
 
-	PLUS	reduce by rule 25
-	MINUS	reduce by rule 25
-	MUL	reduce by rule 25
-	DIV	reduce by rule 25
-	LT	reduce by rule 25
-	EQ	reduce by rule 25
-	LTEQ	reduce by rule 25
-	GTEQ	reduce by rule 25
-	GT	reduce by rule 25
-	AND	reduce by rule 25
-	OR	reduce by rule 25
-	NTEQ	reduce by rule 25
-	EOF	reduce by rule 25
-	ELSE	reduce by rule 25
-	THEN	reduce by rule 25
-	ASSIGN	reduce by rule 30
-	RPAREN	reduce by rule 25
-	DO	reduce by rule 25
-	TO	reduce by rule 25
-	SEMICOLON	reduce by rule 25
-	IN	reduce by rule 25
-	END	reduce by rule 25
-	VAR	reduce by rule 25
-	LBRACK	reduce by rule 30
-	RBRACK	reduce by rule 25
-	DOT	reduce by rule 30
 
 
-	.	error
+	.	reduce by rule 30
 
 
 state 5:
@@ -651,11 +625,11 @@ state 33:
 
 state 34:
 
-	EXP : MINUS CONST .  (reduce by rule 26)
+	EXP : MINUS CONST .  (reduce by rule 25)
 
 
 
-	.	reduce by rule 26
+	.	reduce by rule 25
 
 
 state 35:
@@ -1639,5 +1613,5 @@ state 74:
 
 	.	error
 
-360 of 661 action table entries left after compaction
+334 of 635 action table entries left after compaction
 61 goto table entries

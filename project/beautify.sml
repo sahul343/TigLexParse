@@ -3,23 +3,26 @@ val white = "\027[0m"
 val yellow = "\027[0;33m"
 structure beautify =
 struct
-  fun put space = if (space = 0) then ("") else ("  "^(put (space-1)))
-  fun indent space (Ast.Op(a, oper, b)) = "("^(indent 0 a)^(Ast.binOPtoString oper)^(indent 0 b)^")"
-    |indent space (Ast.Const x) = (put space)^(Int.toString x)
-    |indent space (Ast.Var x) 	= (put space) ^ yellow^x^white
-    |indent space  (Ast.Assign (x, y) ) = (put space) ^ (indent space x)^" := "^(indent space y)
-    |indent space  (Ast.WHILE (x,y) )   = (put space)^blue^"while"^white^(indent space x)^blue^" do"^white^"\n"^(put (space+1))^(indent space y)
-    |indent space  (Ast.FOR   (a, b, c, d) )= (put space)^blue^"for "^white^(indent 0 a)^" := "^(indent 0 b)^blue^" to"^white^(indent space c)^blue^" do"^white^" \n"^(indent (space+1) d)
-    |indent space (Ast.OPENIF (a,b) ) =(put space)^blue^"if"^white^" " ^ (indent space a) ^blue^" then"^white^" (\n"^(indent (space+1) b)^"\n"^(put space)^")\n" 
-    |indent space (Ast.CLOSEDIF (a,b, c) ) = (indent space (Ast.OPENIF(a, b)))^(put space)^blue^"else"^white^" (\n" ^(indent (space+1) c)^"\n"^(put space)^")\n"
-    |indent space (Ast.BREAK) = (put space)^blue^"break"^white^"\n"
-    |indent space (Ast.LET(a, b) ) = (put space)^blue^"let"^white^"\n"^(indentdeclist (space+1) a)^blue^"\nin"^white^"\n"^(indentlist (space+1) b)^(put space)^blue^"end"^white^"\n"
+  fun put s = if (s = 0) then ("") else ("  "^(put (s-1)))
+  fun indent s (Ast.Op(a, oper, b)) = "("^(indent 0 a)^(Ast.binOPtoString oper)^(indent 0 b)^")"
+    |indent s (Ast.Const x) = (put s)^(Int.toString x)
+    |indent s  (Ast.Assign (x, y) ) = (put s) ^(indent s x)^" := "^(indent s y)
+    |indent s  (Ast.WHILE (x,y) )   = (put s)^blue^"while"^white^(indent s x)^blue^" do"^white^"\n"^(put (s+1))^(indent s y)
+    |indent s  (Ast.FOR   (a, b, c, d) )= (put s)^blue^"for "^white^a^" := "^(indent 0 b)^blue^" to"^white^(indent s c)^blue^" do"^white^" \n"^(indent (s+1) d)
+    |indent s (Ast.OPENIF (a,b) ) =(put s)^blue^"if"^white^" " ^ (indent s a) ^blue^" then"^white^" (\n"^(indent (s+1) b)^"\n"^(put s)^")\n" 
+    |indent s (Ast.CLOSEDIF (a,b, c) ) = (indent s (Ast.OPENIF(a, b)))^(put s)^blue^"else"^white^" (\n" ^(indent (s+1) c)^"\n"^(put s)^")\n"
+    |indent s (Ast.BREAK) = (put s)^blue^"break"^white^"\n"
+    |indent s (Ast.LET(a, b) ) = (put s)^blue^"let"^white^"\n"^(indentdeclist (s+1) a)^blue^"\nin"^white^"\n"^(indentlist (s+1) b)^(put s)^blue^"end"^white^"\n"
+    | indent s (Ast.Name x) = x
+    |indent s (Ast.Method(x,y) ) = (indent s x)^"."^y	
+    |indent s (Ast.Access(x,y) ) = (indent s x)^"["^(indent 0 y)^"]"
 and
-      indentdec space (Ast.VarDec(a, b)) = (put space)^"var "^(indent space a)^" := "^(indent space b)
+      indentdec s (Ast.VarDec(a, b)) = (put s)^"var "^a^" := "^(indent s b)
 and 
-      indentdeclist space []      = ""
-     |indentdeclist space (x::xs) = (indentdec space x)^"\n"^(indentdeclist space xs)
+      indentdeclist s []      = ""
+     |indentdeclist s (x::xs) = (indentdec s x)^"\n"^(indentdeclist s xs)
 and 
-      indentlist space []      = ""
-     |indentlist space (x::xs) = (indent space x)^"\n"^(indentlist space xs)
+      indentlist s []      = ""
+     |indentlist s (x::xs) = (indent s x)^"\n"^(indentlist s xs)
+     
 end
