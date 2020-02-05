@@ -14,9 +14,8 @@ struct
 			|Or
 
   datatype Expr = Const of int
-	         | Var of string
                  | Op of Expr * BinOp * Expr
-		 | Assign of Expr*Expr
+		 | Assign of LValue*Expr
 		 | IF
 		 | WHILE of Expr*Expr
 		 | FOR of Expr*Expr*Expr*Expr
@@ -25,6 +24,10 @@ struct
 		 | BREAK
 		 | LET of (Dec list) * Expr list
 	and Dec = VarDec of Expr * Expr
+        and LValue = Method of LValue * ID
+                | Access of LValue * Expr
+                | Name of ID
+        and ID = Var of string
 
 
     fun binOPtoString x = case x of Mul => "*"
