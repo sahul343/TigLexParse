@@ -26,7 +26,6 @@ it is empty *)
     | LPAREN 
     | RPAREN
     | WHILE
-    | UMINUS
     | DO
     | FOR
     | TO
@@ -37,6 +36,7 @@ it is empty *)
     | IN
     | END
     | VAR
+    | UMINUS
     
 
 (* The nonterminals of the language *)
@@ -96,6 +96,7 @@ EXP     : IDENTIFIER ASSIGN EXP %prec ASSIGN(Ast.assign (Ast.Var  IDENTIFIER) EX
 	| CONST                ( Ast.Const CONST     )
 	| LPAREN EXP RPAREN  	(EXP)
 	|IDENTIFIER 	       ( Ast.Var   IDENTIFIER)
+	|MINUS CONST     %prec UMINUS 	(Ast.NegConst  CONST   )
 
 DECS    :(*empty*)			([])
 	|DEC DECS		(DEC :: DECS	)

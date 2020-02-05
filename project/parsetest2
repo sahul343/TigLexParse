@@ -1,7 +1,7 @@
 let
-var x:=2
-var y:=3
-var z:=4
+var x:=2--4-2
+var y:=5--3-3*4-2
+var z:=4-2+2
 in
 if x<y then if y<z then z else y else if x<z then z else x;
 for i := 1 to 10 do 5
