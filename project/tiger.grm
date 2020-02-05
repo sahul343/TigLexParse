@@ -40,6 +40,7 @@ it is empty *)
     | LBRACK
     | RBRACK
     | DOT
+    | NIL
     
 
 (* The nonterminals of the language *)
@@ -101,6 +102,7 @@ EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	| LPAREN EXP RPAREN  	(EXP)
 	|MINUS CONST     %prec UMINUS 	(Ast.NegConst  CONST   )
 	| LVALUE		(LVALUE)
+	| NIL 			(Ast.NIL)
 
 DECS    :(*empty*)			([])
 	|DEC DECS		(DEC :: DECS	)

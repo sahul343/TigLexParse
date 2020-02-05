@@ -92,4 +92,5 @@ id  = [a-zA-Z]([a-z_A-Z1-9])*;
 "in"	      => ( Tokens.IN (!lineRef,!lineRef) );
 "end"	      => ( Tokens.END (!lineRef,!lineRef) );
 "var"	      => ( Tokens.VAR (!lineRef,!lineRef) );
+"nil"	      => ( Tokens.NIL (!lineRef,!lineRef) );
 {id}|"_main"  => (Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) );

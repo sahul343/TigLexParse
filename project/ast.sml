@@ -26,6 +26,7 @@ struct
 		 | Method of Expr * string
 		 | Access of Expr * Expr
                  | Name of string
+		 | NIL
 	and Dec = VarDec of string * Expr
          
 

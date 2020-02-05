@@ -19,160 +19,161 @@ structure Token = Token
 local open LrTable in 
 val table=let val actionRows =
 "\
-\\001\000\001\000\013\000\003\000\012\000\016\000\011\000\020\000\010\000\
-\\022\000\009\000\024\000\008\000\026\000\007\000\027\000\006\000\
-\\029\000\005\000\000\000\
-\\001\000\001\000\036\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\018\000\058\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\021\000\057\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\023\000\056\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\023\000\074\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\025\000\069\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\035\000\059\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\011\000\088\000\012\000\088\000\015\000\088\000\017\000\088\000\
-\\018\000\088\000\021\000\088\000\023\000\088\000\025\000\088\000\
-\\028\000\088\000\030\000\088\000\031\000\088\000\032\000\088\000\
-\\035\000\088\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
+\\001\000\001\000\014\000\003\000\013\000\016\000\012\000\020\000\011\000\
+\\022\000\010\000\024\000\009\000\026\000\008\000\027\000\007\000\
+\\029\000\006\000\037\000\005\000\000\000\
+\\001\000\001\000\037\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\018\000\059\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\021\000\058\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\023\000\057\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\023\000\075\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\025\000\070\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\035\000\060\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
 \\011\000\089\000\012\000\089\000\015\000\089\000\017\000\089\000\
 \\018\000\089\000\021\000\089\000\023\000\089\000\025\000\089\000\
 \\028\000\089\000\030\000\089\000\031\000\089\000\032\000\089\000\
 \\035\000\089\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
 \\011\000\090\000\012\000\090\000\015\000\090\000\017\000\090\000\
 \\018\000\090\000\021\000\090\000\023\000\090\000\025\000\090\000\
 \\028\000\090\000\030\000\090\000\031\000\090\000\032\000\090\000\
 \\035\000\090\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
 \\011\000\091\000\012\000\091\000\015\000\091\000\017\000\091\000\
 \\018\000\091\000\021\000\091\000\023\000\091\000\025\000\091\000\
 \\028\000\091\000\030\000\091\000\031\000\091\000\032\000\091\000\
 \\035\000\091\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
 \\011\000\092\000\012\000\092\000\015\000\092\000\017\000\092\000\
 \\018\000\092\000\021\000\092\000\023\000\092\000\025\000\092\000\
 \\028\000\092\000\030\000\092\000\031\000\092\000\032\000\092\000\
 \\035\000\092\000\000\000\
-\\001\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
 \\011\000\093\000\012\000\093\000\015\000\093\000\017\000\093\000\
 \\018\000\093\000\021\000\093\000\023\000\093\000\025\000\093\000\
 \\028\000\093\000\030\000\093\000\031\000\093\000\032\000\093\000\
 \\035\000\093\000\000\000\
+\\001\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\011\000\094\000\012\000\094\000\015\000\094\000\017\000\094\000\
+\\018\000\094\000\021\000\094\000\023\000\094\000\025\000\094\000\
+\\028\000\094\000\030\000\094\000\031\000\094\000\032\000\094\000\
+\\035\000\094\000\000\000\
 \\001\000\015\000\000\000\000\000\
-\\001\000\019\000\055\000\000\000\
-\\001\000\019\000\062\000\000\000\
-\\001\000\027\000\032\000\000\000\
-\\001\000\027\000\037\000\000\000\
-\\001\000\027\000\054\000\000\000\
-\\001\000\030\000\053\000\000\000\
-\\001\000\031\000\066\000\000\000\
-\\077\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\000\000\
-\\078\000\001\000\013\000\003\000\012\000\016\000\011\000\020\000\010\000\
-\\022\000\009\000\024\000\008\000\026\000\007\000\027\000\006\000\
-\\029\000\005\000\000\000\
-\\079\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\028\000\067\000\000\000\
-\\080\000\000\000\
-\\081\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\000\000\
-\\082\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\000\000\
-\\083\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\000\000\
-\\084\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\
-\\017\000\070\000\000\000\
-\\085\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\000\000\
-\\086\000\000\000\
+\\001\000\019\000\056\000\000\000\
+\\001\000\019\000\063\000\000\000\
+\\001\000\027\000\033\000\000\000\
+\\001\000\027\000\038\000\000\000\
+\\001\000\027\000\055\000\000\000\
+\\001\000\030\000\054\000\000\000\
+\\001\000\031\000\067\000\000\000\
+\\078\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\000\000\
+\\079\000\001\000\014\000\003\000\013\000\016\000\012\000\020\000\011\000\
+\\022\000\010\000\024\000\009\000\026\000\008\000\027\000\007\000\
+\\029\000\006\000\037\000\005\000\000\000\
+\\080\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\028\000\068\000\000\000\
+\\081\000\000\000\
+\\082\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\000\000\
+\\083\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\000\000\
+\\084\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\000\000\
+\\085\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\
+\\017\000\071\000\000\000\
+\\086\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\000\000\
 \\087\000\000\000\
-\\094\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\013\000\017\000\000\000\
-\\095\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\013\000\017\000\000\000\
-\\096\000\000\000\
+\\088\000\000\000\
+\\095\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\013\000\018\000\000\000\
+\\096\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\013\000\018\000\000\000\
 \\097\000\000\000\
-\\098\000\004\000\026\000\005\000\025\000\000\000\
-\\099\000\004\000\026\000\005\000\025\000\000\000\
-\\100\000\000\000\
+\\098\000\000\000\
+\\099\000\004\000\027\000\005\000\026\000\000\000\
+\\100\000\004\000\027\000\005\000\026\000\000\000\
 \\101\000\000\000\
 \\102\000\000\000\
-\\103\000\019\000\016\000\034\000\015\000\036\000\014\000\000\000\
-\\104\000\032\000\031\000\000\000\
+\\103\000\000\000\
+\\104\000\019\000\017\000\034\000\016\000\036\000\015\000\000\000\
 \\105\000\000\000\
-\\106\000\002\000\028\000\003\000\027\000\004\000\026\000\005\000\025\000\
-\\006\000\024\000\007\000\023\000\008\000\022\000\009\000\021\000\
-\\010\000\020\000\011\000\019\000\012\000\018\000\013\000\017\000\000\000\
+\\106\000\032\000\032\000\000\000\
 \\107\000\000\000\
-\\108\000\000\000\
+\\108\000\002\000\029\000\003\000\028\000\004\000\027\000\005\000\026\000\
+\\006\000\025\000\007\000\024\000\008\000\023\000\009\000\022\000\
+\\010\000\021\000\011\000\020\000\012\000\019\000\013\000\018\000\000\000\
 \\109\000\000\000\
+\\110\000\000\000\
+\\111\000\000\000\
 \"
 val actionRowNumbers =
 "\000\000\042\000\022\000\043\000\
-\\046\000\031\000\017\000\000\000\
-\\000\000\000\000\001\000\039\000\
-\\018\000\000\000\000\000\000\000\
+\\044\000\047\000\031\000\017\000\
+\\000\000\000\000\000\000\001\000\
+\\039\000\018\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\
-\\000\000\000\000\000\000\043\000\
-\\020\000\019\000\015\000\004\000\
-\\003\000\002\000\041\000\047\000\
-\\007\000\026\000\009\000\034\000\
-\\033\000\013\000\012\000\010\000\
-\\008\000\011\000\036\000\035\000\
-\\038\000\037\000\044\000\023\000\
-\\016\000\000\000\000\000\040\000\
-\\000\000\048\000\021\000\024\000\
-\\000\000\006\000\027\000\029\000\
-\\032\000\023\000\045\000\000\000\
-\\000\000\025\000\005\000\030\000\
-\\000\000\028\000\014\000"
+\\000\000\000\000\000\000\000\000\
+\\044\000\020\000\019\000\015\000\
+\\004\000\003\000\002\000\041\000\
+\\048\000\007\000\026\000\009\000\
+\\034\000\033\000\013\000\012\000\
+\\010\000\008\000\011\000\036\000\
+\\035\000\038\000\037\000\045\000\
+\\023\000\016\000\000\000\000\000\
+\\040\000\000\000\049\000\021\000\
+\\024\000\000\000\006\000\027\000\
+\\029\000\032\000\023\000\046\000\
+\\000\000\000\000\025\000\005\000\
+\\030\000\000\000\028\000\014\000"
 val gotoT =
 "\
-\\001\000\002\000\003\000\074\000\006\000\001\000\000\000\
-\\000\000\
-\\000\000\
-\\004\000\028\000\005\000\027\000\000\000\
+\\001\000\002\000\003\000\075\000\006\000\001\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
-\\001\000\031\000\006\000\001\000\000\000\
+\\004\000\029\000\005\000\028\000\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
 \\001\000\032\000\006\000\001\000\000\000\
 \\001\000\033\000\006\000\001\000\000\000\
+\\001\000\034\000\006\000\001\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
-\\001\000\036\000\006\000\001\000\000\000\
 \\001\000\037\000\006\000\001\000\000\000\
 \\001\000\038\000\006\000\001\000\000\000\
 \\001\000\039\000\006\000\001\000\000\000\
@@ -186,7 +187,8 @@ val gotoT =
 \\001\000\047\000\006\000\001\000\000\000\
 \\001\000\048\000\006\000\001\000\000\000\
 \\001\000\049\000\006\000\001\000\000\000\
-\\004\000\050\000\005\000\027\000\000\000\
+\\001\000\050\000\006\000\001\000\000\000\
+\\004\000\051\000\005\000\028\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
@@ -210,33 +212,33 @@ val gotoT =
 \\000\000\
 \\000\000\
 \\000\000\
-\\001\000\059\000\002\000\058\000\006\000\001\000\000\000\
+\\001\000\060\000\002\000\059\000\006\000\001\000\000\000\
 \\000\000\
-\\001\000\061\000\006\000\001\000\000\000\
 \\001\000\062\000\006\000\001\000\000\000\
-\\000\000\
 \\001\000\063\000\006\000\001\000\000\000\
 \\000\000\
-\\000\000\
-\\000\000\
-\\001\000\066\000\006\000\001\000\000\000\
-\\000\000\
+\\001\000\064\000\006\000\001\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
-\\001\000\059\000\002\000\069\000\006\000\001\000\000\000\
+\\001\000\067\000\006\000\001\000\000\000\
 \\000\000\
-\\001\000\070\000\006\000\001\000\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\001\000\060\000\002\000\070\000\006\000\001\000\000\000\
+\\000\000\
 \\001\000\071\000\006\000\001\000\000\000\
+\\001\000\072\000\006\000\001\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
-\\001\000\073\000\006\000\001\000\000\000\
+\\001\000\074\000\006\000\001\000\000\000\
 \\000\000\
 \\000\000\
 \"
-val numstates = 75
-val numrules = 33
+val numstates = 76
+val numrules = 34
 val s = ref "" and index = ref 0
 val string_to_int = fn () => 
 let val i = !index
@@ -351,13 +353,14 @@ fn (T 0) => "CONST"
   | (T 33) => "LBRACK"
   | (T 34) => "RBRACK"
   | (T 35) => "DOT"
+  | (T 36) => "NIL"
   | _ => "bogus-term"
 local open Header in
 val errtermvalue=
 fn _ => MlyValue.VOID
 end
 val terms : term list = nil
- $$ (T 35) $$ (T 34) $$ (T 33) $$ (T 32) $$ (T 31) $$ (T 30) $$ (T 29) $$ (T 28) $$ (T 27) $$ (T 25) $$ (T 24) $$ (T 23) $$ (T 22) $$ (T 21) $$ (T 20) $$ (T 19) $$ (T 18) $$ (T 17) $$ (T 16) $$ (T 15) $$ (T 14) $$ (T 13) $$ (T 12) $$ (T 11) $$ (T 10) $$ (T 9) $$ (T 8) $$ (T 7) $$ (T 6) $$ (T 5) $$ (T 4) $$ (T 3) $$ (T 2) $$ (T 1)end
+ $$ (T 36) $$ (T 35) $$ (T 34) $$ (T 33) $$ (T 32) $$ (T 31) $$ (T 30) $$ (T 29) $$ (T 28) $$ (T 27) $$ (T 25) $$ (T 24) $$ (T 23) $$ (T 22) $$ (T 21) $$ (T 20) $$ (T 19) $$ (T 18) $$ (T 17) $$ (T 16) $$ (T 15) $$ (T 14) $$ (T 13) $$ (T 12) $$ (T 11) $$ (T 10) $$ (T 9) $$ (T 8) $$ (T 7) $$ (T 6) $$ (T 5) $$ (T 4) $$ (T 3) $$ (T 2) $$ (T 1)end
 structure Actions =
 struct 
 exception mlyAction of int
@@ -366,135 +369,139 @@ val actions =
 fn (i392,defaultPos,stack,
     (()):arg) =>
 case (i392,stack)
-of  ( 0, ( ( _, ( MlyValue.EXP EXP, EXP1left, EXP1right)) :: rest671)) => let val  result = MlyValue.PROGRAM ((*#line 75.30 "tiger.grm"*) EXP (*#line 369.1 "tiger.grm.sml"*)
+of  ( 0, ( ( _, ( MlyValue.EXP EXP, EXP1left, EXP1right)) :: rest671)) => let val  result = MlyValue.PROGRAM ((*#line 76.30 "tiger.grm"*) EXP (*#line 372.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 2, ( result, EXP1left, EXP1right), rest671)
 end
-|  ( 1, ( rest671)) => let val  result = MlyValue.EXPS ((*#line 77.33 "tiger.grm"*) []                  (*#line 373.1 "tiger.grm.sml"*)
+|  ( 1, ( rest671)) => let val  result = MlyValue.EXPS ((*#line 78.33 "tiger.grm"*) []                  (*#line 376.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 1, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 2, ( ( _, ( MlyValue.EXP EXP, EXP1left, EXP1right)) :: rest671)) => let val  result = MlyValue.EXPS ((*#line 78.18 "tiger.grm"*) EXP :: []         (*#line 377.1 "tiger.grm.sml"*)
+|  ( 2, ( ( _, ( MlyValue.EXP EXP, EXP1left, EXP1right)) :: rest671)) => let val  result = MlyValue.EXPS ((*#line 79.18 "tiger.grm"*) EXP :: []         (*#line 380.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 1, ( result, EXP1left, EXP1right), rest671)
 end
-|  ( 3, ( ( _, ( MlyValue.EXPS EXPS, _, EXPS1right)) :: _ :: ( _, ( MlyValue.EXP EXP, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXPS ((*#line 79.28 "tiger.grm"*) EXP :: EXPS         (*#line 381.1 "tiger.grm.sml"*)
+|  ( 3, ( ( _, ( MlyValue.EXPS EXPS, _, EXPS1right)) :: _ :: ( _, ( MlyValue.EXP EXP, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXPS ((*#line 80.28 "tiger.grm"*) EXP :: EXPS         (*#line 384.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 1, ( result, EXP1left, EXPS1right), rest671)
 end
-|  ( 4, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 81.43 "tiger.grm"*)Ast.Assign (LVALUE, EXP)(*#line 385.1 "tiger.grm.sml"*)
+|  ( 4, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 82.43 "tiger.grm"*)Ast.Assign (LVALUE, EXP)(*#line 388.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LVALUE1left, EXP1right), rest671)
 end
-|  ( 5, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, WHILE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 82.23 "tiger.grm"*)Ast.While EXP1 EXP2(*#line 389.1 "tiger.grm.sml"*)
+|  ( 5, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, WHILE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 83.23 "tiger.grm"*)Ast.While EXP1 EXP2(*#line 392.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, WHILE1left, EXP2right), rest671)
 end
-|  ( 6, ( ( _, ( _, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP (EXP1 as EXP), _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FOR1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 83.55 "tiger.grm"*)Ast.For IDENTIFIER EXP1 EXP2 EXP(*#line 393.1 "tiger.grm.sml"*)
+|  ( 6, ( ( _, ( _, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP (EXP1 as EXP), _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FOR1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 84.55 "tiger.grm"*)Ast.For IDENTIFIER EXP1 EXP2 EXP(*#line 396.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, FOR1left, EXP3right), rest671)
 end
-|  ( 7, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 84.25 "tiger.grm"*)Ast.Openif EXP1 EXP2 (*#line 397.1 "tiger.grm.sml"*)
+|  ( 7, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 85.25 "tiger.grm"*)Ast.Openif EXP1 EXP2 (*#line 400.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, IF1left, EXP2right), rest671)
 end
-|  ( 8, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 85.30 "tiger.grm"*)Ast.Closedif  EXP1 EXP2 EXP3(*#line 401.1 "tiger.grm.sml"*)
+|  ( 8, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 86.30 "tiger.grm"*)Ast.Closedif  EXP1 EXP2 EXP3(*#line 404.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, IF1left, EXP3right), rest671)
 end
-|  ( 9, ( ( _, ( _, BREAK1left, BREAK1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 86.13 "tiger.grm"*)Ast.BREAK	(*#line 405.1 "tiger.grm.sml"*)
+|  ( 9, ( ( _, ( _, BREAK1left, BREAK1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 87.13 "tiger.grm"*)Ast.BREAK	(*#line 408.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, BREAK1left, BREAK1right), rest671)
 end
-|  ( 10, ( ( _, ( _, _, END1right)) :: ( _, ( MlyValue.EXPS EXPS, _, _)) :: _ :: ( _, ( MlyValue.DECS DECS, _, _)) :: ( _, ( _, LET1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 87.27 "tiger.grm"*)Ast.LET (DECS, EXPS) (*#line 409.1 "tiger.grm.sml"*)
+|  ( 10, ( ( _, ( _, _, END1right)) :: ( _, ( MlyValue.EXPS EXPS, _, _)) :: _ :: ( _, ( MlyValue.DECS DECS, _, _)) :: ( _, ( _, LET1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 88.27 "tiger.grm"*)Ast.LET (DECS, EXPS) (*#line 412.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LET1left, END1right), rest671)
 end
-|  ( 11, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 88.25 "tiger.grm"*)Ast.equal  EXP1 EXP2(*#line 413.1 "tiger.grm.sml"*)
+|  ( 11, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 89.25 "tiger.grm"*)Ast.equal  EXP1 EXP2(*#line 416.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 12, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 89.27 "tiger.grm"*)Ast.notequal  EXP1 EXP2(*#line 417.1 "tiger.grm.sml"*)
+|  ( 12, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 90.27 "tiger.grm"*)Ast.notequal  EXP1 EXP2(*#line 420.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 13, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 90.27 "tiger.grm"*)Ast.lessequal  EXP1 EXP2(*#line 421.1 "tiger.grm.sml"*)
+|  ( 13, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 91.27 "tiger.grm"*)Ast.lessequal  EXP1 EXP2(*#line 424.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 14, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 91.25 "tiger.grm"*)Ast.less  EXP1 EXP2(*#line 425.1 "tiger.grm.sml"*)
+|  ( 14, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 92.25 "tiger.grm"*)Ast.less  EXP1 EXP2(*#line 428.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 15, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 92.27 "tiger.grm"*)Ast.greatequal  EXP1 EXP2(*#line 429.1 "tiger.grm.sml"*)
+|  ( 15, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 93.27 "tiger.grm"*)Ast.greatequal  EXP1 EXP2(*#line 432.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 16, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 93.25 "tiger.grm"*)Ast.great  EXP1 EXP2(*#line 433.1 "tiger.grm.sml"*)
+|  ( 16, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 94.25 "tiger.grm"*)Ast.great  EXP1 EXP2(*#line 436.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 17, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 94.26 "tiger.grm"*)Ast.logicaland  EXP1 EXP2(*#line 437.1 "tiger.grm.sml"*)
+|  ( 17, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 95.26 "tiger.grm"*)Ast.logicaland  EXP1 EXP2(*#line 440.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 18, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 95.25 "tiger.grm"*)Ast.or  EXP1 EXP2(*#line 441.1 "tiger.grm.sml"*)
+|  ( 18, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 96.25 "tiger.grm"*)Ast.or  EXP1 EXP2(*#line 444.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 19, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 96.26 "tiger.grm"*) Ast.mul   EXP1 EXP2 (*#line 445.1 "tiger.grm.sml"*)
+|  ( 19, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 97.26 "tiger.grm"*) Ast.mul   EXP1 EXP2 (*#line 448.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 20, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 97.30 "tiger.grm"*)Ast.divide  EXP1 EXP2(*#line 449.1 "tiger.grm.sml"*)
+|  ( 20, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 98.30 "tiger.grm"*)Ast.divide  EXP1 EXP2(*#line 452.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 21, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 98.30 "tiger.grm"*) Ast.plus  EXP1 EXP2 (*#line 453.1 "tiger.grm.sml"*)
+|  ( 21, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 99.30 "tiger.grm"*) Ast.plus  EXP1 EXP2 (*#line 456.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 22, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 99.26 "tiger.grm"*) Ast.minus EXP1 EXP2 (*#line 457.1 "tiger.grm.sml"*)
+|  ( 22, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 100.26 "tiger.grm"*) Ast.minus EXP1 EXP2 (*#line 460.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 23, ( ( _, ( MlyValue.CONST CONST, CONST1left, CONST1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 100.26 "tiger.grm"*) Ast.Const CONST     (*#line 461.1 "tiger.grm.sml"*)
+|  ( 23, ( ( _, ( MlyValue.CONST CONST, CONST1left, CONST1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 101.26 "tiger.grm"*) Ast.Const CONST     (*#line 464.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, CONST1left, CONST1right), rest671)
 end
-|  ( 24, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, LPAREN1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 101.25 "tiger.grm"*)EXP(*#line 465.1 "tiger.grm.sml"*)
+|  ( 24, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, LPAREN1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 102.25 "tiger.grm"*)EXP(*#line 468.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LPAREN1left, RPAREN1right), rest671)
 end
-|  ( 25, ( ( _, ( MlyValue.CONST CONST, _, CONST1right)) :: ( _, ( _, MINUS1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 102.34 "tiger.grm"*)Ast.NegConst  CONST   (*#line 469.1 "tiger.grm.sml"*)
+|  ( 25, ( ( _, ( MlyValue.CONST CONST, _, CONST1right)) :: ( _, ( _, MINUS1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 103.34 "tiger.grm"*)Ast.NegConst  CONST   (*#line 472.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, MINUS1left, CONST1right), rest671)
 end
-|  ( 26, ( ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, LVALUE1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 103.13 "tiger.grm"*)LVALUE(*#line 473.1 "tiger.grm.sml"*)
+|  ( 26, ( ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, LVALUE1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 104.13 "tiger.grm"*)LVALUE(*#line 476.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LVALUE1left, LVALUE1right), rest671)
 end
-|  ( 27, ( rest671)) => let val  result = MlyValue.DECS ((*#line 105.23 "tiger.grm"*)[](*#line 477.1 "tiger.grm.sml"*)
+|  ( 27, ( ( _, ( _, NIL1left, NIL1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 105.12 "tiger.grm"*)Ast.NIL(*#line 480.1 "tiger.grm.sml"*)
+)
+ in ( LrTable.NT 0, ( result, NIL1left, NIL1right), rest671)
+end
+|  ( 28, ( rest671)) => let val  result = MlyValue.DECS ((*#line 107.23 "tiger.grm"*)[](*#line 484.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 3, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 28, ( ( _, ( MlyValue.DECS DECS, _, DECS1right)) :: ( _, ( MlyValue.DEC DEC, DEC1left, _)) :: rest671)) => let val  result = MlyValue.DECS ((*#line 106.14 "tiger.grm"*)DEC :: DECS	(*#line 481.1 "tiger.grm.sml"*)
+|  ( 29, ( ( _, ( MlyValue.DECS DECS, _, DECS1right)) :: ( _, ( MlyValue.DEC DEC, DEC1left, _)) :: rest671)) => let val  result = MlyValue.DECS ((*#line 108.14 "tiger.grm"*)DEC :: DECS	(*#line 488.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 3, ( result, DEC1left, DECS1right), rest671)
 end
-|  ( 29, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 108.34 "tiger.grm"*)Ast.VarDec(IDENTIFIER, EXP) (*#line 485.1 "tiger.grm.sml"*)
+|  ( 30, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 110.34 "tiger.grm"*)Ast.VarDec(IDENTIFIER, EXP) (*#line 492.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, VAR1left, EXP1right), rest671)
 end
-|  ( 30, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, IDENTIFIER1right)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 110.24 "tiger.grm"*)Ast.Name IDENTIFIER(*#line 489.1 "tiger.grm.sml"*)
+|  ( 31, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, IDENTIFIER1right)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 112.24 "tiger.grm"*)Ast.Name IDENTIFIER(*#line 496.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, IDENTIFIER1left, IDENTIFIER1right), rest671)
 end
-|  ( 31, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 111.27 "tiger.grm"*)Ast.Method ( LVALUE, IDENTIFIER )(*#line 493.1 "tiger.grm.sml"*)
+|  ( 32, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 113.27 "tiger.grm"*)Ast.Method ( LVALUE, IDENTIFIER )(*#line 500.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, LVALUE1left, IDENTIFIER1right), rest671)
 end
-|  ( 32, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 112.29 "tiger.grm"*)Ast.Access( LVALUE, EXP)(*#line 497.1 "tiger.grm.sml"*)
+|  ( 33, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 114.29 "tiger.grm"*)Ast.Access( LVALUE, EXP)(*#line 504.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, LVALUE1left, RBRACK1right), rest671)
 end
@@ -546,5 +553,6 @@ fun UMINUS (p1,p2) = Token.TOKEN (ParserData.LrTable.T 32,(ParserData.MlyValue.V
 fun LBRACK (p1,p2) = Token.TOKEN (ParserData.LrTable.T 33,(ParserData.MlyValue.VOID,p1,p2))
 fun RBRACK (p1,p2) = Token.TOKEN (ParserData.LrTable.T 34,(ParserData.MlyValue.VOID,p1,p2))
 fun DOT (p1,p2) = Token.TOKEN (ParserData.LrTable.T 35,(ParserData.MlyValue.VOID,p1,p2))
+fun NIL (p1,p2) = Token.TOKEN (ParserData.LrTable.T 36,(ParserData.MlyValue.VOID,p1,p2))
 end
 end

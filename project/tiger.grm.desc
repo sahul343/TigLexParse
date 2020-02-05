@@ -3,18 +3,19 @@ state 0:
 
 	PROGRAM : . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 2
-	PROGRAM	goto 74
+	PROGRAM	goto 75
 	LVALUE	goto 1
 
 	.	error
@@ -27,9 +28,9 @@ state 1:
 	LVALUE : LVALUE . DOT IDENTIFIER 
 	LVALUE : LVALUE . LBRACK EXP RBRACK 
 
-	ASSIGN	shift 14
-	LBRACK	shift 13
-	DOT	shift 12
+	ASSIGN	shift 15
+	LBRACK	shift 14
+	DOT	shift 13
 
 
 	.	reduce by rule 26
@@ -51,18 +52,18 @@ state 2:
 	EXP : EXP . MINUS EXP 
 	PROGRAM : EXP .  (reduce by rule 0)
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
 
 
 	.	reduce by rule 0
@@ -70,26 +71,35 @@ state 2:
 
 state 3:
 
-	EXP : LET . DECS IN EXPS END 
+	EXP : NIL .  (reduce by rule 27)
 
-	VAR	shift 29
 
-	DECS	goto 28
-	DEC	goto 27
 
 	.	reduce by rule 27
 
 
 state 4:
 
-	LVALUE : IDENTIFIER .  (reduce by rule 30)
+	EXP : LET . DECS IN EXPS END 
 
+	VAR	shift 30
 
+	DECS	goto 29
+	DEC	goto 28
 
-	.	reduce by rule 30
+	.	reduce by rule 28
 
 
 state 5:
+
+	LVALUE : IDENTIFIER .  (reduce by rule 31)
+
+
+
+	.	reduce by rule 31
+
+
+state 6:
 
 	EXP : BREAK .  (reduce by rule 9)
 
@@ -98,49 +108,30 @@ state 5:
 	.	reduce by rule 9
 
 
-state 6:
+state 7:
 
 	EXP : FOR . IDENTIFIER ASSIGN EXP TO EXP DO EXP 
 
-	IDENTIFIER	shift 30
+	IDENTIFIER	shift 31
 
-
-	.	error
-
-
-state 7:
-
-	EXP : WHILE . EXP DO EXP 
-
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
-
-	EXP	goto 31
-	LVALUE	goto 1
 
 	.	error
 
 
 state 8:
 
-	EXP : LPAREN . EXP RPAREN 
+	EXP : WHILE . EXP DO EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 32
 	LVALUE	goto 1
@@ -150,18 +141,18 @@ state 8:
 
 state 9:
 
-	EXP : IF . EXP THEN EXP 
-	EXP : IF . EXP THEN EXP ELSE EXP 
+	EXP : LPAREN . EXP RPAREN 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 33
 	LVALUE	goto 1
@@ -171,15 +162,37 @@ state 9:
 
 state 10:
 
-	EXP : MINUS . CONST 
+	EXP : IF . EXP THEN EXP 
+	EXP : IF . EXP THEN EXP ELSE EXP 
 
-	CONST	shift 34
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
+	EXP	goto 34
+	LVALUE	goto 1
 
 	.	error
 
 
 state 11:
+
+	EXP : MINUS . CONST 
+
+	CONST	shift 35
+
+
+	.	error
+
+
+state 12:
 
 	EXP : CONST .  (reduce by rule 23)
 
@@ -188,49 +201,30 @@ state 11:
 	.	reduce by rule 23
 
 
-state 12:
+state 13:
 
 	LVALUE : LVALUE DOT . IDENTIFIER 
 
-	IDENTIFIER	shift 35
+	IDENTIFIER	shift 36
 
-
-	.	error
-
-
-state 13:
-
-	LVALUE : LVALUE LBRACK . EXP RBRACK 
-
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
-
-	EXP	goto 36
-	LVALUE	goto 1
 
 	.	error
 
 
 state 14:
 
-	EXP : LVALUE ASSIGN . EXP 
+	LVALUE : LVALUE LBRACK . EXP RBRACK 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 37
 	LVALUE	goto 1
@@ -240,17 +234,18 @@ state 14:
 
 state 15:
 
-	EXP : EXP NTEQ . EXP 
+	EXP : LVALUE ASSIGN . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 38
 	LVALUE	goto 1
@@ -260,17 +255,18 @@ state 15:
 
 state 16:
 
-	EXP : EXP OR . EXP 
+	EXP : EXP NTEQ . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 39
 	LVALUE	goto 1
@@ -280,17 +276,18 @@ state 16:
 
 state 17:
 
-	EXP : EXP AND . EXP 
+	EXP : EXP OR . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 40
 	LVALUE	goto 1
@@ -300,17 +297,18 @@ state 17:
 
 state 18:
 
-	EXP : EXP GT . EXP 
+	EXP : EXP AND . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 41
 	LVALUE	goto 1
@@ -320,17 +318,18 @@ state 18:
 
 state 19:
 
-	EXP : EXP GTEQ . EXP 
+	EXP : EXP GT . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 42
 	LVALUE	goto 1
@@ -340,17 +339,18 @@ state 19:
 
 state 20:
 
-	EXP : EXP LTEQ . EXP 
+	EXP : EXP GTEQ . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 43
 	LVALUE	goto 1
@@ -360,17 +360,18 @@ state 20:
 
 state 21:
 
-	EXP : EXP EQ . EXP 
+	EXP : EXP LTEQ . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 44
 	LVALUE	goto 1
@@ -380,17 +381,18 @@ state 21:
 
 state 22:
 
-	EXP : EXP LT . EXP 
+	EXP : EXP EQ . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 45
 	LVALUE	goto 1
@@ -400,17 +402,18 @@ state 22:
 
 state 23:
 
-	EXP : EXP DIV . EXP 
+	EXP : EXP LT . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 46
 	LVALUE	goto 1
@@ -420,17 +423,18 @@ state 23:
 
 state 24:
 
-	EXP : EXP MUL . EXP 
+	EXP : EXP DIV . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 47
 	LVALUE	goto 1
@@ -440,17 +444,18 @@ state 24:
 
 state 25:
 
-	EXP : EXP MINUS . EXP 
+	EXP : EXP MUL . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 48
 	LVALUE	goto 1
@@ -460,17 +465,18 @@ state 25:
 
 state 26:
 
-	EXP : EXP PLUS . EXP 
+	EXP : EXP MINUS . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 49
 	LVALUE	goto 1
@@ -480,31 +486,42 @@ state 26:
 
 state 27:
 
-	DECS : DEC . DECS 
+	EXP : EXP PLUS . EXP 
 
-	VAR	shift 29
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
-	DECS	goto 50
-	DEC	goto 27
-
-	.	reduce by rule 27
-
-
-state 28:
-
-	EXP : LET DECS . IN EXPS END 
-
-	IN	shift 51
-
+	EXP	goto 50
+	LVALUE	goto 1
 
 	.	error
 
 
+state 28:
+
+	DECS : DEC . DECS 
+
+	VAR	shift 30
+
+	DECS	goto 51
+	DEC	goto 28
+
+	.	reduce by rule 28
+
+
 state 29:
 
-	DEC : VAR . IDENTIFIER ASSIGN EXP 
+	EXP : LET DECS . IN EXPS END 
 
-	IDENTIFIER	shift 52
+	IN	shift 52
 
 
 	.	error
@@ -512,15 +529,25 @@ state 29:
 
 state 30:
 
-	EXP : FOR IDENTIFIER . ASSIGN EXP TO EXP DO EXP 
+	DEC : VAR . IDENTIFIER ASSIGN EXP 
 
-	ASSIGN	shift 53
+	IDENTIFIER	shift 53
 
 
 	.	error
 
 
 state 31:
+
+	EXP : FOR IDENTIFIER . ASSIGN EXP TO EXP DO EXP 
+
+	ASSIGN	shift 54
+
+
+	.	error
+
+
+state 32:
 
 	EXP : WHILE EXP . DO EXP 
 	EXP : EXP . EQ EXP 
@@ -536,25 +563,25 @@ state 31:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	DO	shift 54
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	DO	shift 55
 
 
 	.	error
 
 
-state 32:
+state 33:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -570,25 +597,25 @@ state 32:
 	EXP : EXP . MINUS EXP 
 	EXP : LPAREN EXP . RPAREN 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	RPAREN	shift 55
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	RPAREN	shift 56
 
 
 	.	error
 
 
-state 33:
+state 34:
 
 	EXP : IF EXP . THEN EXP 
 	EXP : IF EXP . THEN EXP ELSE EXP 
@@ -605,25 +632,25 @@ state 33:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	THEN	shift 56
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	THEN	shift 57
 
 
 	.	error
 
 
-state 34:
+state 35:
 
 	EXP : MINUS CONST .  (reduce by rule 25)
 
@@ -632,16 +659,16 @@ state 34:
 	.	reduce by rule 25
 
 
-state 35:
-
-	LVALUE : LVALUE DOT IDENTIFIER .  (reduce by rule 31)
-
-
-
-	.	reduce by rule 31
-
-
 state 36:
+
+	LVALUE : LVALUE DOT IDENTIFIER .  (reduce by rule 32)
+
+
+
+	.	reduce by rule 32
+
+
+state 37:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -657,25 +684,25 @@ state 36:
 	EXP : EXP . MINUS EXP 
 	LVALUE : LVALUE LBRACK EXP . RBRACK 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	RBRACK	shift 57
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	RBRACK	shift 58
 
 
 	.	error
 
 
-state 37:
+state 38:
 
 	EXP : LVALUE ASSIGN EXP .  (reduce by rule 4)
 	EXP : EXP . EQ EXP 
@@ -691,24 +718,24 @@ state 37:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
 
 
 	.	reduce by rule 4
 
 
-state 38:
+state 39:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -724,10 +751,10 @@ state 38:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
 	AND	reduce by rule 12
 	OR	reduce by rule 12
 	EOF	reduce by rule 12
@@ -746,7 +773,7 @@ state 38:
 	.	error
 
 
-state 39:
+state 40:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -762,23 +789,23 @@ state 39:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	NTEQ	shift 15
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	NTEQ	shift 16
 
 
 	.	reduce by rule 18
 
 
-state 40:
+state 41:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -794,22 +821,22 @@ state 40:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	NTEQ	shift 15
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	NTEQ	shift 16
 
 
 	.	reduce by rule 17
 
 
-state 41:
+state 42:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -825,10 +852,10 @@ state 41:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
 	AND	reduce by rule 16
 	OR	reduce by rule 16
 	EOF	reduce by rule 16
@@ -847,7 +874,7 @@ state 41:
 	.	error
 
 
-state 42:
+state 43:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -863,10 +890,10 @@ state 42:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
 	AND	reduce by rule 15
 	OR	reduce by rule 15
 	EOF	reduce by rule 15
@@ -885,7 +912,7 @@ state 42:
 	.	error
 
 
-state 43:
+state 44:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -901,10 +928,10 @@ state 43:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
 	AND	reduce by rule 13
 	OR	reduce by rule 13
 	EOF	reduce by rule 13
@@ -923,7 +950,7 @@ state 43:
 	.	error
 
 
-state 44:
+state 45:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP EQ EXP .  (reduce by rule 11)
@@ -939,10 +966,10 @@ state 44:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
 	AND	reduce by rule 11
 	OR	reduce by rule 11
 	EOF	reduce by rule 11
@@ -961,7 +988,7 @@ state 44:
 	.	error
 
 
-state 45:
+state 46:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -977,10 +1004,10 @@ state 45:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
 	AND	reduce by rule 14
 	OR	reduce by rule 14
 	EOF	reduce by rule 14
@@ -999,7 +1026,7 @@ state 45:
 	.	error
 
 
-state 46:
+state 47:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1020,7 +1047,7 @@ state 46:
 	.	reduce by rule 20
 
 
-state 47:
+state 48:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1041,7 +1068,7 @@ state 47:
 	.	reduce by rule 19
 
 
-state 48:
+state 49:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1057,14 +1084,14 @@ state 48:
 	EXP : EXP . MINUS EXP 
 	EXP : EXP MINUS EXP .  (reduce by rule 22)
 
-	MUL	shift 24
-	DIV	shift 23
+	MUL	shift 25
+	DIV	shift 24
 
 
 	.	reduce by rule 22
 
 
-state 49:
+state 50:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1080,86 +1107,68 @@ state 49:
 	EXP : EXP PLUS EXP .  (reduce by rule 21)
 	EXP : EXP . MINUS EXP 
 
-	MUL	shift 24
-	DIV	shift 23
+	MUL	shift 25
+	DIV	shift 24
 
 
 	.	reduce by rule 21
 
 
-state 50:
-
-	DECS : DEC DECS .  (reduce by rule 28)
-
-
-
-	.	reduce by rule 28
-
-
 state 51:
+
+	DECS : DEC DECS .  (reduce by rule 29)
+
+
+
+	.	reduce by rule 29
+
+
+state 52:
 
 	EXP : LET DECS IN . EXPS END 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
-	EXP	goto 59
-	EXPS	goto 58
+	EXP	goto 60
+	EXPS	goto 59
 	LVALUE	goto 1
 
 	.	reduce by rule 1
 
 
-state 52:
+state 53:
 
 	DEC : VAR IDENTIFIER . ASSIGN EXP 
 
-	ASSIGN	shift 60
+	ASSIGN	shift 61
 
-
-	.	error
-
-
-state 53:
-
-	EXP : FOR IDENTIFIER ASSIGN . EXP TO EXP DO EXP 
-
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
-
-	EXP	goto 61
-	LVALUE	goto 1
 
 	.	error
 
 
 state 54:
 
-	EXP : WHILE EXP DO . EXP 
+	EXP : FOR IDENTIFIER ASSIGN . EXP TO EXP DO EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 62
 	LVALUE	goto 1
@@ -1169,27 +1178,18 @@ state 54:
 
 state 55:
 
-	EXP : LPAREN EXP RPAREN .  (reduce by rule 24)
+	EXP : WHILE EXP DO . EXP 
 
-
-
-	.	reduce by rule 24
-
-
-state 56:
-
-	EXP : IF EXP THEN . EXP 
-	EXP : IF EXP THEN . EXP ELSE EXP 
-
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 63
 	LVALUE	goto 1
@@ -1197,26 +1197,57 @@ state 56:
 	.	error
 
 
+state 56:
+
+	EXP : LPAREN EXP RPAREN .  (reduce by rule 24)
+
+
+
+	.	reduce by rule 24
+
+
 state 57:
 
-	LVALUE : LVALUE LBRACK EXP RBRACK .  (reduce by rule 32)
+	EXP : IF EXP THEN . EXP 
+	EXP : IF EXP THEN . EXP ELSE EXP 
 
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
+	EXP	goto 64
+	LVALUE	goto 1
 
-	.	reduce by rule 32
+	.	error
 
 
 state 58:
 
+	LVALUE : LVALUE LBRACK EXP RBRACK .  (reduce by rule 33)
+
+
+
+	.	reduce by rule 33
+
+
+state 59:
+
 	EXP : LET DECS IN EXPS . END 
 
-	END	shift 64
+	END	shift 65
 
 
 	.	error
 
 
-state 59:
+state 60:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1233,45 +1264,46 @@ state 59:
 	EXPS : EXP .  (reduce by rule 2)
 	EXPS : EXP . SEMICOLON EXPS 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	SEMICOLON	shift 65
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	SEMICOLON	shift 66
 
 
 	.	reduce by rule 2
 
 
-state 60:
+state 61:
 
 	DEC : VAR IDENTIFIER ASSIGN . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
-	EXP	goto 66
+	EXP	goto 67
 	LVALUE	goto 1
 
 	.	error
 
 
-state 61:
+state 62:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP . TO EXP DO EXP 
 	EXP : EXP . EQ EXP 
@@ -1287,25 +1319,25 @@ state 61:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	TO	shift 67
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	TO	shift 68
 
 
 	.	error
 
 
-state 62:
+state 63:
 
 	EXP : WHILE EXP DO EXP .  (reduce by rule 5)
 	EXP : EXP . EQ EXP 
@@ -1321,24 +1353,24 @@ state 62:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
 
 
 	.	reduce by rule 5
 
 
-state 63:
+state 64:
 
 	EXP : IF EXP THEN EXP .  (reduce by rule 7)
 	EXP : IF EXP THEN EXP . ELSE EXP 
@@ -1355,25 +1387,25 @@ state 63:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	ELSE	shift 68
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	ELSE	shift 69
 
 
 	.	reduce by rule 7
 
 
-state 64:
+state 65:
 
 	EXP : LET DECS IN EXPS END .  (reduce by rule 10)
 
@@ -1382,28 +1414,29 @@ state 64:
 	.	reduce by rule 10
 
 
-state 65:
+state 66:
 
 	EXPS : EXP SEMICOLON . EXPS 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
-	EXP	goto 59
-	EXPS	goto 69
+	EXP	goto 60
+	EXPS	goto 70
 	LVALUE	goto 1
 
 	.	reduce by rule 1
 
 
-state 66:
+state 67:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1417,58 +1450,39 @@ state 66:
 	EXP : EXP . DIV EXP 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
-	DEC : VAR IDENTIFIER ASSIGN EXP .  (reduce by rule 29)
+	DEC : VAR IDENTIFIER ASSIGN EXP .  (reduce by rule 30)
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-
-
-	.	reduce by rule 29
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
 
 
-state 67:
-
-	EXP : FOR IDENTIFIER ASSIGN EXP TO . EXP DO EXP 
-
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
-
-	EXP	goto 70
-	LVALUE	goto 1
-
-	.	error
+	.	reduce by rule 30
 
 
 state 68:
 
-	EXP : IF EXP THEN EXP ELSE . EXP 
+	EXP : FOR IDENTIFIER ASSIGN EXP TO . EXP DO EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
 	EXP	goto 71
 	LVALUE	goto 1
@@ -1478,6 +1492,27 @@ state 68:
 
 state 69:
 
+	EXP : IF EXP THEN EXP ELSE . EXP 
+
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
+
+	EXP	goto 72
+	LVALUE	goto 1
+
+	.	error
+
+
+state 70:
+
 	EXPS : EXP SEMICOLON EXPS .  (reduce by rule 3)
 
 
@@ -1485,7 +1520,7 @@ state 69:
 	.	reduce by rule 3
 
 
-state 70:
+state 71:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP . DO EXP 
 	EXP : EXP . EQ EXP 
@@ -1501,25 +1536,25 @@ state 70:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
-	DO	shift 72
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	DO	shift 73
 
 
 	.	error
 
 
-state 71:
+state 72:
 
 	EXP : IF EXP THEN EXP ELSE EXP .  (reduce by rule 8)
 	EXP : EXP . EQ EXP 
@@ -1535,44 +1570,45 @@ state 71:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
 
 
 	.	reduce by rule 8
 
 
-state 72:
+state 73:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO . EXP 
 
-	CONST	shift 11
-	MINUS	shift 10
-	IF	shift 9
-	LPAREN	shift 8
-	WHILE	shift 7
-	FOR	shift 6
-	BREAK	shift 5
-	IDENTIFIER	shift 4
-	LET	shift 3
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
 
-	EXP	goto 73
+	EXP	goto 74
 	LVALUE	goto 1
 
 	.	error
 
 
-state 73:
+state 74:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP .  (reduce by rule 6)
 	EXP : EXP . EQ EXP 
@@ -1588,24 +1624,24 @@ state 73:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 
-	PLUS	shift 26
-	MINUS	shift 25
-	MUL	shift 24
-	DIV	shift 23
-	LT	shift 22
-	EQ	shift 21
-	LTEQ	shift 20
-	GTEQ	shift 19
-	GT	shift 18
-	AND	shift 17
-	OR	shift 16
-	NTEQ	shift 15
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
 
 
 	.	reduce by rule 6
 
 
-state 74:
+state 75:
 
 
 	EOF	accept
@@ -1613,5 +1649,5 @@ state 74:
 
 	.	error
 
-334 of 635 action table entries left after compaction
+336 of 663 action table entries left after compaction
 61 goto table entries
