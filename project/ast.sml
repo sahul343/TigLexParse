@@ -28,6 +28,7 @@ struct
                  | Name of string
 		 | NIL
 	         | Array of string*Expr*Expr
+		 | Record of string * (string*Expr) list
 	and Dec = VarDec of string * Expr
          
 

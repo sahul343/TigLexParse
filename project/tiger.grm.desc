@@ -15,7 +15,7 @@ state 0:
 	NIL	shift 3
 
 	EXP	goto 2
-	PROGRAM	goto 80
+	PROGRAM	goto 88
 	LVALUE	goto 1
 
 	.	error
@@ -87,18 +87,21 @@ state 4:
 	DECS	goto 29
 	DEC	goto 28
 
-	.	reduce by rule 29
+	.	reduce by rule 33
 
 
 state 5:
 
 	EXP : IDENTIFIER . LBRACK EXP RBRACK OF EXP 
-	LVALUE : IDENTIFIER .  (reduce by rule 32)
+	EXP : IDENTIFIER . LBRACE RECBODY RBRACE 
+	LVALUE : IDENTIFIER .  (reduce by rule 36)
+	LVALUE : IDENTIFIER . LBRACK EXP RBRACK 
 
-	LBRACK	shift 31
+	LBRACK	shift 32
+	LBRACE	shift 31
 
 
-	.	reduce by rule 32
+	.	reduce by rule 36
 
 
 state 6:
@@ -114,7 +117,7 @@ state 7:
 
 	EXP : FOR . IDENTIFIER ASSIGN EXP TO EXP DO EXP 
 
-	IDENTIFIER	shift 32
+	IDENTIFIER	shift 33
 
 
 	.	error
@@ -135,7 +138,7 @@ state 8:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 33
+	EXP	goto 34
 	LVALUE	goto 1
 
 	.	error
@@ -156,7 +159,7 @@ state 9:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 34
+	EXP	goto 35
 	LVALUE	goto 1
 
 	.	error
@@ -178,7 +181,7 @@ state 10:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 35
+	EXP	goto 36
 	LVALUE	goto 1
 
 	.	error
@@ -188,7 +191,7 @@ state 11:
 
 	EXP : MINUS . CONST 
 
-	CONST	shift 36
+	CONST	shift 37
 
 
 	.	error
@@ -207,7 +210,7 @@ state 13:
 
 	LVALUE : LVALUE DOT . IDENTIFIER 
 
-	IDENTIFIER	shift 37
+	IDENTIFIER	shift 38
 
 
 	.	error
@@ -228,7 +231,7 @@ state 14:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 38
+	EXP	goto 39
 	LVALUE	goto 1
 
 	.	error
@@ -249,7 +252,7 @@ state 15:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 39
+	EXP	goto 40
 	LVALUE	goto 1
 
 	.	error
@@ -270,7 +273,7 @@ state 16:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 40
+	EXP	goto 41
 	LVALUE	goto 1
 
 	.	error
@@ -291,7 +294,7 @@ state 17:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 41
+	EXP	goto 42
 	LVALUE	goto 1
 
 	.	error
@@ -312,7 +315,7 @@ state 18:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 42
+	EXP	goto 43
 	LVALUE	goto 1
 
 	.	error
@@ -333,7 +336,7 @@ state 19:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 43
+	EXP	goto 44
 	LVALUE	goto 1
 
 	.	error
@@ -354,7 +357,7 @@ state 20:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 44
+	EXP	goto 45
 	LVALUE	goto 1
 
 	.	error
@@ -375,7 +378,7 @@ state 21:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 45
+	EXP	goto 46
 	LVALUE	goto 1
 
 	.	error
@@ -396,7 +399,7 @@ state 22:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 46
+	EXP	goto 47
 	LVALUE	goto 1
 
 	.	error
@@ -417,7 +420,7 @@ state 23:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 47
+	EXP	goto 48
 	LVALUE	goto 1
 
 	.	error
@@ -438,7 +441,7 @@ state 24:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 48
+	EXP	goto 49
 	LVALUE	goto 1
 
 	.	error
@@ -459,7 +462,7 @@ state 25:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 49
+	EXP	goto 50
 	LVALUE	goto 1
 
 	.	error
@@ -480,7 +483,7 @@ state 26:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 50
+	EXP	goto 51
 	LVALUE	goto 1
 
 	.	error
@@ -501,7 +504,7 @@ state 27:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 51
+	EXP	goto 52
 	LVALUE	goto 1
 
 	.	error
@@ -513,17 +516,17 @@ state 28:
 
 	VAR	shift 30
 
-	DECS	goto 52
+	DECS	goto 53
 	DEC	goto 28
 
-	.	reduce by rule 29
+	.	reduce by rule 33
 
 
 state 29:
 
 	EXP : LET DECS . IN EXPS END 
 
-	IN	shift 53
+	IN	shift 54
 
 
 	.	error
@@ -533,7 +536,7 @@ state 30:
 
 	DEC : VAR . IDENTIFIER ASSIGN EXP 
 
-	IDENTIFIER	shift 54
+	IDENTIFIER	shift 55
 
 
 	.	error
@@ -541,7 +544,19 @@ state 30:
 
 state 31:
 
+	EXP : IDENTIFIER LBRACE . RECBODY RBRACE 
+
+	IDENTIFIER	shift 57
+
+	RECBODY	goto 56
+
+	.	reduce by rule 30
+
+
+state 32:
+
 	EXP : IDENTIFIER LBRACK . EXP RBRACK OF EXP 
+	LVALUE : IDENTIFIER LBRACK . EXP RBRACK 
 
 	CONST	shift 12
 	MINUS	shift 11
@@ -554,23 +569,23 @@ state 31:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 55
+	EXP	goto 58
 	LVALUE	goto 1
 
 	.	error
 
 
-state 32:
+state 33:
 
 	EXP : FOR IDENTIFIER . ASSIGN EXP TO EXP DO EXP 
 
-	ASSIGN	shift 56
+	ASSIGN	shift 59
 
 
 	.	error
 
 
-state 33:
+state 34:
 
 	EXP : WHILE EXP . DO EXP 
 	EXP : EXP . EQ EXP 
@@ -598,13 +613,13 @@ state 33:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	DO	shift 57
+	DO	shift 60
 
 
 	.	error
 
 
-state 34:
+state 35:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -632,13 +647,13 @@ state 34:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	RPAREN	shift 58
+	RPAREN	shift 61
 
 
 	.	error
 
 
-state 35:
+state 36:
 
 	EXP : IF EXP . THEN EXP 
 	EXP : IF EXP . THEN EXP ELSE EXP 
@@ -667,13 +682,13 @@ state 35:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	THEN	shift 59
+	THEN	shift 62
 
 
 	.	error
 
 
-state 36:
+state 37:
 
 	EXP : MINUS CONST .  (reduce by rule 25)
 
@@ -682,16 +697,16 @@ state 36:
 	.	reduce by rule 25
 
 
-state 37:
-
-	LVALUE : LVALUE DOT IDENTIFIER .  (reduce by rule 33)
-
-
-
-	.	reduce by rule 33
-
-
 state 38:
+
+	LVALUE : LVALUE DOT IDENTIFIER .  (reduce by rule 37)
+
+
+
+	.	reduce by rule 37
+
+
+state 39:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -719,13 +734,13 @@ state 38:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	RBRACK	shift 60
+	RBRACK	shift 63
 
 
 	.	error
 
 
-state 39:
+state 40:
 
 	EXP : LVALUE ASSIGN EXP .  (reduce by rule 4)
 	EXP : EXP . EQ EXP 
@@ -758,7 +773,7 @@ state 39:
 	.	reduce by rule 4
 
 
-state 40:
+state 41:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -791,12 +806,14 @@ state 40:
 	END	reduce by rule 12
 	VAR	reduce by rule 12
 	RBRACK	reduce by rule 12
+	COMMA	reduce by rule 12
+	RBRACE	reduce by rule 12
 
 
 	.	error
 
 
-state 41:
+state 42:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -828,7 +845,7 @@ state 41:
 	.	reduce by rule 18
 
 
-state 42:
+state 43:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -859,7 +876,7 @@ state 42:
 	.	reduce by rule 17
 
 
-state 43:
+state 44:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -892,12 +909,14 @@ state 43:
 	END	reduce by rule 16
 	VAR	reduce by rule 16
 	RBRACK	reduce by rule 16
+	COMMA	reduce by rule 16
+	RBRACE	reduce by rule 16
 
 
 	.	error
 
 
-state 44:
+state 45:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -930,12 +949,14 @@ state 44:
 	END	reduce by rule 15
 	VAR	reduce by rule 15
 	RBRACK	reduce by rule 15
+	COMMA	reduce by rule 15
+	RBRACE	reduce by rule 15
 
 
 	.	error
 
 
-state 45:
+state 46:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -968,12 +989,14 @@ state 45:
 	END	reduce by rule 13
 	VAR	reduce by rule 13
 	RBRACK	reduce by rule 13
+	COMMA	reduce by rule 13
+	RBRACE	reduce by rule 13
 
 
 	.	error
 
 
-state 46:
+state 47:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP EQ EXP .  (reduce by rule 11)
@@ -1006,12 +1029,14 @@ state 46:
 	END	reduce by rule 11
 	VAR	reduce by rule 11
 	RBRACK	reduce by rule 11
+	COMMA	reduce by rule 11
+	RBRACE	reduce by rule 11
 
 
 	.	error
 
 
-state 47:
+state 48:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1044,12 +1069,14 @@ state 47:
 	END	reduce by rule 14
 	VAR	reduce by rule 14
 	RBRACK	reduce by rule 14
+	COMMA	reduce by rule 14
+	RBRACE	reduce by rule 14
 
 
 	.	error
 
 
-state 48:
+state 49:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1070,7 +1097,7 @@ state 48:
 	.	reduce by rule 20
 
 
-state 49:
+state 50:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1091,7 +1118,7 @@ state 49:
 	.	reduce by rule 19
 
 
-state 50:
+state 51:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1114,7 +1141,7 @@ state 50:
 	.	reduce by rule 22
 
 
-state 51:
+state 52:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1137,16 +1164,16 @@ state 51:
 	.	reduce by rule 21
 
 
-state 52:
-
-	DECS : DEC DECS .  (reduce by rule 30)
-
-
-
-	.	reduce by rule 30
-
-
 state 53:
+
+	DECS : DEC DECS .  (reduce by rule 34)
+
+
+
+	.	reduce by rule 34
+
+
+state 54:
 
 	EXP : LET DECS IN . EXPS END 
 
@@ -1161,24 +1188,45 @@ state 53:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 62
-	EXPS	goto 61
+	EXP	goto 65
+	EXPS	goto 64
 	LVALUE	goto 1
 
 	.	reduce by rule 1
 
 
-state 54:
+state 55:
 
 	DEC : VAR IDENTIFIER . ASSIGN EXP 
 
-	ASSIGN	shift 63
+	ASSIGN	shift 66
 
 
 	.	error
 
 
-state 55:
+state 56:
+
+	EXP : IDENTIFIER LBRACE RECBODY . RBRACE 
+
+	RBRACE	shift 67
+
+
+	.	error
+
+
+state 57:
+
+	RECBODY : IDENTIFIER . EQ EXP COMMA RECBODY 
+	RECBODY : IDENTIFIER . EQ EXP 
+
+	EQ	shift 68
+
+
+	.	error
+
+
+state 58:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1193,6 +1241,7 @@ state 55:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 	EXP : IDENTIFIER LBRACK EXP . RBRACK OF EXP 
+	LVALUE : IDENTIFIER LBRACK EXP . RBRACK 
 
 	PLUS	shift 27
 	MINUS	shift 26
@@ -1206,13 +1255,13 @@ state 55:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	RBRACK	shift 64
+	RBRACK	shift 69
 
 
 	.	error
 
 
-state 56:
+state 59:
 
 	EXP : FOR IDENTIFIER ASSIGN . EXP TO EXP DO EXP 
 
@@ -1227,13 +1276,13 @@ state 56:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 65
+	EXP	goto 70
 	LVALUE	goto 1
 
 	.	error
 
 
-state 57:
+state 60:
 
 	EXP : WHILE EXP DO . EXP 
 
@@ -1248,13 +1297,13 @@ state 57:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 66
+	EXP	goto 71
 	LVALUE	goto 1
 
 	.	error
 
 
-state 58:
+state 61:
 
 	EXP : LPAREN EXP RPAREN .  (reduce by rule 24)
 
@@ -1263,7 +1312,7 @@ state 58:
 	.	reduce by rule 24
 
 
-state 59:
+state 62:
 
 	EXP : IF EXP THEN . EXP 
 	EXP : IF EXP THEN . EXP ELSE EXP 
@@ -1279,32 +1328,32 @@ state 59:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 67
+	EXP	goto 72
 	LVALUE	goto 1
 
 	.	error
 
 
-state 60:
+state 63:
 
-	LVALUE : LVALUE LBRACK EXP RBRACK .  (reduce by rule 34)
-
-
-
-	.	reduce by rule 34
+	LVALUE : LVALUE LBRACK EXP RBRACK .  (reduce by rule 38)
 
 
-state 61:
+
+	.	reduce by rule 38
+
+
+state 64:
 
 	EXP : LET DECS IN EXPS . END 
 
-	END	shift 68
+	END	shift 73
 
 
 	.	error
 
 
-state 62:
+state 65:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1333,13 +1382,13 @@ state 62:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	SEMICOLON	shift 69
+	SEMICOLON	shift 74
 
 
 	.	reduce by rule 2
 
 
-state 63:
+state 66:
 
 	DEC : VAR IDENTIFIER ASSIGN . EXP 
 
@@ -1354,23 +1403,55 @@ state 63:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 70
+	EXP	goto 75
 	LVALUE	goto 1
 
 	.	error
 
 
-state 64:
+state 67:
 
-	EXP : IDENTIFIER LBRACK EXP RBRACK . OF EXP 
+	EXP : IDENTIFIER LBRACE RECBODY RBRACE .  (reduce by rule 29)
 
-	OF	shift 71
 
+
+	.	reduce by rule 29
+
+
+state 68:
+
+	RECBODY : IDENTIFIER EQ . EXP COMMA RECBODY 
+	RECBODY : IDENTIFIER EQ . EXP 
+
+	CONST	shift 12
+	MINUS	shift 11
+	IF	shift 10
+	LPAREN	shift 9
+	WHILE	shift 8
+	FOR	shift 7
+	BREAK	shift 6
+	IDENTIFIER	shift 5
+	LET	shift 4
+	NIL	shift 3
+
+	EXP	goto 76
+	LVALUE	goto 1
 
 	.	error
 
 
-state 65:
+state 69:
+
+	EXP : IDENTIFIER LBRACK EXP RBRACK . OF EXP 
+	LVALUE : IDENTIFIER LBRACK EXP RBRACK .  (reduce by rule 39)
+
+	OF	shift 77
+
+
+	.	reduce by rule 39
+
+
+state 70:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP . TO EXP DO EXP 
 	EXP : EXP . EQ EXP 
@@ -1398,13 +1479,13 @@ state 65:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	TO	shift 72
+	TO	shift 78
 
 
 	.	error
 
 
-state 66:
+state 71:
 
 	EXP : WHILE EXP DO EXP .  (reduce by rule 5)
 	EXP : EXP . EQ EXP 
@@ -1437,7 +1518,7 @@ state 66:
 	.	reduce by rule 5
 
 
-state 67:
+state 72:
 
 	EXP : IF EXP THEN EXP .  (reduce by rule 7)
 	EXP : IF EXP THEN EXP . ELSE EXP 
@@ -1466,13 +1547,13 @@ state 67:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	ELSE	shift 73
+	ELSE	shift 79
 
 
 	.	reduce by rule 7
 
 
-state 68:
+state 73:
 
 	EXP : LET DECS IN EXPS END .  (reduce by rule 10)
 
@@ -1481,7 +1562,7 @@ state 68:
 	.	reduce by rule 10
 
 
-state 69:
+state 74:
 
 	EXPS : EXP SEMICOLON . EXPS 
 
@@ -1496,14 +1577,14 @@ state 69:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 62
-	EXPS	goto 74
+	EXP	goto 65
+	EXPS	goto 80
 	LVALUE	goto 1
 
 	.	reduce by rule 1
 
 
-state 70:
+state 75:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1517,7 +1598,7 @@ state 70:
 	EXP : EXP . DIV EXP 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
-	DEC : VAR IDENTIFIER ASSIGN EXP .  (reduce by rule 31)
+	DEC : VAR IDENTIFIER ASSIGN EXP .  (reduce by rule 35)
 
 	PLUS	shift 27
 	MINUS	shift 26
@@ -1533,10 +1614,45 @@ state 70:
 	NTEQ	shift 16
 
 
-	.	reduce by rule 31
+	.	reduce by rule 35
 
 
-state 71:
+state 76:
+
+	EXP : EXP . EQ EXP 
+	EXP : EXP . NTEQ EXP 
+	EXP : EXP . LTEQ EXP 
+	EXP : EXP . LT EXP 
+	EXP : EXP . GTEQ EXP 
+	EXP : EXP . GT EXP 
+	EXP : EXP . AND EXP 
+	EXP : EXP . OR EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	RECBODY : IDENTIFIER EQ EXP . COMMA RECBODY 
+	RECBODY : IDENTIFIER EQ EXP .  (reduce by rule 32)
+
+	PLUS	shift 27
+	MINUS	shift 26
+	MUL	shift 25
+	DIV	shift 24
+	LT	shift 23
+	EQ	shift 22
+	LTEQ	shift 21
+	GTEQ	shift 20
+	GT	shift 19
+	AND	shift 18
+	OR	shift 17
+	NTEQ	shift 16
+	COMMA	shift 81
+
+
+	.	reduce by rule 32
+
+
+state 77:
 
 	EXP : IDENTIFIER LBRACK EXP RBRACK OF . EXP 
 
@@ -1551,13 +1667,13 @@ state 71:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 75
+	EXP	goto 82
 	LVALUE	goto 1
 
 	.	error
 
 
-state 72:
+state 78:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO . EXP DO EXP 
 
@@ -1572,13 +1688,13 @@ state 72:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 76
+	EXP	goto 83
 	LVALUE	goto 1
 
 	.	error
 
 
-state 73:
+state 79:
 
 	EXP : IF EXP THEN EXP ELSE . EXP 
 
@@ -1593,13 +1709,13 @@ state 73:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 77
+	EXP	goto 84
 	LVALUE	goto 1
 
 	.	error
 
 
-state 74:
+state 80:
 
 	EXPS : EXP SEMICOLON EXPS .  (reduce by rule 3)
 
@@ -1608,7 +1724,18 @@ state 74:
 	.	reduce by rule 3
 
 
-state 75:
+state 81:
+
+	RECBODY : IDENTIFIER EQ EXP COMMA . RECBODY 
+
+	IDENTIFIER	shift 57
+
+	RECBODY	goto 85
+
+	.	reduce by rule 30
+
+
+state 82:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -1641,7 +1768,7 @@ state 75:
 	.	reduce by rule 28
 
 
-state 76:
+state 83:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP . DO EXP 
 	EXP : EXP . EQ EXP 
@@ -1669,13 +1796,13 @@ state 76:
 	AND	shift 18
 	OR	shift 17
 	NTEQ	shift 16
-	DO	shift 78
+	DO	shift 86
 
 
 	.	error
 
 
-state 77:
+state 84:
 
 	EXP : IF EXP THEN EXP ELSE EXP .  (reduce by rule 8)
 	EXP : EXP . EQ EXP 
@@ -1708,7 +1835,16 @@ state 77:
 	.	reduce by rule 8
 
 
-state 78:
+state 85:
+
+	RECBODY : IDENTIFIER EQ EXP COMMA RECBODY .  (reduce by rule 31)
+
+
+
+	.	reduce by rule 31
+
+
+state 86:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO . EXP 
 
@@ -1723,13 +1859,13 @@ state 78:
 	LET	shift 4
 	NIL	shift 3
 
-	EXP	goto 79
+	EXP	goto 87
 	LVALUE	goto 1
 
 	.	error
 
 
-state 79:
+state 87:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP .  (reduce by rule 6)
 	EXP : EXP . EQ EXP 
@@ -1762,7 +1898,7 @@ state 79:
 	.	reduce by rule 6
 
 
-state 80:
+state 88:
 
 
 	EOF	accept
@@ -1770,5 +1906,5 @@ state 80:
 
 	.	error
 
-363 of 715 action table entries left after compaction
-65 goto table entries
+392 of 763 action table entries left after compaction
+69 goto table entries

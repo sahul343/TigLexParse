@@ -42,7 +42,9 @@ it is empty *)
     | DOT
     | NIL
     | OF
-    
+    | COMMA
+    | LBRACE
+    | RBRACE
 
 (* The nonterminals of the language *)
 %nonterm EXP     of Ast.Expr
@@ -51,6 +53,8 @@ it is empty *)
        | DECS	 of Ast.Dec list	
        | DEC	 of Ast.Dec
        | LVALUE  of Ast.Expr
+       | Record  of Ast.Expr
+       | RECBODY of (string * Ast.Expr) list
 %noshift EOF
 
 
@@ -85,7 +89,7 @@ EXPS    : (* empty *)          ( []                  )
 	
 EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	| WHILE EXP DO EXP  (Ast.While EXP1 EXP2)
-	| FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP  %prec FOR(Ast.For IDENTIFIER EXP1 EXP2 EXP)
+	| FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP  %prec FOR(Ast.For IDENTIFIER EXP1 EXP2 EXP3)
 	| IF EXP THEN EXP    	(Ast.Openif EXP1 EXP2 )
 	| IF EXP THEN EXP ELSE EXP (Ast.Closedif  EXP1 EXP2 EXP3)
 	| BREAK 		(Ast.BREAK	)
@@ -108,7 +112,10 @@ EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	| LVALUE		(LVALUE)
 	| NIL 			(Ast.NIL)
 	| IDENTIFIER LBRACK EXP RBRACK OF EXP %prec OF(Ast.Array(IDENTIFIER,EXP1,EXP2) )
-
+	| IDENTIFIER LBRACE RECBODY RBRACE 	(Ast.Record (IDENTIFIER, RECBODY))
+RECBODY : (*empty*)			([])
+	 |IDENTIFIER EQ EXP COMMA RECBODY ((IDENTIFIER, EXP)::RECBODY)
+	 |IDENTIFIER EQ EXP	((IDENTIFIER, EXP)::[])
 DECS    :(*empty*)			([])
 	|DEC DECS		(DEC :: DECS	)
 

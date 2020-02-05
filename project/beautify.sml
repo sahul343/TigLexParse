@@ -18,6 +18,13 @@ struct
     |indent s (Ast.Access(x,y) ) = (indent s x)^"["^(indent 0 y)^"]"
     |indent s (Ast.NIL ) = "nil"
     |indent s (Ast.Array (a,b,c) ) = a^"["^(indent s b)^"]"^" of "^(indent s c)
+    |indent s (Ast.Record (a, b) )  = 	let
+						fun printRecbody [] 	= "" 
+						|printRecbody ((a,b)::[]) = a^" = "^(indent 0 b)
+						|printRecbody ((a,b)::x )  = a^" = "^(indent 0 b)^","^(printRecbody x)		
+					in
+						a^"{ "^(printRecbody b)^" }\n"	
+					end					
 and
       indentdec s (Ast.VarDec(a, b)) = (put s)^"var "^a^" := "^(indent s b)
 and 
