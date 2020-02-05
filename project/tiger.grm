@@ -37,6 +37,9 @@ it is empty *)
     | END
     | VAR
     | UMINUS
+    | LBRACK
+    | RBRACK
+    | DOT
     
 
 (* The nonterminals of the language *)
@@ -45,6 +48,7 @@ it is empty *)
        | PROGRAM of Ast.Expr 
        | DECS	 of Ast.Dec list	
        | DEC	 of Ast.Dec
+       | LVALUE  of Ast.Lvalue
 %noshift EOF
 
 
@@ -74,7 +78,7 @@ EXPS    : (* empty *)          ( []                  )
 	| EXP 		       ( EXP :: []         )	      
 	| EXP SEMICOLON EXPS     ( EXP :: EXPS         )
 	
-EXP     : IDENTIFIER ASSIGN EXP %prec ASSIGN(Ast.assign (Ast.Var  IDENTIFIER) EXP)
+EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.assign (LVALUE, EXP))
 	| WHILE EXP DO EXP  (Ast.While EXP1 EXP2)
 	| FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP  %prec FOR(Ast.For (Ast.Var IDENTIFIER) EXP1 EXP2 EXP)
 	| IF EXP THEN EXP    	(Ast.Openif EXP1 EXP2 )
@@ -103,4 +107,6 @@ DECS    :(*empty*)			([])
 
 DEC	: VAR IDENTIFIER ASSIGN EXP (Ast.VarDec( (Ast.Var IDENTIFIER) , EXP) )
 
-
+LVALUE	: IDENTIFIER			(Ast.Var IDENTIFIER)
+	|LVALUE DOT IDENTIFIER		(Ast.Dot LVALUE (Ast.Var IDENTIFIER) )
+	|LVALUE LBRACK EXP RBRACK	(Ast.Box LVALUE EXP)
