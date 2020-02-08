@@ -56,7 +56,9 @@ it is empty *)
        | LVALUE  of Ast.Expr
        | Record  of Ast.Expr
        | RECBODY of (string * Ast.Expr) list
+       | RECBODYTAIL of (string * Ast.Expr) list
        | ARGUMENTS of Ast.Expr list
+       | EXPTAIL of Ast.Expr list
 %noshift EOF
 
 
@@ -85,9 +87,10 @@ left associative and the precedence increase as you go down this list.
 
 PROGRAM : EXP               ( EXP )
 
-EXPS    : (* empty *)          ( []                  )
-	| EXP 		       ( EXP :: []         )	      
-	| EXP SEMICOLON EXPS     ( EXP :: EXPS         )
+EXPS    : (* empty *)          ( []                  )	      
+	| EXP EXPTAIL		(EXP :: EXPTAIL	   )
+EXPTAIL	:(*empty*)		([]) 
+        |SEMICOLON EXP EXPTAIL	(EXP::EXPTAIL)
 	
 EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	| WHILE EXP DO EXP  (Ast.While EXP1 EXP2)
@@ -122,8 +125,9 @@ ARGUMENTS: (*empty*)			([])
 	 | EXP			(EXP::[])
 	 | EXP COMMA ARGUMENTS	(EXP::ARGUMENTS)
 RECBODY : (*empty*)			([])
-	 |IDENTIFIER EQ EXP COMMA RECBODY ((IDENTIFIER, EXP)::RECBODY)
-	 |IDENTIFIER EQ EXP	((IDENTIFIER, EXP)::[])
+	 |IDENTIFIER EQ EXP RECBODYTAIL ((IDENTIFIER, EXP)::RECBODYTAIL)
+RECBODYTAIL:(*empty*)				([])
+	|COMMA IDENTIFIER EQ EXP RECBODYTAIL	((IDENTIFIER, EXP)::[])
 DECS    :(*empty*)			([])
 	|DEC DECS		(DEC :: DECS	)
 

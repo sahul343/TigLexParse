@@ -67,5 +67,4 @@ struct
     fun For a b c d = FOR (a, b, c, d)
     fun Openif a b = OPENIF(a, b)
     fun Closedif a b c = CLOSEDIF (a, b, c)
-    fun MinusConst (Const x) = (Const (~x) )
 end

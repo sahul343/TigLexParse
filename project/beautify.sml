@@ -19,6 +19,9 @@ struct
     |indent s (Ast.NIL ) = "nil"
     |indent s (Ast.Array (a,b,c) ) = a^"["^(indent s b)^"]"^" of "^(indent s c)
     |indent s (Ast.Object a)       = (put s)^"new "^a
+    |indent s (Ast.FunCall (a, b) )       = (put s)^a^"("^(indentlist s b)^")"
+    |indent s (Ast.MethodCall(a, b, c))       = (put s)^"("^(indent s
+    a)^"."^b^(indentlist s c)^")"
     |indent s (Ast.Record (a, b) )  = 	let
 						fun printRecbody [] 	= "" 
 						|printRecbody ((a,b)::[]) = a^" = "^(indent 0 b)
@@ -33,6 +36,6 @@ and
      |indentdeclist s (x::xs) = (indentdec s x)^"\n"^(indentdeclist s xs)
 and 
       indentlist s []      = ""
-     |indentlist s (x::xs) = (indent s x)^"\n"^(indentlist s xs)
+     |indentlist s (x::xs) = (indent s x)^" "^(indentlist s xs)
      
 end
