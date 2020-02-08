@@ -58,6 +58,7 @@ it is empty *)
        | RECBODY of (string * Ast.Expr) list
        | RECBODYTAIL of (string * Ast.Expr) list
        | ARGUMENTS of Ast.Expr list
+       | ARGTAIL of Ast.Expr list
        | EXPTAIL of Ast.Expr list
 %noshift EOF
 
@@ -122,8 +123,9 @@ EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	| IDENTIFIER LPAREN ARGUMENTS RPAREN 	(Ast.FunCall (IDENTIFIER,ARGUMENTS) )
 	| LVALUE DOT IDENTIFIER LPAREN ARGUMENTS RPAREN    (Ast.MethodCall (LVALUE,IDENTIFIER,ARGUMENTS) )
 ARGUMENTS: (*empty*)			([])
-	 | EXP			(EXP::[])
-	 | EXP COMMA ARGUMENTS	(EXP::ARGUMENTS)
+	 | EXP	ARGTAIL	(EXP::ARGTAIL)
+ARGTAIL	 :			([])
+	| COMMA EXP ARGTAIL	(EXP::ARGTAIL)
 RECBODY : (*empty*)			([])
 	 |IDENTIFIER EQ EXP RECBODYTAIL ((IDENTIFIER, EXP)::RECBODYTAIL)
 RECBODYTAIL:(*empty*)				([])
