@@ -57,9 +57,11 @@ ws    = [\ \t];
 digit = [0-9]+;
 letter = [a-zA-Z];
 id  = [a-zA-Z]([a-z_A-Z1-9])*;
+comment = "/*"([^*]|\*+[^*/])*\*+"/";
 %%
 {ws}+         => ( lex() );
 \n({ws}*\n)*  => ( updateLine (newlineCount yytext) ;lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*));
+{comment}     => ( updateLine (newlineCount yytext) ;lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*));
 {digit}      => ( Tokens.CONST (toInt yytext, !lineRef, !lineRef) );
 "+"           => ( Tokens.PLUS  (!lineRef,!lineRef) );
 "-"           => ( Tokens.MINUS  (!lineRef,!lineRef) );
