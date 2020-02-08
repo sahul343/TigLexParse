@@ -2,6 +2,13 @@ signature Tiger_TOKENS =
 sig
 type ('a,'b) token
 type svalue
+val ARRAY:  'a * 'a -> (svalue,'a) token
+val TYPE:  'a * 'a -> (svalue,'a) token
+val COLON:  'a * 'a -> (svalue,'a) token
+val FUNCTION:  'a * 'a -> (svalue,'a) token
+val PRIMITIVE:  'a * 'a -> (svalue,'a) token
+val IMPORT:  'a * 'a -> (svalue,'a) token
+val QUOTE: (string) *  'a * 'a -> (svalue,'a) token
 val NEW:  'a * 'a -> (svalue,'a) token
 val RBRACE:  'a * 'a -> (svalue,'a) token
 val LBRACE:  'a * 'a -> (svalue,'a) token

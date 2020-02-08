@@ -32,7 +32,16 @@ struct
                  | Object   of string
                  | FunCall of string * Expr list
                  | MethodCall of Expr * string * Expr list 
+		 | Quote of string
 	and Dec = VarDec of string * Expr
+		 |Import of string
+		 |PrimitiveDec of string*Tyfields
+		 |FunctionDec of string*Tyfields*Expr
+		 |TypeDec of string*Ty
+	and Tyfields = Tyfield of (string*string) list
+	and Ty 	= NameTy of string
+		 |RecordTy of Tyfields
+		 |ArrayTy of string
          
 
 

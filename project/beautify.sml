@@ -6,6 +6,7 @@ struct
   fun put s = if (s = 0) then ("") else ("  "^(put (s-1)))
   fun indent s (Ast.Op(a, oper, b)) = "("^(indent 0 a)^(Ast.binOPtoString oper)^(indent 0 b)^")"
     |indent s (Ast.Const x) = (put s)^(Int.toString x)
+    |indent s (Ast.Quote x) = (put s)^x
     |indent s  (Ast.Assign (x, y) ) = (put s) ^(indent s x)^" := "^(indent s y)
     |indent s  (Ast.WHILE (x,y) )   = (put s)^blue^"while"^white^(indent s x)^blue^" do"^white^"\n"^(put (s+1))^(indent s y)
     |indent s  (Ast.FOR   (a, b, c, d) )= (put s)^blue^"for "^white^a^" := "^(indent 0 b)^blue^" to"^white^(indent s c)^blue^" do"^white^" \n"^(indent (s+1) d)
@@ -31,7 +32,23 @@ struct
 					end					
 and
       indentdec s (Ast.VarDec(a, b)) = (put s)^"var "^a^" := "^(indent s b)
+      |indentdec s (Ast.Import a) = (put s)^"import "^a^" \n "
+      |indentdec s (Ast.FunctionDec (a,b,c)) = (put s)^"function "^a^"( "^(indenttyfield b)^") = "^(indent s c)^" \n "
+      |indentdec s (Ast.PrimitiveDec (a,b)) = (put s)^"primitive "^a^"( "^(indenttyfield b)^") = "^" \n "
+      |indentdec s (Ast.TypeDec (a, b) ) = (put s)^"type "^a^" = "^(printty b)
 and 
+
+	indenttyfield (Ast.Tyfield a) = let
+						fun p [] = " "
+						|p ((a,b)::xs) = a^" : "^b^(p xs)
+					in
+						(p a)
+					end
+and
+	printty (Ast.NameTy a) 		= a
+	|printty (Ast.RecordTy a) 	= "{"^(indenttyfield a)^"}"
+	|printty (Ast.ArrayTy a) 	= "array of "^a
+and
       indentdeclist s []      = ""
      |indentdeclist s (x::xs) = (indentdec s x)^"\n"^(indentdeclist s xs)
 and 
