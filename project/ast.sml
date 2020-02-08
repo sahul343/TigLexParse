@@ -30,6 +30,8 @@ struct
 	         | Array of string*Expr*Expr
 		 | Record of string * (string*Expr) list
                  | Object   of string
+                 | FunCall of string * Expr list
+                 | MethodCall of Expr * string * Expr list 
 	and Dec = VarDec of string * Expr
          
 
