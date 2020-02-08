@@ -84,6 +84,7 @@ id  = [a-zA-Z]([a-z_A-Z1-9])*;
 "}"           => ( Tokens.RBRACE (!lineRef,!lineRef) );
 "."           => ( Tokens.DOT (!lineRef,!lineRef) );
 ","           => ( Tokens.COMMA (!lineRef,!lineRef) );
+"new"	      => ( Tokens.NEW	(!lineRef,!lineRef));
 "while"	      => ( Tokens.WHILE (!lineRef,!lineRef) );
 "do"	      => ( Tokens.DO (!lineRef,!lineRef) );
 "for"	      => ( Tokens.FOR (!lineRef,!lineRef) );

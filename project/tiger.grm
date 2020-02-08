@@ -45,6 +45,7 @@ it is empty *)
     | COMMA
     | LBRACE
     | RBRACE
+    | NEW
 
 (* The nonterminals of the language *)
 %nonterm EXP     of Ast.Expr
@@ -113,6 +114,7 @@ EXP     : LVALUE  ASSIGN EXP %prec ASSIGN(Ast.Assign (LVALUE, EXP))
 	| NIL 			(Ast.NIL)
 	| IDENTIFIER LBRACK EXP RBRACK OF EXP %prec OF(Ast.Array(IDENTIFIER,EXP1,EXP2) )
 	| IDENTIFIER LBRACE RECBODY RBRACE 	(Ast.Record (IDENTIFIER, RECBODY))
+	| NEW IDENTIFIER			(Ast.Object IDENTIFIER)
 RECBODY : (*empty*)			([])
 	 |IDENTIFIER EQ EXP COMMA RECBODY ((IDENTIFIER, EXP)::RECBODY)
 	 |IDENTIFIER EQ EXP	((IDENTIFIER, EXP)::[])

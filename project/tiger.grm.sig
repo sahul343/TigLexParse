@@ -2,6 +2,7 @@ signature Tiger_TOKENS =
 sig
 type ('a,'b) token
 type svalue
+val NEW:  'a * 'a -> (svalue,'a) token
 val RBRACE:  'a * 'a -> (svalue,'a) token
 val LBRACE:  'a * 'a -> (svalue,'a) token
 val COMMA:  'a * 'a -> (svalue,'a) token
