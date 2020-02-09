@@ -42,10 +42,14 @@ struct
 		 |FunctionDec of string*Tyfields*Expr
                  |FunctionDecType of string*Tyfields*string*Expr
 		 |TypeDec of string*Ty
+                 |ClassDec of string*Classfield list
+                 |ClassDecType of string*string*Classfield list
 	and Tyfields = Tyfield of (string*string) list
 	and Ty 	= NameTy of string
 		 |RecordTy of Tyfields
 		 |ArrayTy of string
+        and Classfield = MethodDec of string*Tyfields*Expr
+                        |MethodDecType of string*Tyfields*string*Expr 
          
   datatype Program = Foo of Expr
                     |Bar of Dec list

@@ -59,6 +59,11 @@ and
       indentlist s []      = ""
      |indentlist s (x::xs) = (indent s x)^" "^(indentlist s xs)
   and
+      classfield (Ast.MethodDec (a,b,c) ) = "method "^a^" ( "^(indenttyfield  b)^" ) = "^(indent 0 c)  
+     | classfield (Ast.MethodDecType (a,b,c,d) ) = "method "^a^"( "^(indenttyfield b)^" ) : "^c^" = "^(indent 0 d)
+        
+
+  and
   pretty s (Ast.Foo a)  = (indent s a)
  |pretty s (Ast.Bar a) = (indentdeclist s a)
 

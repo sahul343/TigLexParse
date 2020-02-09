@@ -2,6 +2,9 @@ signature Tiger_TOKENS =
 sig
 type ('a,'b) token
 type svalue
+val EXTENDS:  'a * 'a -> (svalue,'a) token
+val CLASS:  'a * 'a -> (svalue,'a) token
+val METHOD:  'a * 'a -> (svalue,'a) token
 val ARRAY:  'a * 'a -> (svalue,'a) token
 val TYPE:  'a * 'a -> (svalue,'a) token
 val COLON:  'a * 'a -> (svalue,'a) token
