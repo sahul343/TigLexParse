@@ -62,7 +62,7 @@ and
      |indentdeclist s (x::xs) = (indentdec s x)^"\n"^(indentdeclist s xs)
 and 
       indentlist s []      = ""
-     |indentlist s (x::xs) = (indent s x)^" "^(indentlist s xs)
+     |indentlist s (x::xs) = (indent s x)^"\n"^(indentlist s xs)
   and
       classfield s (Ast.MethodDec (a,b,c) ) = (put s)^"method "^a^" ( "^(indenttyfield  b)^" ) = "^(indent 0 c)  
      | classfield s (Ast.MethodDecType (a,b,c,d) ) = (put s)^"method "^a^"( "^(indenttyfield b)^" ) : "^c^" = "^(indent 0 d)

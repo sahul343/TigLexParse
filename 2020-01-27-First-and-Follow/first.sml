@@ -31,6 +31,17 @@ Use the above structure to create a set of rhs's
 
 structure RHSSet = RedBlackSetFn (RHS_KEY)
 
+
+structure First_set : ORD_KEY = struct
+type ord_key = AtomSet.set
+fun compare = RHSSet.compare
+end
+
+
+structure FirstMap = RedBlackMapFn(First_set)
+
+
+
 type Productions = RHSSet.set
 
 (* The rules of the grammar are a dictionary whose keys are the symbol
@@ -54,7 +65,9 @@ fun first_helper g  currfirst= let
 
 
 fun first g = let 
-		intialise = (* intialise termianl first set as itself and 
+		val intialise = FirstMap.empty()
+		val insert =map  (fn x => FirstMap.insert(x,))   (#first g)
+	(* intialise termianl first set as itself and 
 				non-terminals as empty set *)
 	      in 
 		 	first_helper g intialise

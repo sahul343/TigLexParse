@@ -49,9 +49,7 @@ all: rp ec
 # refuse to build if such a file exists in the directory. A phony
 # target is a target that is built no matter what happens. In this
 # case we want all, clean and test to be phony targets.
-
 PHONY: all clean test
-
 clean:
 	rm -f *.lex.sml rp
 	rm -f *.grm.sml *.grm.desc *.grm.sig ec
