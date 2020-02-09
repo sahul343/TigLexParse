@@ -1189,7 +1189,7 @@ let fun continue() = lex() in
  end
 | 2 => ((*#line 62.19 "tiger.lex"*) lex() (*#line 1190.1 "tiger.lex.sml"*)
 )
-| 204 => let val yytext=yymktext() in (*#line 114.19 "tiger.lex"*)Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) (*#line 1192.1 "tiger.lex.sml"*)
+| 204 => let val yytext=yymktext() in (*#line 114.19 "tiger.lex"*)Tokens.ID (yytext,!lineRef, !lineRef) (*#line 1192.1 "tiger.lex.sml"*)
  end
 | 23 => ((*#line 66.21 "tiger.lex"*) Tokens.NIL  (!lineRef,!lineRef) (*#line 1194.1 "tiger.lex.sml"*)
 )

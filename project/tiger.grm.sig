@@ -27,7 +27,7 @@ val END:  'a * 'a -> (svalue,'a) token
 val IN:  'a * 'a -> (svalue,'a) token
 val LET:  'a * 'a -> (svalue,'a) token
 val SEMICOLON:  'a * 'a -> (svalue,'a) token
-val IDENTIFIER: (string) *  'a * 'a -> (svalue,'a) token
+val ID: (string) *  'a * 'a -> (svalue,'a) token
 val BREAK:  'a * 'a -> (svalue,'a) token
 val TO:  'a * 'a -> (svalue,'a) token
 val FOR:  'a * 'a -> (svalue,'a) token

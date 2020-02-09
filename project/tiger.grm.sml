@@ -566,7 +566,7 @@ type pos = int
 type arg = unit
 structure MlyValue = 
 struct
-datatype svalue = VOID | ntVOID of unit | QUOTE of  (string) | IDENTIFIER of  (string) | CONST of  (int) | VARDEC of  (Ast.Vdec) | CLASSFIELDS of  (Ast.Classfield list) | CLASSFIELD of  (Ast.Classfield) | TYFIELDS of  ( ( string*string )  list) | TYFIELDSTAIL of  ( ( string*string )  list) | EXPTAIL of  (Ast.Expr list) | ARGTAIL of  (Ast.Expr list) | ARGUMENTS of  (Ast.Expr list) | RECBODYTAIL of  ( ( string * Ast.Expr )  list) | RECBODY of  ( ( string * Ast.Expr )  list) | Record of  (Ast.Expr) | LVALUE of  (Ast.Expr) | DEC of  (Ast.Dec) | DECS of  (Ast.Dec list) | PROGRAM of  (Ast.Program) | EXPS of  (Ast.Expr list) | EXP of  (Ast.Expr)
+datatype svalue = VOID | ntVOID of unit | QUOTE of  (string) | ID of  (string) | CONST of  (int) | VARDEC of  (Ast.Vdec) | CLASSFIELDS of  (Ast.Classfield list) | CLASSFIELD of  (Ast.Classfield) | TYFIELDS of  ( ( string*string )  list) | TYFIELDSTAIL of  ( ( string*string )  list) | EXPTAIL of  (Ast.Expr list) | ARGTAIL of  (Ast.Expr list) | ARGUMENTS of  (Ast.Expr list) | RECBODYTAIL of  ( ( string * Ast.Expr )  list) | RECBODY of  ( ( string * Ast.Expr )  list) | Record of  (Ast.Expr) | LVALUE of  (Ast.Expr) | DEC of  (Ast.Dec) | DECS of  (Ast.Dec list) | PROGRAM of  (Ast.Program) | EXPS of  (Ast.Expr list) | EXP of  (Ast.Expr)
 end
 type svalue = MlyValue.svalue
 type result = Ast.Program
@@ -609,7 +609,7 @@ fn (T 0) => "CONST"
   | (T 23) => "FOR"
   | (T 24) => "TO"
   | (T 25) => "BREAK"
-  | (T 26) => "IDENTIFIER"
+  | (T 26) => "ID"
   | (T 27) => "SEMICOLON"
   | (T 28) => "LET"
   | (T 29) => "IN"
@@ -682,7 +682,7 @@ end
 )
  in ( LrTable.NT 0, ( result, WHILE1left, EXP2right), rest671)
 end
-|  ( 8, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FOR1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 113.55 "tiger.grm"*)Ast.For IDENTIFIER EXP1 EXP2 EXP3(*#line 685.1 "tiger.grm.sml"*)
+|  ( 8, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, FOR1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 113.47 "tiger.grm"*)Ast.For ID EXP1 EXP2 EXP3(*#line 685.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, FOR1left, EXP3right), rest671)
 end
@@ -770,23 +770,23 @@ end
 )
  in ( LrTable.NT 0, ( result, NIL1left, NIL1right), rest671)
 end
-|  ( 30, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 135.49 "tiger.grm"*)Ast.Array(IDENTIFIER,EXP1,EXP2) (*#line 773.1 "tiger.grm.sml"*)
+|  ( 30, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.ID ID, ID1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 135.41 "tiger.grm"*)Ast.Array(ID,EXP1,EXP2) (*#line 773.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 0, ( result, IDENTIFIER1left, EXP2right), rest671)
+ in ( LrTable.NT 0, ( result, ID1left, EXP2right), rest671)
 end
-|  ( 31, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.RECBODY RECBODY, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 136.39 "tiger.grm"*)Ast.Record (IDENTIFIER, RECBODY)(*#line 777.1 "tiger.grm.sml"*)
+|  ( 31, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.RECBODY RECBODY, _, _)) :: _ :: ( _, ( MlyValue.ID ID, ID1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 136.31 "tiger.grm"*)Ast.Record (ID, RECBODY)(*#line 777.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 0, ( result, IDENTIFIER1left, RBRACE1right), rest671)
+ in ( LrTable.NT 0, ( result, ID1left, RBRACE1right), rest671)
 end
-|  ( 32, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: ( _, ( _, NEW1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 137.22 "tiger.grm"*)Ast.Object IDENTIFIER(*#line 781.1 "tiger.grm.sml"*)
+|  ( 32, ( ( _, ( MlyValue.ID ID, _, ID1right)) :: ( _, ( _, NEW1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 137.14 "tiger.grm"*)Ast.Object ID(*#line 781.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 0, ( result, NEW1left, IDENTIFIER1right), rest671)
+ in ( LrTable.NT 0, ( result, NEW1left, ID1right), rest671)
 end
-|  ( 33, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 138.41 "tiger.grm"*)Ast.FunCall (IDENTIFIER,ARGUMENTS) (*#line 785.1 "tiger.grm.sml"*)
+|  ( 33, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.ID ID, ID1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 138.33 "tiger.grm"*)Ast.FunCall (ID,ARGUMENTS) (*#line 785.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 0, ( result, IDENTIFIER1left, RPAREN1right), rest671)
+ in ( LrTable.NT 0, ( result, ID1left, RPAREN1right), rest671)
 end
-|  ( 34, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 139.54 "tiger.grm"*)Ast.MethodCall (LVALUE,IDENTIFIER,ARGUMENTS) (*#line 789.1 "tiger.grm.sml"*)
+|  ( 34, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 139.46 "tiger.grm"*)Ast.MethodCall (LVALUE,ID,ARGUMENTS) (*#line 789.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LVALUE1left, RPAREN1right), rest671)
 end
@@ -814,15 +814,15 @@ end
 )
  in ( LrTable.NT 7, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 41, ( ( _, ( MlyValue.RECBODYTAIL RECBODYTAIL, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.RECBODY ((*#line 146.35 "tiger.grm"*)(IDENTIFIER, EXP)::RECBODYTAIL(*#line 817.1 "tiger.grm.sml"*)
+|  ( 41, ( ( _, ( MlyValue.RECBODYTAIL RECBODYTAIL, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.ID ID, ID1left, _)) :: rest671)) => let val  result = MlyValue.RECBODY ((*#line 146.27 "tiger.grm"*)(ID, EXP)::RECBODYTAIL(*#line 817.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 7, ( result, IDENTIFIER1left, RECBODYTAIL1right), rest671)
+ in ( LrTable.NT 7, ( result, ID1left, RECBODYTAIL1right), rest671)
 end
 |  ( 42, ( rest671)) => let val  result = MlyValue.RECBODYTAIL ((*#line 147.27 "tiger.grm"*)[](*#line 821.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 8, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 43, ( ( _, ( _, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.RECBODYTAIL ((*#line 148.40 "tiger.grm"*)(IDENTIFIER, EXP)::[](*#line 825.1 "tiger.grm.sml"*)
+|  ( 43, ( ( _, ( _, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.RECBODYTAIL ((*#line 148.32 "tiger.grm"*)(ID, EXP)::[](*#line 825.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 8, ( result, COMMA1left, RECBODYTAIL1right), rest671)
 end
@@ -842,47 +842,47 @@ end
 )
  in ( LrTable.NT 4, ( result, IMPORT1left, QUOTE1right), rest671)
 end
-|  ( 48, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 155.50 "tiger.grm"*)Ast.PrimitiveDec (IDENTIFIER,(Ast.Tyfield TYFIELDS) ) (*#line 845.1 "tiger.grm.sml"*)
+|  ( 48, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 155.42 "tiger.grm"*)Ast.PrimitiveDec (ID,(Ast.Tyfield TYFIELDS) ) (*#line 845.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, PRIMITIVE1left, RPAREN1right), rest671)
 end
-|  ( 49, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 156.66 "tiger.grm"*)Ast.PrimitiveDecType (IDENTIFIER1,(Ast.Tyfield TYFIELDS),IDENTIFIER2 ) (*#line 849.1 "tiger.grm.sml"*)
+|  ( 49, ( ( _, ( MlyValue.ID ID2, _, ID2right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 156.50 "tiger.grm"*)Ast.PrimitiveDecType (ID1,(Ast.Tyfield TYFIELDS),ID2 ) (*#line 849.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 4, ( result, PRIMITIVE1left, IDENTIFIER2right), rest671)
+ in ( LrTable.NT 4, ( result, PRIMITIVE1left, ID2right), rest671)
 end
-|  ( 50, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 157.56 "tiger.grm"*)Ast.FunctionDec(IDENTIFIER,(Ast.Tyfield TYFIELDS),EXP) (*#line 853.1 "tiger.grm.sml"*)
-)
- in ( LrTable.NT 4, ( result, FUNCTION1left, EXP1right), rest671)
-end
-|  ( 51, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 158.75 "tiger.grm"*)Ast.FunctionDecType(IDENTIFIER1,(Ast.Tyfield TYFIELDS),IDENTIFIER2,EXP) (*#line 857.1 "tiger.grm.sml"*)
+|  ( 50, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 157.48 "tiger.grm"*)Ast.FunctionDec(ID,(Ast.Tyfield TYFIELDS),EXP) (*#line 853.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, FUNCTION1left, EXP1right), rest671)
 end
-|  ( 52, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 159.38 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.NameTy IDENTIFIER2) )(*#line 861.1 "tiger.grm.sml"*)
+|  ( 51, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.ID ID2, _, _)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 158.59 "tiger.grm"*)Ast.FunctionDecType(ID1,(Ast.Tyfield TYFIELDS),ID2,EXP) (*#line 857.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 4, ( result, TYPE1left, IDENTIFIER2right), rest671)
+ in ( LrTable.NT 4, ( result, FUNCTION1left, EXP1right), rest671)
 end
-|  ( 53, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 160.48 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.RecordTy (Ast.Tyfield TYFIELDS) ) )(*#line 865.1 "tiger.grm.sml"*)
+|  ( 52, ( ( _, ( MlyValue.ID ID2, _, ID2right)) :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 159.22 "tiger.grm"*)Ast.TypeDec (ID1,(Ast.NameTy ID2) )(*#line 861.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 4, ( result, TYPE1left, RBRACE1right), rest671)
+ in ( LrTable.NT 4, ( result, TYPE1left, ID2right), rest671)
 end
-|  ( 54, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 161.45 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.ArrayTy IDENTIFIER2) ) (*#line 869.1 "tiger.grm.sml"*)
-)
- in ( LrTable.NT 4, ( result, TYPE1left, IDENTIFIER2right), rest671)
-end
-|  ( 55, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 162.75 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.ClassDefCanType(IDENTIFIER2, CLASSFIELDS) ) ) (*#line 873.1 "tiger.grm.sml"*)
+|  ( 53, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 160.40 "tiger.grm"*)Ast.TypeDec (ID1,(Ast.RecordTy (Ast.Tyfield TYFIELDS) ) )(*#line 865.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, TYPE1left, RBRACE1right), rest671)
 end
-|  ( 56, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 163.55 "tiger.grm"*)Ast.TypeDec (IDENTIFIER,(Ast.ClassDefCan CLASSFIELDS) ) (*#line 877.1 "tiger.grm.sml"*)
+|  ( 54, ( ( _, ( MlyValue.ID ID2, _, ID2right)) :: _ :: _ :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 161.29 "tiger.grm"*)Ast.TypeDec (ID1,(Ast.ArrayTy ID2) ) (*#line 869.1 "tiger.grm.sml"*)
+)
+ in ( LrTable.NT 4, ( result, TYPE1left, ID2right), rest671)
+end
+|  ( 55, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID2, _, _)) :: _ :: _ :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 162.59 "tiger.grm"*)Ast.TypeDec (ID1,(Ast.ClassDefCanType(ID2, CLASSFIELDS) ) ) (*#line 873.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, TYPE1left, RBRACE1right), rest671)
 end
-|  ( 57, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, CLASS1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 164.48 "tiger.grm"*)Ast.ClassDec (IDENTIFIER,CLASSFIELDS)(*#line 881.1 "tiger.grm.sml"*)
+|  ( 56, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: _ :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 163.47 "tiger.grm"*)Ast.TypeDec (ID,(Ast.ClassDefCan CLASSFIELDS) ) (*#line 877.1 "tiger.grm.sml"*)
+)
+ in ( LrTable.NT 4, ( result, TYPE1left, RBRACE1right), rest671)
+end
+|  ( 57, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, CLASS1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 164.40 "tiger.grm"*)Ast.ClassDec (ID,CLASSFIELDS)(*#line 881.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, CLASS1left, RBRACE1right), rest671)
 end
-|  ( 58, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, CLASS1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 165.66 "tiger.grm"*)Ast.ClassDecType (IDENTIFIER1,IDENTIFIER2,CLASSFIELDS)(*#line 885.1 "tiger.grm.sml"*)
+|  ( 58, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.CLASSFIELDS CLASSFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID2, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, CLASS1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 165.50 "tiger.grm"*)Ast.ClassDecType (ID1,ID2,CLASSFIELDS)(*#line 885.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, CLASS1left, RBRACE1right), rest671)
 end
@@ -890,33 +890,33 @@ end
 )
  in ( LrTable.NT 13, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 60, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDS ((*#line 168.45 "tiger.grm"*)(IDENTIFIER1,IDENTIFIER2)::TYFIELDSTAIL(*#line 893.1 "tiger.grm.sml"*)
+|  ( 60, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.ID ID2, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, ID1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDS ((*#line 168.29 "tiger.grm"*)(ID1,ID2)::TYFIELDSTAIL(*#line 893.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 13, ( result, IDENTIFIER1left, TYFIELDSTAIL1right), rest671)
+ in ( LrTable.NT 13, ( result, ID1left, TYFIELDSTAIL1right), rest671)
 end
 |  ( 61, ( rest671)) => let val  result = MlyValue.TYFIELDSTAIL ((*#line 169.27 "tiger.grm"*)[](*#line 897.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 12, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 62, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDSTAIL ((*#line 170.50 "tiger.grm"*)(IDENTIFIER1,IDENTIFIER2)::TYFIELDSTAIL(*#line 901.1 "tiger.grm.sml"*)
+|  ( 62, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.ID ID2, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDSTAIL ((*#line 170.34 "tiger.grm"*)(ID1,ID2)::TYFIELDSTAIL(*#line 901.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 12, ( result, COMMA1left, TYFIELDSTAIL1right), rest671)
 end
-|  ( 63, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, IDENTIFIER1right)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 172.24 "tiger.grm"*)Ast.Name IDENTIFIER(*#line 905.1 "tiger.grm.sml"*)
+|  ( 63, ( ( _, ( MlyValue.ID ID, ID1left, ID1right)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 172.16 "tiger.grm"*)Ast.Name ID(*#line 905.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 5, ( result, IDENTIFIER1left, IDENTIFIER1right), rest671)
+ in ( LrTable.NT 5, ( result, ID1left, ID1right), rest671)
 end
-|  ( 64, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 173.27 "tiger.grm"*)Ast.Method ( LVALUE, IDENTIFIER )(*#line 909.1 "tiger.grm.sml"*)
+|  ( 64, ( ( _, ( MlyValue.ID ID, _, ID1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 173.19 "tiger.grm"*)Ast.Method ( LVALUE, ID )(*#line 909.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 5, ( result, LVALUE1left, IDENTIFIER1right), rest671)
+ in ( LrTable.NT 5, ( result, LVALUE1left, ID1right), rest671)
 end
 |  ( 65, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 174.29 "tiger.grm"*)Ast.Access( LVALUE, EXP)(*#line 913.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, LVALUE1left, RBRACK1right), rest671)
 end
-|  ( 66, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 175.33 "tiger.grm"*)Ast.Access( (Ast.Name IDENTIFIER), EXP)(*#line 917.1 "tiger.grm.sml"*)
+|  ( 66, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.ID ID, ID1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 175.25 "tiger.grm"*)Ast.Access( (Ast.Name ID), EXP)(*#line 917.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 5, ( result, IDENTIFIER1left, RBRACK1right), rest671)
+ in ( LrTable.NT 5, ( result, ID1left, RBRACK1right), rest671)
 end
 |  ( 67, ( rest671)) => let val  result = MlyValue.CLASSFIELDS ((*#line 177.27 "tiger.grm"*)[](*#line 921.1 "tiger.grm.sml"*)
 )
@@ -926,11 +926,11 @@ end
 )
  in ( LrTable.NT 15, ( result, CLASSFIELD1left, CLASSFIELDS1right), rest671)
 end
-|  ( 69, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, METHOD1left, _)) :: rest671)) => let val  result = MlyValue.CLASSFIELD ((*#line 179.63 "tiger.grm"*)Ast.MethodDec (IDENTIFIER,(Ast.Tyfield TYFIELDS),EXP) (*#line 929.1 "tiger.grm.sml"*)
+|  ( 69, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, METHOD1left, _)) :: rest671)) => let val  result = MlyValue.CLASSFIELD ((*#line 179.55 "tiger.grm"*)Ast.MethodDec (ID,(Ast.Tyfield TYFIELDS),EXP) (*#line 929.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 14, ( result, METHOD1left, EXP1right), rest671)
 end
-|  ( 70, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, METHOD1left, _)) :: rest671)) => let val  result = MlyValue.CLASSFIELD ((*#line 180.71 "tiger.grm"*)Ast.MethodDecType (IDENTIFIER1,(Ast.Tyfield TYFIELDS),IDENTIFIER2,EXP) (*#line 933.1 "tiger.grm.sml"*)
+|  ( 70, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.ID ID2, _, _)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, METHOD1left, _)) :: rest671)) => let val  result = MlyValue.CLASSFIELD ((*#line 180.55 "tiger.grm"*)Ast.MethodDecType (ID1,(Ast.Tyfield TYFIELDS),ID2,EXP) (*#line 933.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 14, ( result, METHOD1left, EXP1right), rest671)
 end
@@ -938,11 +938,11 @@ end
 )
  in ( LrTable.NT 14, ( result, VARDEC1left, VARDEC1right), rest671)
 end
-|  ( 72, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.VARDEC ((*#line 182.42 "tiger.grm"*)Ast.VarDec(IDENTIFIER, EXP) (*#line 941.1 "tiger.grm.sml"*)
+|  ( 72, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.ID ID, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.VARDEC ((*#line 182.34 "tiger.grm"*)Ast.VarDec(ID, EXP) (*#line 941.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 16, ( result, VAR1left, EXP1right), rest671)
 end
-|  ( 73, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.VARDEC ((*#line 183.51 "tiger.grm"*)Ast.VarDecType(IDENTIFIER1, IDENTIFIER2, EXP) (*#line 945.1 "tiger.grm.sml"*)
+|  ( 73, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.ID ID2, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.VARDEC ((*#line 183.35 "tiger.grm"*)Ast.VarDecType(ID1, ID2, EXP) (*#line 945.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 16, ( result, VAR1left, EXP1right), rest671)
 end
@@ -984,7 +984,7 @@ fun DO (p1,p2) = Token.TOKEN (ParserData.LrTable.T 22,(ParserData.MlyValue.VOID,
 fun FOR (p1,p2) = Token.TOKEN (ParserData.LrTable.T 23,(ParserData.MlyValue.VOID,p1,p2))
 fun TO (p1,p2) = Token.TOKEN (ParserData.LrTable.T 24,(ParserData.MlyValue.VOID,p1,p2))
 fun BREAK (p1,p2) = Token.TOKEN (ParserData.LrTable.T 25,(ParserData.MlyValue.VOID,p1,p2))
-fun IDENTIFIER (i,p1,p2) = Token.TOKEN (ParserData.LrTable.T 26,(ParserData.MlyValue.IDENTIFIER i,p1,p2))
+fun ID (i,p1,p2) = Token.TOKEN (ParserData.LrTable.T 26,(ParserData.MlyValue.ID i,p1,p2))
 fun SEMICOLON (p1,p2) = Token.TOKEN (ParserData.LrTable.T 27,(ParserData.MlyValue.VOID,p1,p2))
 fun LET (p1,p2) = Token.TOKEN (ParserData.LrTable.T 28,(ParserData.MlyValue.VOID,p1,p2))
 fun IN (p1,p2) = Token.TOKEN (ParserData.LrTable.T 29,(ParserData.MlyValue.VOID,p1,p2))

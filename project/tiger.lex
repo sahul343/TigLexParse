@@ -111,4 +111,4 @@ comment = "/*"([^*]|\*+[^*/])*\*+"/";
 "class"      => ( Tokens.CLASS (!lineRef,!lineRef) );
 "extends"      => ( Tokens.EXTENDS (!lineRef,!lineRef) );
 "\"".*"\""     => ( Tokens.QUOTE (yytext,!lineRef,!lineRef) );
-{id}|"_main"  => (Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) );
+{id}|"_main"  => (Tokens.ID (yytext,!lineRef, !lineRef) );
