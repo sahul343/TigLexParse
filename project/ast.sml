@@ -43,7 +43,8 @@ struct
 		 |RecordTy of Tyfields
 		 |ArrayTy of string
          
-
+  datatype Program = Foo of Expr
+                    |Bar of Dec list
 
     fun binOPtoString x = case x of Mul => "*"
 				 |  Divide  => "/"

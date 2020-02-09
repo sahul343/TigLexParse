@@ -56,7 +56,7 @@ it is empty *)
 (* The nonterminals of the language *)
 %nonterm EXP     of Ast.Expr
        | EXPS    of Ast.Expr list
-       | PROGRAM of Ast.Expr 
+       | PROGRAM of Ast.Program 
        | DECS	 of Ast.Dec list	
        | DEC	 of Ast.Dec
        | LVALUE  of Ast.Expr
@@ -94,7 +94,8 @@ left associative and the precedence increase as you go down this list.
 
 %%
 
-PROGRAM : EXP               ( EXP )
+PROGRAM : EXP               (Ast.Foo EXP )
+	| DECS		    (Ast.Bar DECS)
 
 EXPS    : (* empty *)          ( []                  )	      
 	| EXP EXPTAIL		(EXP :: EXPTAIL	   )

@@ -54,5 +54,9 @@ and
 and 
       indentlist s []      = ""
      |indentlist s (x::xs) = (indent s x)^" "^(indentlist s xs)
+  and
+  pretty s (Ast.Foo a)  = (indent s a)
+ |pretty s (Ast.Bar a) = (indentdeclist s a)
+
      
 end
