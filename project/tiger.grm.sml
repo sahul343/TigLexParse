@@ -22,7 +22,6 @@ val table=let val actionRows =
 \\001\000\001\000\023\000\003\000\022\000\016\000\021\000\020\000\020\000\
 \\022\000\019\000\024\000\018\000\026\000\017\000\027\000\016\000\
 \\029\000\015\000\037\000\013\000\042\000\012\000\043\000\011\000\000\000\
-\\001\000\001\000\054\000\000\000\
 \\001\000\002\000\039\000\003\000\038\000\004\000\037\000\005\000\036\000\
 \\006\000\035\000\007\000\034\000\008\000\033\000\009\000\032\000\
 \\010\000\031\000\011\000\030\000\012\000\029\000\013\000\028\000\
@@ -230,44 +229,44 @@ val table=let val actionRows =
 \\216\000\038\000\115\000\000\000\
 \"
 val actionRowNumbers =
-"\091\000\075\000\092\000\054\000\
-\\053\000\029\000\030\000\031\000\
-\\050\000\082\000\032\000\076\000\
-\\033\000\092\000\108\000\064\000\
-\\034\000\000\000\000\000\000\000\
-\\001\000\072\000\035\000\000\000\
-\\000\000\093\000\000\000\000\000\
+"\090\000\074\000\091\000\053\000\
+\\052\000\028\000\029\000\030\000\
+\\049\000\081\000\031\000\075\000\
+\\032\000\091\000\107\000\063\000\
+\\033\000\000\000\000\000\000\000\
+\\000\000\071\000\034\000\000\000\
+\\000\000\092\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\
-\\000\000\000\000\015\000\023\000\
-\\024\000\096\000\079\000\021\000\
-\\045\000\087\000\000\000\083\000\
-\\022\000\004\000\003\000\002\000\
-\\074\000\109\000\007\000\059\000\
-\\010\000\067\000\066\000\014\000\
-\\013\000\011\000\009\000\012\000\
-\\069\000\068\000\071\000\070\000\
-\\036\000\104\000\104\000\000\000\
-\\055\000\048\000\016\000\008\000\
-\\025\000\085\000\000\000\000\000\
-\\073\000\000\000\083\000\110\000\
-\\047\000\104\000\101\000\026\000\
-\\051\000\027\000\094\000\046\000\
-\\057\000\078\000\000\000\111\000\
-\\080\000\084\000\000\000\006\000\
-\\060\000\062\000\028\000\037\000\
-\\049\000\017\000\038\000\097\000\
-\\039\000\065\000\056\000\000\000\
-\\089\000\000\000\085\000\000\000\
-\\000\000\081\000\103\000\102\000\
-\\040\000\000\000\106\000\041\000\
-\\095\000\057\000\088\000\042\000\
-\\077\000\086\000\005\000\063\000\
-\\018\000\099\000\105\000\043\000\
-\\098\000\058\000\019\000\000\000\
-\\000\000\052\000\000\000\061\000\
-\\100\000\044\000\089\000\106\000\
-\\090\000\107\000\020\000"
+\\000\000\000\000\014\000\022\000\
+\\023\000\095\000\078\000\020\000\
+\\044\000\086\000\000\000\082\000\
+\\021\000\003\000\002\000\001\000\
+\\073\000\108\000\006\000\058\000\
+\\009\000\066\000\065\000\013\000\
+\\012\000\010\000\008\000\011\000\
+\\068\000\067\000\070\000\069\000\
+\\035\000\103\000\103\000\000\000\
+\\054\000\047\000\015\000\007\000\
+\\024\000\084\000\000\000\000\000\
+\\072\000\000\000\082\000\109\000\
+\\046\000\103\000\100\000\025\000\
+\\050\000\026\000\093\000\045\000\
+\\056\000\077\000\000\000\110\000\
+\\079\000\083\000\000\000\005\000\
+\\059\000\061\000\027\000\036\000\
+\\048\000\016\000\037\000\096\000\
+\\038\000\064\000\055\000\000\000\
+\\088\000\000\000\084\000\000\000\
+\\000\000\080\000\102\000\101\000\
+\\039\000\000\000\105\000\040\000\
+\\094\000\056\000\087\000\041\000\
+\\076\000\085\000\004\000\062\000\
+\\017\000\098\000\104\000\042\000\
+\\097\000\057\000\018\000\000\000\
+\\000\000\051\000\000\000\060\000\
+\\099\000\043\000\088\000\105\000\
+\\089\000\106\000\019\000"
 val gotoT =
 "\
 \\001\000\004\000\003\000\150\000\004\000\003\000\005\000\002\000\
@@ -291,7 +290,7 @@ val gotoT =
 \\001\000\049\000\006\000\001\000\000\000\
 \\001\000\050\000\006\000\001\000\000\000\
 \\001\000\051\000\006\000\001\000\000\000\
-\\000\000\
+\\001\000\052\000\006\000\001\000\000\000\
 \\000\000\
 \\000\000\
 \\001\000\054\000\006\000\001\000\000\000\
@@ -567,259 +566,259 @@ val actions =
 fn (i392,defaultPos,stack,
     (()):arg) =>
 case (i392,stack)
-of  ( 0, ( ( _, ( MlyValue.EXP EXP, EXP1left, EXP1right)) :: rest671)) => let val  result = MlyValue.PROGRAM ((*#line 97.30 "tiger.grm"*)Ast.Foo EXP (*#line 570.1 "tiger.grm.sml"*)
+of  ( 0, ( ( _, ( MlyValue.EXP EXP, EXP1left, EXP1right)) :: rest671)) => let val  result = MlyValue.PROGRAM ((*#line 97.30 "tiger.grm"*)Ast.Foo EXP (*#line 569.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 2, ( result, EXP1left, EXP1right), rest671)
 end
-|  ( 1, ( ( _, ( MlyValue.DECS DECS, DECS1left, DECS1right)) :: rest671)) => let val  result = MlyValue.PROGRAM ((*#line 98.15 "tiger.grm"*)Ast.Bar DECS(*#line 574.1 "tiger.grm.sml"*)
+|  ( 1, ( ( _, ( MlyValue.DECS DECS, DECS1left, DECS1right)) :: rest671)) => let val  result = MlyValue.PROGRAM ((*#line 98.15 "tiger.grm"*)Ast.Bar DECS(*#line 573.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 2, ( result, DECS1left, DECS1right), rest671)
 end
-|  ( 2, ( rest671)) => let val  result = MlyValue.EXPS ((*#line 100.33 "tiger.grm"*) []                  (*#line 578.1 "tiger.grm.sml"*)
+|  ( 2, ( rest671)) => let val  result = MlyValue.EXPS ((*#line 100.33 "tiger.grm"*) []                  (*#line 577.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 1, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 3, ( ( _, ( MlyValue.EXPTAIL EXPTAIL, _, EXPTAIL1right)) :: ( _, ( MlyValue.EXP EXP, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXPS ((*#line 101.18 "tiger.grm"*)EXP :: EXPTAIL	   (*#line 582.1 "tiger.grm.sml"*)
+|  ( 3, ( ( _, ( MlyValue.EXPTAIL EXPTAIL, _, EXPTAIL1right)) :: ( _, ( MlyValue.EXP EXP, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXPS ((*#line 101.18 "tiger.grm"*)EXP :: EXPTAIL	   (*#line 581.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 1, ( result, EXP1left, EXPTAIL1right), rest671)
 end
-|  ( 4, ( rest671)) => let val  result = MlyValue.EXPTAIL ((*#line 102.22 "tiger.grm"*)[](*#line 586.1 "tiger.grm.sml"*)
+|  ( 4, ( rest671)) => let val  result = MlyValue.EXPTAIL ((*#line 102.22 "tiger.grm"*)[](*#line 585.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 11, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 5, ( ( _, ( MlyValue.EXPTAIL EXPTAIL, _, EXPTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, SEMICOLON1left, _)) :: rest671)) => let val  result = MlyValue.EXPTAIL ((*#line 103.33 "tiger.grm"*)EXP::EXPTAIL(*#line 590.1 "tiger.grm.sml"*)
+|  ( 5, ( ( _, ( MlyValue.EXPTAIL EXPTAIL, _, EXPTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, SEMICOLON1left, _)) :: rest671)) => let val  result = MlyValue.EXPTAIL ((*#line 103.33 "tiger.grm"*)EXP::EXPTAIL(*#line 589.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 11, ( result, SEMICOLON1left, EXPTAIL1right), rest671)
 end
-|  ( 6, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 105.43 "tiger.grm"*)Ast.Assign (LVALUE, EXP)(*#line 594.1 "tiger.grm.sml"*)
+|  ( 6, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 105.43 "tiger.grm"*)Ast.Assign (LVALUE, EXP)(*#line 593.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LVALUE1left, EXP1right), rest671)
 end
-|  ( 7, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, WHILE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 106.23 "tiger.grm"*)Ast.While EXP1 EXP2(*#line 598.1 "tiger.grm.sml"*)
+|  ( 7, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, WHILE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 106.23 "tiger.grm"*)Ast.While EXP1 EXP2(*#line 597.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, WHILE1left, EXP2right), rest671)
 end
-|  ( 8, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FOR1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 107.55 "tiger.grm"*)Ast.For IDENTIFIER EXP1 EXP2 EXP3(*#line 602.1 "tiger.grm.sml"*)
+|  ( 8, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FOR1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 107.55 "tiger.grm"*)Ast.For IDENTIFIER EXP1 EXP2 EXP3(*#line 601.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, FOR1left, EXP3right), rest671)
 end
-|  ( 9, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 108.25 "tiger.grm"*)Ast.Openif EXP1 EXP2 (*#line 606.1 "tiger.grm.sml"*)
+|  ( 9, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 108.25 "tiger.grm"*)Ast.Openif EXP1 EXP2 (*#line 605.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, IF1left, EXP2right), rest671)
 end
-|  ( 10, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 109.30 "tiger.grm"*)Ast.Closedif  EXP1 EXP2 EXP3(*#line 610.1 "tiger.grm.sml"*)
+|  ( 10, ( ( _, ( MlyValue.EXP EXP3, _, EXP3right)) :: _ :: ( _, ( MlyValue.EXP EXP2, _, _)) :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 109.30 "tiger.grm"*)Ast.Closedif  EXP1 EXP2 EXP3(*#line 609.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, IF1left, EXP3right), rest671)
 end
-|  ( 11, ( ( _, ( _, BREAK1left, BREAK1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 110.13 "tiger.grm"*)Ast.BREAK	(*#line 614.1 "tiger.grm.sml"*)
+|  ( 11, ( ( _, ( _, BREAK1left, BREAK1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 110.13 "tiger.grm"*)Ast.BREAK	(*#line 613.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, BREAK1left, BREAK1right), rest671)
 end
-|  ( 12, ( ( _, ( _, _, END1right)) :: ( _, ( MlyValue.EXPS EXPS, _, _)) :: _ :: ( _, ( MlyValue.DECS DECS, _, _)) :: ( _, ( _, LET1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 111.27 "tiger.grm"*)Ast.LET (DECS, EXPS) (*#line 618.1 "tiger.grm.sml"*)
+|  ( 12, ( ( _, ( _, _, END1right)) :: ( _, ( MlyValue.EXPS EXPS, _, _)) :: _ :: ( _, ( MlyValue.DECS DECS, _, _)) :: ( _, ( _, LET1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 111.27 "tiger.grm"*)Ast.LET (DECS, EXPS) (*#line 617.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LET1left, END1right), rest671)
 end
-|  ( 13, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 112.25 "tiger.grm"*)Ast.equal  EXP1 EXP2(*#line 622.1 "tiger.grm.sml"*)
+|  ( 13, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 112.25 "tiger.grm"*)Ast.equal  EXP1 EXP2(*#line 621.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 14, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 113.27 "tiger.grm"*)Ast.notequal  EXP1 EXP2(*#line 626.1 "tiger.grm.sml"*)
+|  ( 14, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 113.27 "tiger.grm"*)Ast.notequal  EXP1 EXP2(*#line 625.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 15, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 114.27 "tiger.grm"*)Ast.lessequal  EXP1 EXP2(*#line 630.1 "tiger.grm.sml"*)
+|  ( 15, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 114.27 "tiger.grm"*)Ast.lessequal  EXP1 EXP2(*#line 629.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 16, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 115.25 "tiger.grm"*)Ast.less  EXP1 EXP2(*#line 634.1 "tiger.grm.sml"*)
+|  ( 16, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 115.25 "tiger.grm"*)Ast.less  EXP1 EXP2(*#line 633.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 17, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 116.27 "tiger.grm"*)Ast.greatequal  EXP1 EXP2(*#line 638.1 "tiger.grm.sml"*)
+|  ( 17, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 116.27 "tiger.grm"*)Ast.greatequal  EXP1 EXP2(*#line 637.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 18, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 117.25 "tiger.grm"*)Ast.great  EXP1 EXP2(*#line 642.1 "tiger.grm.sml"*)
+|  ( 18, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 117.25 "tiger.grm"*)Ast.great  EXP1 EXP2(*#line 641.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 19, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 118.26 "tiger.grm"*)Ast.logicaland  EXP1 EXP2(*#line 646.1 "tiger.grm.sml"*)
+|  ( 19, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 118.26 "tiger.grm"*)Ast.logicaland  EXP1 EXP2(*#line 645.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 20, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 119.25 "tiger.grm"*)Ast.or  EXP1 EXP2(*#line 650.1 "tiger.grm.sml"*)
+|  ( 20, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 119.25 "tiger.grm"*)Ast.or  EXP1 EXP2(*#line 649.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 21, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 120.26 "tiger.grm"*) Ast.mul   EXP1 EXP2 (*#line 654.1 "tiger.grm.sml"*)
+|  ( 21, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 120.26 "tiger.grm"*) Ast.mul   EXP1 EXP2 (*#line 653.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 22, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 121.30 "tiger.grm"*)Ast.divide  EXP1 EXP2(*#line 658.1 "tiger.grm.sml"*)
+|  ( 22, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 121.30 "tiger.grm"*)Ast.divide  EXP1 EXP2(*#line 657.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 23, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 122.30 "tiger.grm"*) Ast.plus  EXP1 EXP2 (*#line 662.1 "tiger.grm.sml"*)
+|  ( 23, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 122.30 "tiger.grm"*) Ast.plus  EXP1 EXP2 (*#line 661.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 24, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 123.26 "tiger.grm"*) Ast.minus EXP1 EXP2 (*#line 666.1 "tiger.grm.sml"*)
+|  ( 24, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: ( _, ( MlyValue.EXP EXP1, EXP1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 123.26 "tiger.grm"*) Ast.minus EXP1 EXP2 (*#line 665.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, EXP1left, EXP2right), rest671)
 end
-|  ( 25, ( ( _, ( MlyValue.CONST CONST, CONST1left, CONST1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 124.26 "tiger.grm"*) Ast.Const CONST     (*#line 670.1 "tiger.grm.sml"*)
+|  ( 25, ( ( _, ( MlyValue.CONST CONST, CONST1left, CONST1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 124.26 "tiger.grm"*) Ast.Const CONST     (*#line 669.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, CONST1left, CONST1right), rest671)
 end
-|  ( 26, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, LPAREN1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 125.25 "tiger.grm"*)EXP(*#line 674.1 "tiger.grm.sml"*)
+|  ( 26, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, LPAREN1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 125.25 "tiger.grm"*)EXP(*#line 673.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LPAREN1left, RPAREN1right), rest671)
 end
-|  ( 27, ( ( _, ( MlyValue.CONST CONST, _, CONST1right)) :: ( _, ( _, MINUS1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 126.34 "tiger.grm"*)Ast.NegConst  CONST   (*#line 678.1 "tiger.grm.sml"*)
+|  ( 27, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: ( _, ( _, MINUS1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 126.32 "tiger.grm"*)Ast.Neg EXP   (*#line 677.1 "tiger.grm.sml"*)
 )
- in ( LrTable.NT 0, ( result, MINUS1left, CONST1right), rest671)
+ in ( LrTable.NT 0, ( result, MINUS1left, EXP1right), rest671)
 end
-|  ( 28, ( ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, LVALUE1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 127.13 "tiger.grm"*)LVALUE(*#line 682.1 "tiger.grm.sml"*)
+|  ( 28, ( ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, LVALUE1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 127.13 "tiger.grm"*)LVALUE(*#line 681.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LVALUE1left, LVALUE1right), rest671)
 end
-|  ( 29, ( ( _, ( _, NIL1left, NIL1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 128.12 "tiger.grm"*)Ast.NIL(*#line 686.1 "tiger.grm.sml"*)
+|  ( 29, ( ( _, ( _, NIL1left, NIL1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 128.12 "tiger.grm"*)Ast.NIL(*#line 685.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, NIL1left, NIL1right), rest671)
 end
-|  ( 30, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 129.49 "tiger.grm"*)Ast.Array(IDENTIFIER,EXP1,EXP2) (*#line 690.1 "tiger.grm.sml"*)
+|  ( 30, ( ( _, ( MlyValue.EXP EXP2, _, EXP2right)) :: _ :: _ :: ( _, ( MlyValue.EXP EXP1, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 129.49 "tiger.grm"*)Ast.Array(IDENTIFIER,EXP1,EXP2) (*#line 689.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, IDENTIFIER1left, EXP2right), rest671)
 end
-|  ( 31, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.RECBODY RECBODY, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 130.39 "tiger.grm"*)Ast.Record (IDENTIFIER, RECBODY)(*#line 694.1 "tiger.grm.sml"*)
+|  ( 31, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.RECBODY RECBODY, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 130.39 "tiger.grm"*)Ast.Record (IDENTIFIER, RECBODY)(*#line 693.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, IDENTIFIER1left, RBRACE1right), rest671)
 end
-|  ( 32, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: ( _, ( _, NEW1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 131.22 "tiger.grm"*)Ast.Object IDENTIFIER(*#line 698.1 "tiger.grm.sml"*)
+|  ( 32, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: ( _, ( _, NEW1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 131.22 "tiger.grm"*)Ast.Object IDENTIFIER(*#line 697.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, NEW1left, IDENTIFIER1right), rest671)
 end
-|  ( 33, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 132.41 "tiger.grm"*)Ast.FunCall (IDENTIFIER,ARGUMENTS) (*#line 702.1 "tiger.grm.sml"*)
+|  ( 33, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 132.41 "tiger.grm"*)Ast.FunCall (IDENTIFIER,ARGUMENTS) (*#line 701.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, IDENTIFIER1left, RPAREN1right), rest671)
 end
-|  ( 34, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 133.54 "tiger.grm"*)Ast.MethodCall (LVALUE,IDENTIFIER,ARGUMENTS) (*#line 706.1 "tiger.grm.sml"*)
+|  ( 34, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.ARGUMENTS ARGUMENTS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 133.54 "tiger.grm"*)Ast.MethodCall (LVALUE,IDENTIFIER,ARGUMENTS) (*#line 705.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, LVALUE1left, RPAREN1right), rest671)
 end
-|  ( 35, ( ( _, ( MlyValue.QUOTE QUOTE, QUOTE1left, QUOTE1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 134.14 "tiger.grm"*)Ast.Quote QUOTE(*#line 710.1 "tiger.grm.sml"*)
+|  ( 35, ( ( _, ( MlyValue.QUOTE QUOTE, QUOTE1left, QUOTE1right)) :: rest671)) => let val  result = MlyValue.EXP ((*#line 134.14 "tiger.grm"*)Ast.Quote QUOTE(*#line 709.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 0, ( result, QUOTE1left, QUOTE1right), rest671)
 end
-|  ( 36, ( rest671)) => let val  result = MlyValue.ARGUMENTS ((*#line 135.25 "tiger.grm"*)[](*#line 714.1 "tiger.grm.sml"*)
+|  ( 36, ( rest671)) => let val  result = MlyValue.ARGUMENTS ((*#line 135.25 "tiger.grm"*)[](*#line 713.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 9, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 37, ( ( _, ( MlyValue.ARGTAIL ARGTAIL, _, ARGTAIL1right)) :: ( _, ( MlyValue.EXP EXP, EXP1left, _)) :: rest671)) => let val  result = MlyValue.ARGUMENTS ((*#line 136.18 "tiger.grm"*)EXP::ARGTAIL(*#line 718.1 "tiger.grm.sml"*)
+|  ( 37, ( ( _, ( MlyValue.ARGTAIL ARGTAIL, _, ARGTAIL1right)) :: ( _, ( MlyValue.EXP EXP, EXP1left, _)) :: rest671)) => let val  result = MlyValue.ARGUMENTS ((*#line 136.18 "tiger.grm"*)EXP::ARGTAIL(*#line 717.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 9, ( result, EXP1left, ARGTAIL1right), rest671)
 end
-|  ( 38, ( rest671)) => let val  result = MlyValue.ARGTAIL ((*#line 137.15 "tiger.grm"*)[](*#line 722.1 "tiger.grm.sml"*)
+|  ( 38, ( rest671)) => let val  result = MlyValue.ARGTAIL ((*#line 137.15 "tiger.grm"*)[](*#line 721.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 10, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 39, ( ( _, ( MlyValue.ARGTAIL ARGTAIL, _, ARGTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.ARGTAIL ((*#line 138.23 "tiger.grm"*)EXP::ARGTAIL(*#line 726.1 "tiger.grm.sml"*)
+|  ( 39, ( ( _, ( MlyValue.ARGTAIL ARGTAIL, _, ARGTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.ARGTAIL ((*#line 138.23 "tiger.grm"*)EXP::ARGTAIL(*#line 725.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 10, ( result, COMMA1left, ARGTAIL1right), rest671)
 end
-|  ( 40, ( rest671)) => let val  result = MlyValue.RECBODY ((*#line 139.24 "tiger.grm"*)[](*#line 730.1 "tiger.grm.sml"*)
+|  ( 40, ( rest671)) => let val  result = MlyValue.RECBODY ((*#line 139.24 "tiger.grm"*)[](*#line 729.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 7, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 41, ( ( _, ( MlyValue.RECBODYTAIL RECBODYTAIL, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.RECBODY ((*#line 140.35 "tiger.grm"*)(IDENTIFIER, EXP)::RECBODYTAIL(*#line 734.1 "tiger.grm.sml"*)
+|  ( 41, ( ( _, ( MlyValue.RECBODYTAIL RECBODYTAIL, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.RECBODY ((*#line 140.35 "tiger.grm"*)(IDENTIFIER, EXP)::RECBODYTAIL(*#line 733.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 7, ( result, IDENTIFIER1left, RECBODYTAIL1right), rest671)
 end
-|  ( 42, ( rest671)) => let val  result = MlyValue.RECBODYTAIL ((*#line 141.27 "tiger.grm"*)[](*#line 738.1 "tiger.grm.sml"*)
+|  ( 42, ( rest671)) => let val  result = MlyValue.RECBODYTAIL ((*#line 141.27 "tiger.grm"*)[](*#line 737.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 8, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 43, ( ( _, ( _, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.RECBODYTAIL ((*#line 142.40 "tiger.grm"*)(IDENTIFIER, EXP)::[](*#line 742.1 "tiger.grm.sml"*)
+|  ( 43, ( ( _, ( _, _, RECBODYTAIL1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.RECBODYTAIL ((*#line 142.40 "tiger.grm"*)(IDENTIFIER, EXP)::[](*#line 741.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 8, ( result, COMMA1left, RECBODYTAIL1right), rest671)
 end
-|  ( 44, ( rest671)) => let val  result = MlyValue.DECS ((*#line 144.23 "tiger.grm"*)[](*#line 746.1 "tiger.grm.sml"*)
+|  ( 44, ( rest671)) => let val  result = MlyValue.DECS ((*#line 144.23 "tiger.grm"*)[](*#line 745.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 3, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 45, ( ( _, ( MlyValue.DECS DECS, _, DECS1right)) :: ( _, ( MlyValue.DEC DEC, DEC1left, _)) :: rest671)) => let val  result = MlyValue.DECS ((*#line 145.14 "tiger.grm"*)DEC :: DECS	(*#line 750.1 "tiger.grm.sml"*)
+|  ( 45, ( ( _, ( MlyValue.DECS DECS, _, DECS1right)) :: ( _, ( MlyValue.DEC DEC, DEC1left, _)) :: rest671)) => let val  result = MlyValue.DECS ((*#line 145.14 "tiger.grm"*)DEC :: DECS	(*#line 749.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 3, ( result, DEC1left, DECS1right), rest671)
 end
-|  ( 46, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 147.38 "tiger.grm"*)Ast.VarDec(IDENTIFIER, EXP) (*#line 754.1 "tiger.grm.sml"*)
+|  ( 46, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 147.38 "tiger.grm"*)Ast.VarDec(IDENTIFIER, EXP) (*#line 753.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, VAR1left, EXP1right), rest671)
 end
-|  ( 47, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 148.49 "tiger.grm"*)Ast.VarDecType(IDENTIFIER1, EXP,IDENTIFIER2) (*#line 758.1 "tiger.grm.sml"*)
+|  ( 47, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, VAR1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 148.49 "tiger.grm"*)Ast.VarDecType(IDENTIFIER1, EXP,IDENTIFIER2) (*#line 757.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, VAR1left, IDENTIFIER2right), rest671)
 end
-|  ( 48, ( ( _, ( MlyValue.QUOTE QUOTE, _, QUOTE1right)) :: ( _, ( _, IMPORT1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 149.23 "tiger.grm"*)Ast.Import QUOTE(*#line 762.1 "tiger.grm.sml"*)
+|  ( 48, ( ( _, ( MlyValue.QUOTE QUOTE, _, QUOTE1right)) :: ( _, ( _, IMPORT1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 149.23 "tiger.grm"*)Ast.Import QUOTE(*#line 761.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, IMPORT1left, QUOTE1right), rest671)
 end
-|  ( 49, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 150.50 "tiger.grm"*)Ast.PrimitiveDec (IDENTIFIER,(Ast.Tyfield TYFIELDS) ) (*#line 766.1 "tiger.grm.sml"*)
+|  ( 49, ( ( _, ( _, _, RPAREN1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 150.50 "tiger.grm"*)Ast.PrimitiveDec (IDENTIFIER,(Ast.Tyfield TYFIELDS) ) (*#line 765.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, PRIMITIVE1left, RPAREN1right), rest671)
 end
-|  ( 50, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 151.66 "tiger.grm"*)Ast.PrimitiveDecType (IDENTIFIER1,(Ast.Tyfield TYFIELDS),IDENTIFIER2 ) (*#line 770.1 "tiger.grm.sml"*)
+|  ( 50, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, PRIMITIVE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 151.66 "tiger.grm"*)Ast.PrimitiveDecType (IDENTIFIER1,(Ast.Tyfield TYFIELDS),IDENTIFIER2 ) (*#line 769.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, PRIMITIVE1left, IDENTIFIER2right), rest671)
 end
-|  ( 51, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 152.56 "tiger.grm"*)Ast.FunctionDec(IDENTIFIER,(Ast.Tyfield TYFIELDS),EXP) (*#line 774.1 "tiger.grm.sml"*)
+|  ( 51, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 152.56 "tiger.grm"*)Ast.FunctionDec(IDENTIFIER,(Ast.Tyfield TYFIELDS),EXP) (*#line 773.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, FUNCTION1left, EXP1right), rest671)
 end
-|  ( 52, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 153.75 "tiger.grm"*)Ast.FunctionDecType(IDENTIFIER1,(Ast.Tyfield TYFIELDS),IDENTIFIER2,EXP) (*#line 778.1 "tiger.grm.sml"*)
+|  ( 52, ( ( _, ( MlyValue.EXP EXP, _, EXP1right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: _ :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, FUNCTION1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 153.75 "tiger.grm"*)Ast.FunctionDecType(IDENTIFIER1,(Ast.Tyfield TYFIELDS),IDENTIFIER2,EXP) (*#line 777.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, FUNCTION1left, EXP1right), rest671)
 end
-|  ( 53, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 154.38 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.NameTy IDENTIFIER2) )(*#line 782.1 "tiger.grm.sml"*)
+|  ( 53, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 154.38 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.NameTy IDENTIFIER2) )(*#line 781.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, TYPE1left, IDENTIFIER2right), rest671)
 end
-|  ( 54, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 155.48 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.RecordTy (Ast.Tyfield TYFIELDS) ) )(*#line 786.1 "tiger.grm.sml"*)
+|  ( 54, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.TYFIELDS TYFIELDS, _, _)) :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 155.48 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.RecordTy (Ast.Tyfield TYFIELDS) ) )(*#line 785.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, TYPE1left, RBRACE1right), rest671)
 end
-|  ( 55, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 156.45 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.ArrayTy IDENTIFIER2) ) (*#line 790.1 "tiger.grm.sml"*)
+|  ( 55, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, IDENTIFIER2right)) :: _ :: _ :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.DEC ((*#line 156.45 "tiger.grm"*)Ast.TypeDec (IDENTIFIER1,(Ast.ArrayTy IDENTIFIER2) ) (*#line 789.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 4, ( result, TYPE1left, IDENTIFIER2right), rest671)
 end
-|  ( 56, ( rest671)) => let val  result = MlyValue.TYFIELDS ((*#line 158.25 "tiger.grm"*)[](*#line 794.1 "tiger.grm.sml"*)
+|  ( 56, ( rest671)) => let val  result = MlyValue.TYFIELDS ((*#line 158.25 "tiger.grm"*)[](*#line 793.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 13, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 57, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDS ((*#line 159.45 "tiger.grm"*)(IDENTIFIER1,IDENTIFIER2)::TYFIELDSTAIL(*#line 798.1 "tiger.grm.sml"*)
+|  ( 57, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDS ((*#line 159.45 "tiger.grm"*)(IDENTIFIER1,IDENTIFIER2)::TYFIELDSTAIL(*#line 797.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 13, ( result, IDENTIFIER1left, TYFIELDSTAIL1right), rest671)
 end
-|  ( 58, ( rest671)) => let val  result = MlyValue.TYFIELDSTAIL ((*#line 160.27 "tiger.grm"*)[](*#line 802.1 "tiger.grm.sml"*)
+|  ( 58, ( rest671)) => let val  result = MlyValue.TYFIELDSTAIL ((*#line 160.27 "tiger.grm"*)[](*#line 801.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 12, ( result, defaultPos, defaultPos), rest671)
 end
-|  ( 59, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDSTAIL ((*#line 161.50 "tiger.grm"*)(IDENTIFIER1,IDENTIFIER2)::TYFIELDSTAIL(*#line 806.1 "tiger.grm.sml"*)
+|  ( 59, ( ( _, ( MlyValue.TYFIELDSTAIL TYFIELDSTAIL, _, TYFIELDSTAIL1right)) :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER2, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER1, _, _)) :: ( _, ( _, COMMA1left, _)) :: rest671)) => let val  result = MlyValue.TYFIELDSTAIL ((*#line 161.50 "tiger.grm"*)(IDENTIFIER1,IDENTIFIER2)::TYFIELDSTAIL(*#line 805.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 12, ( result, COMMA1left, TYFIELDSTAIL1right), rest671)
 end
-|  ( 60, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, IDENTIFIER1right)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 163.24 "tiger.grm"*)Ast.Name IDENTIFIER(*#line 810.1 "tiger.grm.sml"*)
+|  ( 60, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, IDENTIFIER1right)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 163.24 "tiger.grm"*)Ast.Name IDENTIFIER(*#line 809.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, IDENTIFIER1left, IDENTIFIER1right), rest671)
 end
-|  ( 61, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 164.27 "tiger.grm"*)Ast.Method ( LVALUE, IDENTIFIER )(*#line 814.1 "tiger.grm.sml"*)
+|  ( 61, ( ( _, ( MlyValue.IDENTIFIER IDENTIFIER, _, IDENTIFIER1right)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 164.27 "tiger.grm"*)Ast.Method ( LVALUE, IDENTIFIER )(*#line 813.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, LVALUE1left, IDENTIFIER1right), rest671)
 end
-|  ( 62, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 165.29 "tiger.grm"*)Ast.Access( LVALUE, EXP)(*#line 818.1 "tiger.grm.sml"*)
+|  ( 62, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.LVALUE LVALUE, LVALUE1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 165.29 "tiger.grm"*)Ast.Access( LVALUE, EXP)(*#line 817.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, LVALUE1left, RBRACK1right), rest671)
 end
-|  ( 63, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 166.33 "tiger.grm"*)Ast.Access( (Ast.Name IDENTIFIER), EXP)(*#line 822.1 "tiger.grm.sml"*)
+|  ( 63, ( ( _, ( _, _, RBRACK1right)) :: ( _, ( MlyValue.EXP EXP, _, _)) :: _ :: ( _, ( MlyValue.IDENTIFIER IDENTIFIER, IDENTIFIER1left, _)) :: rest671)) => let val  result = MlyValue.LVALUE ((*#line 166.33 "tiger.grm"*)Ast.Access( (Ast.Name IDENTIFIER), EXP)(*#line 821.1 "tiger.grm.sml"*)
 )
  in ( LrTable.NT 5, ( result, IDENTIFIER1left, RBRACK1right), rest671)
 end

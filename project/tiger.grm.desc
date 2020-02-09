@@ -311,10 +311,23 @@ state 19:
 
 state 20:
 
-	EXP : MINUS . CONST 
+	EXP : MINUS . EXP 
 
-	CONST	shift 52
+	CONST	shift 21
+	MINUS	shift 20
+	IF	shift 19
+	LPAREN	shift 18
+	WHILE	shift 17
+	FOR	shift 16
+	BREAK	shift 15
+	IDENTIFIER	shift 14
+	LET	shift 13
+	NIL	shift 11
+	NEW	shift 10
+	QUOTE	shift 9
 
+	EXP	goto 52
+	LVALUE	goto 1
 
 	.	error
 
@@ -917,7 +930,19 @@ state 51:
 
 state 52:
 
-	EXP : MINUS CONST .  (reduce by rule 27)
+	EXP : EXP . EQ EXP 
+	EXP : EXP . NTEQ EXP 
+	EXP : EXP . LTEQ EXP 
+	EXP : EXP . LT EXP 
+	EXP : EXP . GTEQ EXP 
+	EXP : EXP . GT EXP 
+	EXP : EXP . AND EXP 
+	EXP : EXP . OR EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	EXP : MINUS EXP .  (reduce by rule 27)
 
 
 
@@ -2872,5 +2897,5 @@ state 150:
 
 	.	error
 
-533 of 1115 action table entries left after compaction
-94 goto table entries
+532 of 1126 action table entries left after compaction
+96 goto table entries

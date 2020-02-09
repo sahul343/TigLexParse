@@ -15,6 +15,7 @@ struct
 
   datatype Expr = Const of int
                  | Op of Expr * BinOp * Expr
+                 | Neg of Expr
 		 | Assign of Expr*Expr
 		 | IF
 		 | WHILE of Expr*Expr
@@ -63,7 +64,6 @@ struct
 				 |  Or  => "|"
 				 
     fun plus  a b = Op (a, Plus, b)
-    fun NegConst a =(Const (~a))
     fun minus a b = Op (a, Minus, b)
     fun mul   a b = Op (a, Mul, b)
     fun divide a b = Op(a, Divide, b)

@@ -5,6 +5,7 @@ structure beautify =
 struct
   fun put s = if (s = 0) then ("") else ("  "^(put (s-1)))
   fun indent s (Ast.Op(a, oper, b)) = "("^(indent 0 a)^(Ast.binOPtoString oper)^(indent 0 b)^")"
+    |indent s (Ast.Neg x)   = "( ~"^(indent 0 x)^")"
     |indent s (Ast.Const x) = (put s)^(Int.toString x)
     |indent s (Ast.Quote x) = (put s)^x
     |indent s  (Ast.Assign (x, y) ) = (put s) ^(indent s x)^" := "^(indent s y)
