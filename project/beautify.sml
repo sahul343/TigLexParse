@@ -34,7 +34,10 @@ and
       indentdec s (Ast.VarDec(a, b)) = (put s)^"var "^a^" := "^(indent s b)
       |indentdec s (Ast.Import a) = (put s)^"import "^a^" \n "
       |indentdec s (Ast.FunctionDec (a,b,c)) = (put s)^"function "^a^"( "^(indenttyfield b)^") = "^(indent s c)^" \n "
-      |indentdec s (Ast.PrimitiveDec (a,b)) = (put s)^"primitive "^a^"( "^(indenttyfield b)^") = "^" \n "
+
+      |indentdec s (Ast.FunctionDecType (a,b,c,d)) = (put s)^"function "^a^"("^(indenttyfield b)^"): "^c^ " = "^(indent s d)^" \n "
+      |indentdec s (Ast.PrimitiveDec (a,b)) = (put s)^"primitive "^a^"("^(indenttyfield b)^")\n "
+      |indentdec s (Ast.PrimitiveDecType (a,b,c)) = (put s)^"primitive "^a^"("^(indenttyfield b)^"): "^c^"\n"
       |indentdec s (Ast.TypeDec (a, b) ) = (put s)^"type "^a^" = "^(printty b)
 and 
 

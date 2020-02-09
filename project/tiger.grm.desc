@@ -23,7 +23,7 @@ state 0:
 	TYPE	shift 5
 
 	EXP	goto 4
-	PROGRAM	goto 142
+	PROGRAM	goto 150
 	DECS	goto 3
 	DEC	goto 2
 	LVALUE	goto 1
@@ -120,6 +120,7 @@ state 5:
 state 6:
 
 	DEC : FUNCTION . IDENTIFIER LPAREN TYFIELDS RPAREN EQ EXP 
+	DEC : FUNCTION . IDENTIFIER LPAREN TYFIELDS RPAREN COLON IDENTIFIER EQ EXP 
 
 	IDENTIFIER	shift 39
 
@@ -130,6 +131,7 @@ state 6:
 state 7:
 
 	DEC : PRIMITIVE . IDENTIFIER LPAREN TYFIELDS RPAREN 
+	DEC : PRIMITIVE . IDENTIFIER LPAREN TYFIELDS RPAREN COLON IDENTIFIER 
 
 	IDENTIFIER	shift 40
 
@@ -178,6 +180,7 @@ state 11:
 state 12:
 
 	DEC : VAR . IDENTIFIER ASSIGN EXP 
+	DEC : VAR . IDENTIFIER ASSIGN EXP COLON IDENTIFIER 
 
 	IDENTIFIER	shift 43
 
@@ -206,7 +209,7 @@ state 14:
 	EXP : IDENTIFIER . LBRACK EXP RBRACK OF EXP 
 	EXP : IDENTIFIER . LBRACE RECBODY RBRACE 
 	EXP : IDENTIFIER . LPAREN ARGUMENTS RPAREN 
-	LVALUE : IDENTIFIER .  (reduce by rule 57)
+	LVALUE : IDENTIFIER .  (reduce by rule 60)
 	LVALUE : IDENTIFIER . LBRACK EXP RBRACK 
 
 	LPAREN	shift 47
@@ -214,7 +217,7 @@ state 14:
 	LBRACE	shift 45
 
 
-	.	reduce by rule 57
+	.	reduce by rule 60
 
 
 state 15:
@@ -682,6 +685,7 @@ state 38:
 state 39:
 
 	DEC : FUNCTION IDENTIFIER . LPAREN TYFIELDS RPAREN EQ EXP 
+	DEC : FUNCTION IDENTIFIER . LPAREN TYFIELDS RPAREN COLON IDENTIFIER EQ EXP 
 
 	LPAREN	shift 69
 
@@ -692,6 +696,7 @@ state 39:
 state 40:
 
 	DEC : PRIMITIVE IDENTIFIER . LPAREN TYFIELDS RPAREN 
+	DEC : PRIMITIVE IDENTIFIER . LPAREN TYFIELDS RPAREN COLON IDENTIFIER 
 
 	LPAREN	shift 70
 
@@ -701,11 +706,11 @@ state 40:
 
 state 41:
 
-	DEC : IMPORT QUOTE .  (reduce by rule 47)
+	DEC : IMPORT QUOTE .  (reduce by rule 48)
 
 
 
-	.	reduce by rule 47
+	.	reduce by rule 48
 
 
 state 42:
@@ -720,6 +725,7 @@ state 42:
 state 43:
 
 	DEC : VAR IDENTIFIER . ASSIGN EXP 
+	DEC : VAR IDENTIFIER . ASSIGN EXP COLON IDENTIFIER 
 
 	ASSIGN	shift 71
 
@@ -921,12 +927,12 @@ state 52:
 state 53:
 
 	EXP : LVALUE DOT IDENTIFIER . LPAREN ARGUMENTS RPAREN 
-	LVALUE : LVALUE DOT IDENTIFIER .  (reduce by rule 58)
+	LVALUE : LVALUE DOT IDENTIFIER .  (reduce by rule 61)
 
 	LPAREN	shift 82
 
 
-	.	reduce by rule 58
+	.	reduce by rule 61
 
 
 state 54:
@@ -1034,6 +1040,7 @@ state 56:
 	IMPORT	reduce by rule 14
 	PRIMITIVE	reduce by rule 14
 	FUNCTION	reduce by rule 14
+	COLON	reduce by rule 14
 	TYPE	reduce by rule 14
 
 
@@ -1141,6 +1148,7 @@ state 59:
 	IMPORT	reduce by rule 18
 	PRIMITIVE	reduce by rule 18
 	FUNCTION	reduce by rule 18
+	COLON	reduce by rule 18
 	TYPE	reduce by rule 18
 
 
@@ -1185,6 +1193,7 @@ state 60:
 	IMPORT	reduce by rule 17
 	PRIMITIVE	reduce by rule 17
 	FUNCTION	reduce by rule 17
+	COLON	reduce by rule 17
 	TYPE	reduce by rule 17
 
 
@@ -1229,6 +1238,7 @@ state 61:
 	IMPORT	reduce by rule 15
 	PRIMITIVE	reduce by rule 15
 	FUNCTION	reduce by rule 15
+	COLON	reduce by rule 15
 	TYPE	reduce by rule 15
 
 
@@ -1273,6 +1283,7 @@ state 62:
 	IMPORT	reduce by rule 13
 	PRIMITIVE	reduce by rule 13
 	FUNCTION	reduce by rule 13
+	COLON	reduce by rule 13
 	TYPE	reduce by rule 13
 
 
@@ -1317,6 +1328,7 @@ state 63:
 	IMPORT	reduce by rule 16
 	PRIMITIVE	reduce by rule 16
 	FUNCTION	reduce by rule 16
+	COLON	reduce by rule 16
 	TYPE	reduce by rule 16
 
 
@@ -1428,28 +1440,31 @@ state 68:
 state 69:
 
 	DEC : FUNCTION IDENTIFIER LPAREN . TYFIELDS RPAREN EQ EXP 
+	DEC : FUNCTION IDENTIFIER LPAREN . TYFIELDS RPAREN COLON IDENTIFIER EQ EXP 
 
 	IDENTIFIER	shift 88
 
 	TYFIELDS	goto 87
 
-	.	reduce by rule 53
+	.	reduce by rule 56
 
 
 state 70:
 
 	DEC : PRIMITIVE IDENTIFIER LPAREN . TYFIELDS RPAREN 
+	DEC : PRIMITIVE IDENTIFIER LPAREN . TYFIELDS RPAREN COLON IDENTIFIER 
 
 	IDENTIFIER	shift 88
 
 	TYFIELDS	goto 89
 
-	.	reduce by rule 53
+	.	reduce by rule 56
 
 
 state 71:
 
 	DEC : VAR IDENTIFIER ASSIGN . EXP 
+	DEC : VAR IDENTIFIER ASSIGN . EXP COLON IDENTIFIER 
 
 	CONST	shift 21
 	MINUS	shift 20
@@ -1699,11 +1714,11 @@ state 82:
 
 state 83:
 
-	LVALUE : LVALUE LBRACK EXP RBRACK .  (reduce by rule 59)
+	LVALUE : LVALUE LBRACK EXP RBRACK .  (reduce by rule 62)
 
 
 
-	.	reduce by rule 59
+	.	reduce by rule 62
 
 
 state 84:
@@ -1724,21 +1739,22 @@ state 85:
 
 	TYFIELDS	goto 104
 
-	.	reduce by rule 53
+	.	reduce by rule 56
 
 
 state 86:
 
-	DEC : TYPE IDENTIFIER EQ IDENTIFIER .  (reduce by rule 50)
+	DEC : TYPE IDENTIFIER EQ IDENTIFIER .  (reduce by rule 53)
 
 
 
-	.	reduce by rule 50
+	.	reduce by rule 53
 
 
 state 87:
 
 	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS . RPAREN EQ EXP 
+	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS . RPAREN COLON IDENTIFIER EQ EXP 
 
 	RPAREN	shift 105
 
@@ -1759,6 +1775,7 @@ state 88:
 state 89:
 
 	DEC : PRIMITIVE IDENTIFIER LPAREN TYFIELDS . RPAREN 
+	DEC : PRIMITIVE IDENTIFIER LPAREN TYFIELDS . RPAREN COLON IDENTIFIER 
 
 	RPAREN	shift 107
 
@@ -1781,6 +1798,7 @@ state 90:
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
 	DEC : VAR IDENTIFIER ASSIGN EXP .  (reduce by rule 46)
+	DEC : VAR IDENTIFIER ASSIGN EXP . COLON IDENTIFIER 
 
 	PLUS	shift 37
 	MINUS	shift 36
@@ -1794,6 +1812,7 @@ state 90:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
+	COLON	shift 108
 
 
 	.	reduce by rule 46
@@ -1803,7 +1822,7 @@ state 91:
 
 	EXP : LET DECS IN EXPS . END 
 
-	END	shift 108
+	END	shift 109
 
 
 	.	error
@@ -1837,9 +1856,9 @@ state 92:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
-	SEMICOLON	shift 110
+	SEMICOLON	shift 111
 
-	EXPTAIL	goto 109
+	EXPTAIL	goto 110
 
 	.	reduce by rule 4
 
@@ -1870,7 +1889,7 @@ state 94:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 111
+	EXP	goto 112
 	LVALUE	goto 1
 
 	.	error
@@ -1879,12 +1898,12 @@ state 94:
 state 95:
 
 	EXP : IDENTIFIER LBRACK EXP RBRACK . OF EXP 
-	LVALUE : IDENTIFIER LBRACK EXP RBRACK .  (reduce by rule 60)
+	LVALUE : IDENTIFIER LBRACK EXP RBRACK .  (reduce by rule 63)
 
-	OF	shift 112
+	OF	shift 113
 
 
-	.	reduce by rule 60
+	.	reduce by rule 63
 
 
 state 96:
@@ -1922,7 +1941,7 @@ state 98:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 113
+	EXP	goto 114
 	LVALUE	goto 1
 
 	.	error
@@ -1956,7 +1975,7 @@ state 99:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
-	TO	shift 114
+	TO	shift 115
 
 
 	.	error
@@ -2024,7 +2043,7 @@ state 101:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
-	ELSE	shift 115
+	ELSE	shift 116
 
 
 	.	reduce by rule 9
@@ -2034,7 +2053,7 @@ state 102:
 
 	EXP : LVALUE DOT IDENTIFIER LPAREN ARGUMENTS . RPAREN 
 
-	RPAREN	shift 116
+	RPAREN	shift 117
 
 
 	.	error
@@ -2044,7 +2063,7 @@ state 103:
 
 	DEC : TYPE IDENTIFIER EQ ARRAY OF . IDENTIFIER 
 
-	IDENTIFIER	shift 117
+	IDENTIFIER	shift 118
 
 
 	.	error
@@ -2054,7 +2073,7 @@ state 104:
 
 	DEC : TYPE IDENTIFIER EQ LBRACE TYFIELDS . RBRACE 
 
-	RBRACE	shift 118
+	RBRACE	shift 119
 
 
 	.	error
@@ -2063,8 +2082,10 @@ state 104:
 state 105:
 
 	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN . EQ EXP 
+	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN . COLON IDENTIFIER EQ EXP 
 
-	EQ	shift 119
+	EQ	shift 121
+	COLON	shift 120
 
 
 	.	error
@@ -2074,7 +2095,7 @@ state 106:
 
 	TYFIELDS : IDENTIFIER COLON . IDENTIFIER TYFIELDSTAIL 
 
-	IDENTIFIER	shift 120
+	IDENTIFIER	shift 122
 
 
 	.	error
@@ -2082,14 +2103,26 @@ state 106:
 
 state 107:
 
-	DEC : PRIMITIVE IDENTIFIER LPAREN TYFIELDS RPAREN .  (reduce by rule 48)
+	DEC : PRIMITIVE IDENTIFIER LPAREN TYFIELDS RPAREN .  (reduce by rule 49)
+	DEC : PRIMITIVE IDENTIFIER LPAREN TYFIELDS RPAREN . COLON IDENTIFIER 
+
+	COLON	shift 123
 
 
-
-	.	reduce by rule 48
+	.	reduce by rule 49
 
 
 state 108:
+
+	DEC : VAR IDENTIFIER ASSIGN EXP COLON . IDENTIFIER 
+
+	IDENTIFIER	shift 124
+
+
+	.	error
+
+
+state 109:
 
 	EXP : LET DECS IN EXPS END .  (reduce by rule 12)
 
@@ -2098,7 +2131,7 @@ state 108:
 	.	reduce by rule 12
 
 
-state 109:
+state 110:
 
 	EXPS : EXP EXPTAIL .  (reduce by rule 3)
 
@@ -2107,7 +2140,7 @@ state 109:
 	.	reduce by rule 3
 
 
-state 110:
+state 111:
 
 	EXPTAIL : SEMICOLON . EXP EXPTAIL 
 
@@ -2124,13 +2157,13 @@ state 110:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 121
+	EXP	goto 125
 	LVALUE	goto 1
 
 	.	error
 
 
-state 111:
+state 112:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -2158,14 +2191,14 @@ state 111:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
-	COMMA	shift 123
+	COMMA	shift 127
 
-	RECBODYTAIL	goto 122
+	RECBODYTAIL	goto 126
 
 	.	reduce by rule 42
 
 
-state 112:
+state 113:
 
 	EXP : IDENTIFIER LBRACK EXP RBRACK OF . EXP 
 
@@ -2182,13 +2215,13 @@ state 112:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 124
+	EXP	goto 128
 	LVALUE	goto 1
 
 	.	error
 
 
-state 113:
+state 114:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -2218,12 +2251,12 @@ state 113:
 	NTEQ	shift 26
 	COMMA	shift 98
 
-	ARGTAIL	goto 125
+	ARGTAIL	goto 129
 
 	.	reduce by rule 38
 
 
-state 114:
+state 115:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO . EXP DO EXP 
 
@@ -2240,13 +2273,13 @@ state 114:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 126
+	EXP	goto 130
 	LVALUE	goto 1
 
 	.	error
 
 
-state 115:
+state 116:
 
 	EXP : IF EXP THEN EXP ELSE . EXP 
 
@@ -2263,13 +2296,13 @@ state 115:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 127
+	EXP	goto 131
 	LVALUE	goto 1
 
 	.	error
 
 
-state 116:
+state 117:
 
 	EXP : LVALUE DOT IDENTIFIER LPAREN ARGUMENTS RPAREN .  (reduce by rule 34)
 
@@ -2278,25 +2311,35 @@ state 116:
 	.	reduce by rule 34
 
 
-state 117:
-
-	DEC : TYPE IDENTIFIER EQ ARRAY OF IDENTIFIER .  (reduce by rule 52)
-
-
-
-	.	reduce by rule 52
-
-
 state 118:
 
-	DEC : TYPE IDENTIFIER EQ LBRACE TYFIELDS RBRACE .  (reduce by rule 51)
+	DEC : TYPE IDENTIFIER EQ ARRAY OF IDENTIFIER .  (reduce by rule 55)
 
 
 
-	.	reduce by rule 51
+	.	reduce by rule 55
 
 
 state 119:
+
+	DEC : TYPE IDENTIFIER EQ LBRACE TYFIELDS RBRACE .  (reduce by rule 54)
+
+
+
+	.	reduce by rule 54
+
+
+state 120:
+
+	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN COLON . IDENTIFIER EQ EXP 
+
+	IDENTIFIER	shift 132
+
+
+	.	error
+
+
+state 121:
 
 	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN EQ . EXP 
 
@@ -2313,24 +2356,43 @@ state 119:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 128
+	EXP	goto 133
 	LVALUE	goto 1
 
 	.	error
 
 
-state 120:
+state 122:
 
 	TYFIELDS : IDENTIFIER COLON IDENTIFIER . TYFIELDSTAIL 
 
-	COMMA	shift 130
+	COMMA	shift 135
 
-	TYFIELDSTAIL	goto 129
+	TYFIELDSTAIL	goto 134
 
-	.	reduce by rule 55
+	.	reduce by rule 58
 
 
-state 121:
+state 123:
+
+	DEC : PRIMITIVE IDENTIFIER LPAREN TYFIELDS RPAREN COLON . IDENTIFIER 
+
+	IDENTIFIER	shift 136
+
+
+	.	error
+
+
+state 124:
+
+	DEC : VAR IDENTIFIER ASSIGN EXP COLON IDENTIFIER .  (reduce by rule 47)
+
+
+
+	.	reduce by rule 47
+
+
+state 125:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -2358,14 +2420,14 @@ state 121:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
-	SEMICOLON	shift 110
+	SEMICOLON	shift 111
 
-	EXPTAIL	goto 131
+	EXPTAIL	goto 137
 
 	.	reduce by rule 4
 
 
-state 122:
+state 126:
 
 	RECBODY : IDENTIFIER EQ EXP RECBODYTAIL .  (reduce by rule 41)
 
@@ -2374,17 +2436,17 @@ state 122:
 	.	reduce by rule 41
 
 
-state 123:
+state 127:
 
 	RECBODYTAIL : COMMA . IDENTIFIER EQ EXP RECBODYTAIL 
 
-	IDENTIFIER	shift 132
+	IDENTIFIER	shift 138
 
 
 	.	error
 
 
-state 124:
+state 128:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -2417,7 +2479,7 @@ state 124:
 	.	reduce by rule 30
 
 
-state 125:
+state 129:
 
 	ARGTAIL : COMMA EXP ARGTAIL .  (reduce by rule 39)
 
@@ -2426,7 +2488,7 @@ state 125:
 	.	reduce by rule 39
 
 
-state 126:
+state 130:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP . DO EXP 
 	EXP : EXP . EQ EXP 
@@ -2454,13 +2516,13 @@ state 126:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
-	DO	shift 133
+	DO	shift 139
 
 
 	.	error
 
 
-state 127:
+state 131:
 
 	EXP : IF EXP THEN EXP ELSE EXP .  (reduce by rule 10)
 	EXP : EXP . EQ EXP 
@@ -2493,7 +2555,17 @@ state 127:
 	.	reduce by rule 10
 
 
-state 128:
+state 132:
+
+	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN COLON IDENTIFIER . EQ EXP 
+
+	EQ	shift 140
+
+
+	.	error
+
+
+state 133:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -2507,7 +2579,7 @@ state 128:
 	EXP : EXP . DIV EXP 
 	EXP : EXP . PLUS EXP 
 	EXP : EXP . MINUS EXP 
-	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN EQ EXP .  (reduce by rule 49)
+	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN EQ EXP .  (reduce by rule 51)
 
 	PLUS	shift 37
 	MINUS	shift 36
@@ -2523,29 +2595,38 @@ state 128:
 	NTEQ	shift 26
 
 
-	.	reduce by rule 49
+	.	reduce by rule 51
 
 
-state 129:
+state 134:
 
-	TYFIELDS : IDENTIFIER COLON IDENTIFIER TYFIELDSTAIL .  (reduce by rule 54)
-
-
-
-	.	reduce by rule 54
+	TYFIELDS : IDENTIFIER COLON IDENTIFIER TYFIELDSTAIL .  (reduce by rule 57)
 
 
-state 130:
+
+	.	reduce by rule 57
+
+
+state 135:
 
 	TYFIELDSTAIL : COMMA . IDENTIFIER COLON IDENTIFIER TYFIELDSTAIL 
 
-	IDENTIFIER	shift 134
+	IDENTIFIER	shift 141
 
 
 	.	error
 
 
-state 131:
+state 136:
+
+	DEC : PRIMITIVE IDENTIFIER LPAREN TYFIELDS RPAREN COLON IDENTIFIER .  (reduce by rule 50)
+
+
+
+	.	reduce by rule 50
+
+
+state 137:
 
 	EXPTAIL : SEMICOLON EXP EXPTAIL .  (reduce by rule 5)
 
@@ -2554,17 +2635,17 @@ state 131:
 	.	reduce by rule 5
 
 
-state 132:
+state 138:
 
 	RECBODYTAIL : COMMA IDENTIFIER . EQ EXP RECBODYTAIL 
 
-	EQ	shift 135
+	EQ	shift 142
 
 
 	.	error
 
 
-state 133:
+state 139:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO . EXP 
 
@@ -2581,23 +2662,46 @@ state 133:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 136
+	EXP	goto 143
 	LVALUE	goto 1
 
 	.	error
 
 
-state 134:
+state 140:
+
+	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN COLON IDENTIFIER EQ . EXP 
+
+	CONST	shift 21
+	MINUS	shift 20
+	IF	shift 19
+	LPAREN	shift 18
+	WHILE	shift 17
+	FOR	shift 16
+	BREAK	shift 15
+	IDENTIFIER	shift 14
+	LET	shift 13
+	NIL	shift 11
+	NEW	shift 10
+	QUOTE	shift 9
+
+	EXP	goto 144
+	LVALUE	goto 1
+
+	.	error
+
+
+state 141:
 
 	TYFIELDSTAIL : COMMA IDENTIFIER . COLON IDENTIFIER TYFIELDSTAIL 
 
-	COLON	shift 137
+	COLON	shift 145
 
 
 	.	error
 
 
-state 135:
+state 142:
 
 	RECBODYTAIL : COMMA IDENTIFIER EQ . EXP RECBODYTAIL 
 
@@ -2614,13 +2718,13 @@ state 135:
 	NEW	shift 10
 	QUOTE	shift 9
 
-	EXP	goto 138
+	EXP	goto 146
 	LVALUE	goto 1
 
 	.	error
 
 
-state 136:
+state 143:
 
 	EXP : FOR IDENTIFIER ASSIGN EXP TO EXP DO EXP .  (reduce by rule 8)
 	EXP : EXP . EQ EXP 
@@ -2653,17 +2757,50 @@ state 136:
 	.	reduce by rule 8
 
 
-state 137:
+state 144:
+
+	EXP : EXP . EQ EXP 
+	EXP : EXP . NTEQ EXP 
+	EXP : EXP . LTEQ EXP 
+	EXP : EXP . LT EXP 
+	EXP : EXP . GTEQ EXP 
+	EXP : EXP . GT EXP 
+	EXP : EXP . AND EXP 
+	EXP : EXP . OR EXP 
+	EXP : EXP . MUL EXP 
+	EXP : EXP . DIV EXP 
+	EXP : EXP . PLUS EXP 
+	EXP : EXP . MINUS EXP 
+	DEC : FUNCTION IDENTIFIER LPAREN TYFIELDS RPAREN COLON IDENTIFIER EQ EXP .  (reduce by rule 52)
+
+	PLUS	shift 37
+	MINUS	shift 36
+	MUL	shift 35
+	DIV	shift 34
+	LT	shift 33
+	EQ	shift 32
+	LTEQ	shift 31
+	GTEQ	shift 30
+	GT	shift 29
+	AND	shift 28
+	OR	shift 27
+	NTEQ	shift 26
+
+
+	.	reduce by rule 52
+
+
+state 145:
 
 	TYFIELDSTAIL : COMMA IDENTIFIER COLON . IDENTIFIER TYFIELDSTAIL 
 
-	IDENTIFIER	shift 139
+	IDENTIFIER	shift 147
 
 
 	.	error
 
 
-state 138:
+state 146:
 
 	EXP : EXP . EQ EXP 
 	EXP : EXP . NTEQ EXP 
@@ -2691,25 +2828,25 @@ state 138:
 	AND	shift 28
 	OR	shift 27
 	NTEQ	shift 26
-	COMMA	shift 123
+	COMMA	shift 127
 
-	RECBODYTAIL	goto 140
+	RECBODYTAIL	goto 148
 
 	.	reduce by rule 42
 
 
-state 139:
+state 147:
 
 	TYFIELDSTAIL : COMMA IDENTIFIER COLON IDENTIFIER . TYFIELDSTAIL 
 
-	COMMA	shift 130
+	COMMA	shift 135
 
-	TYFIELDSTAIL	goto 141
+	TYFIELDSTAIL	goto 149
 
-	.	reduce by rule 55
+	.	reduce by rule 58
 
 
-state 140:
+state 148:
 
 	RECBODYTAIL : COMMA IDENTIFIER EQ EXP RECBODYTAIL .  (reduce by rule 43)
 
@@ -2718,16 +2855,16 @@ state 140:
 	.	reduce by rule 43
 
 
-state 141:
+state 149:
 
-	TYFIELDSTAIL : COMMA IDENTIFIER COLON IDENTIFIER TYFIELDSTAIL .  (reduce by rule 56)
-
-
-
-	.	reduce by rule 56
+	TYFIELDSTAIL : COMMA IDENTIFIER COLON IDENTIFIER TYFIELDSTAIL .  (reduce by rule 59)
 
 
-state 142:
+
+	.	reduce by rule 59
+
+
+state 150:
 
 
 	EOF	accept
@@ -2735,5 +2872,5 @@ state 142:
 
 	.	error
 
-508 of 1070 action table entries left after compaction
-92 goto table entries
+533 of 1115 action table entries left after compaction
+94 goto table entries
