@@ -6,6 +6,7 @@ struct
   fun put s = if (s = 0) then ("") else ("  "^(put (s-1)))
   fun indent s (Ast.Op(a, oper, b)) = "("^(indent 0 a)^(Ast.binOPtoString oper)^(indent 0 b)^")"
     |indent s (Ast.Neg x)   = "( ~"^(indent 0 x)^")"
+    |indent s (Ast.Closed x) = (put s)^"(\n"^(indentlist (s+1) x)^"\n"^(put s)^")\n"
     |indent s (Ast.Const x) = (put s)^(Int.toString x)
     |indent s (Ast.Quote x) = (put s)^x
     |indent s  (Ast.Assign (x, y) ) = (put s) ^(indent s x)^" := "^(indent s y)
@@ -32,14 +33,16 @@ struct
 						a^"{"^(printRecbody b)^"}\n"	
 					end					
 and
-      indentdec s (Ast.VarDec(a, b)) = (put s)^"var "^a^" := "^(indent s b)
+      indentdec s (Ast.VariableDec a) = (pvardec s a)
       |indentdec s (Ast.Import a) = (put s)^"import "^a^" \n "
       |indentdec s (Ast.FunctionDec (a,b,c)) = (put s)^"function "^a^"( "^(indenttyfield b)^") = "^(indent s c)^" \n "
 
       |indentdec s (Ast.FunctionDecType (a,b,c,d)) = (put s)^"function "^a^"("^(indenttyfield b)^"): "^c^ " = "^(indent s d)^" \n "
       |indentdec s (Ast.PrimitiveDec (a,b)) = (put s)^"primitive "^a^"("^(indenttyfield b)^")\n "
       |indentdec s (Ast.PrimitiveDecType (a,b,c)) = (put s)^"primitive "^a^"("^(indenttyfield b)^"): "^c^"\n"
-      |indentdec s (Ast.TypeDec (a, b) ) = (put s)^"type "^a^" = "^(printty b)
+      |indentdec s (Ast.TypeDec (a, b) ) = (put s)^"type "^a^" = "^(printty s b)
+      |indentdec s (Ast.ClassDec (a,b) ) = (put s)^"class "^a^"{ \n"^(indentclasslist (s+1) b)^(put s)^"\n"
+      |indentdec s (Ast.ClassDecType (a,b,c) ) = (put s)^"class "^a^" extends "^b^"{ \n"^(indentclasslist (s+1) c)^(put s)^"\n"
 and 
 
 	indenttyfield (Ast.Tyfield a) = let
@@ -49,9 +52,11 @@ and
 						(p a)
 					end
 and
-	printty (Ast.NameTy a) 		= a
-	|printty (Ast.RecordTy a) 	= "{"^(indenttyfield a)^"}"
-	|printty (Ast.ArrayTy a) 	= "array of "^a
+	printty s (Ast.NameTy a) 		= a
+	|printty s (Ast.RecordTy a) 	= "{"^(indenttyfield a)^"}"
+	|printty s (Ast.ArrayTy a) 	= "array of "^a
+	|printty s (Ast.ClassDefCan a)	= "class { \n"^(indentclasslist (s+1) a)^(put s)^"\n"
+	|printty s (Ast.ClassDefCanType (a,b) ) = (put s)^"class  extends "^a^"{ \n"^(indentclasslist (s+1) b)^(put s)^"\n"
 and
       indentdeclist s []      = ""
      |indentdeclist s (x::xs) = (indentdec s x)^"\n"^(indentdeclist s xs)
@@ -59,11 +64,17 @@ and
       indentlist s []      = ""
      |indentlist s (x::xs) = (indent s x)^" "^(indentlist s xs)
   and
-      classfield (Ast.MethodDec (a,b,c) ) = "method "^a^" ( "^(indenttyfield  b)^" ) = "^(indent 0 c)  
-     | classfield (Ast.MethodDecType (a,b,c,d) ) = "method "^a^"( "^(indenttyfield b)^" ) : "^c^" = "^(indent 0 d)
-        
+      classfield s (Ast.MethodDec (a,b,c) ) = (put s)^"method "^a^" ( "^(indenttyfield  b)^" ) = "^(indent 0 c)  
+     | classfield s (Ast.MethodDecType (a,b,c,d) ) = (put s)^"method "^a^"( "^(indenttyfield b)^" ) : "^c^" = "^(indent 0 d)
+     | classfield s (Ast.ClassAttribute a) = (put s)^(pvardec 0 a)    
 
-  and
+and
+	indentclasslist s []      = ""
+     |indentclasslist s (x::xs) = (classfield s x)^"\n"^(indentclasslist s xs)
+and
+	pvardec s (Ast.VarDec(a, b)) = (put s)^"var "^a^" := "^(indent s b)
+	|pvardec s (Ast.VarDecType(a, b,c)) = (put s)^"var "^a^": "^b^" := "^(indent s c)
+and
   pretty s (Ast.Foo a)  = (indent s a)
  |pretty s (Ast.Bar a) = (indentdeclist s a)
 

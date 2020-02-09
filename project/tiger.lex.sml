@@ -979,129 +979,129 @@ in Vector.fromList(map g
 [{fin = [], trans = 0},
 {fin = [], trans = 1},
 {fin = [], trans = 1},
-{fin = [(N 66)], trans = 0},
-{fin = [(N 42)], trans = 0},
-{fin = [(N 64)], trans = 0},
-{fin = [(N 200)], trans = 6},
-{fin = [(N 200)], trans = 7},
-{fin = [(N 200)], trans = 8},
-{fin = [(N 200)], trans = 9},
-{fin = [(N 200)], trans = 10},
-{fin = [(N 82),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 12},
-{fin = [(N 200)], trans = 13},
-{fin = [(N 123),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 15},
-{fin = [(N 200)], trans = 16},
-{fin = [(N 200)], trans = 17},
-{fin = [(N 161),(N 200)], trans = 6},
-{fin = [(N 92),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 20},
-{fin = [(N 200)], trans = 21},
-{fin = [(N 102),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 23},
-{fin = [(N 200)], trans = 24},
-{fin = [(N 200)], trans = 25},
-{fin = [(N 200)], trans = 26},
-{fin = [(N 200)], trans = 27},
-{fin = [(N 200)], trans = 28},
-{fin = [(N 200)], trans = 29},
-{fin = [(N 200)], trans = 30},
-{fin = [(N 156),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 32},
-{fin = [(N 130),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 34},
-{fin = [(N 200)], trans = 35},
-{fin = [(N 127),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 37},
-{fin = [(N 76),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 39},
-{fin = [(N 200)], trans = 40},
-{fin = [(N 200)], trans = 41},
-{fin = [(N 200)], trans = 42},
-{fin = [(N 200)], trans = 43},
-{fin = [(N 174),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 45},
-{fin = [(N 200)], trans = 46},
-{fin = [(N 112),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 48},
-{fin = [(N 115),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 50},
-{fin = [(N 200)], trans = 51},
-{fin = [(N 200)], trans = 52},
-{fin = [(N 200)], trans = 53},
-{fin = [(N 137),(N 200)], trans = 6},
-{fin = [(N 54),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 56},
-{fin = [(N 200)], trans = 57},
-{fin = [(N 200)], trans = 58},
-{fin = [(N 200)], trans = 59},
-{fin = [(N 200)], trans = 60},
-{fin = [(N 200)], trans = 61},
-{fin = [(N 200)], trans = 62},
-{fin = [(N 146),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 64},
-{fin = [(N 89),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 66},
-{fin = [(N 200)], trans = 67},
-{fin = [(N 200)], trans = 68},
-{fin = [(N 200)], trans = 69},
-{fin = [(N 200)], trans = 70},
-{fin = [(N 200)], trans = 71},
-{fin = [(N 188),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 73},
-{fin = [(N 119),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 75},
-{fin = [(N 200)], trans = 76},
-{fin = [(N 97),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 78},
-{fin = [(N 85),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 80},
-{fin = [(N 200)], trans = 81},
-{fin = [(N 200)], trans = 82},
-{fin = [(N 200)], trans = 83},
-{fin = [(N 180),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 85},
-{fin = [(N 200)], trans = 86},
-{fin = [(N 200)], trans = 87},
-{fin = [(N 200)], trans = 88},
-{fin = [(N 108),(N 200)], trans = 6},
-{fin = [(N 200)], trans = 90},
-{fin = [(N 200)], trans = 91},
-{fin = [(N 200)], trans = 92},
-{fin = [(N 200)], trans = 93},
-{fin = [(N 167),(N 200)], trans = 6},
+{fin = [(N 70)], trans = 0},
+{fin = [(N 46)], trans = 0},
+{fin = [(N 68)], trans = 0},
+{fin = [(N 204)], trans = 6},
+{fin = [(N 204)], trans = 7},
+{fin = [(N 204)], trans = 8},
+{fin = [(N 204)], trans = 9},
+{fin = [(N 204)], trans = 10},
+{fin = [(N 86),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 12},
+{fin = [(N 204)], trans = 13},
+{fin = [(N 127),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 15},
+{fin = [(N 204)], trans = 16},
+{fin = [(N 204)], trans = 17},
+{fin = [(N 165),(N 204)], trans = 6},
+{fin = [(N 96),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 20},
+{fin = [(N 204)], trans = 21},
+{fin = [(N 106),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 23},
+{fin = [(N 204)], trans = 24},
+{fin = [(N 204)], trans = 25},
+{fin = [(N 204)], trans = 26},
+{fin = [(N 204)], trans = 27},
+{fin = [(N 204)], trans = 28},
+{fin = [(N 204)], trans = 29},
+{fin = [(N 204)], trans = 30},
+{fin = [(N 160),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 32},
+{fin = [(N 134),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 34},
+{fin = [(N 204)], trans = 35},
+{fin = [(N 23),(N 131),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 37},
+{fin = [(N 80),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 39},
+{fin = [(N 204)], trans = 40},
+{fin = [(N 204)], trans = 41},
+{fin = [(N 204)], trans = 42},
+{fin = [(N 204)], trans = 43},
+{fin = [(N 178),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 45},
+{fin = [(N 204)], trans = 46},
+{fin = [(N 116),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 48},
+{fin = [(N 119),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 50},
+{fin = [(N 204)], trans = 51},
+{fin = [(N 204)], trans = 52},
+{fin = [(N 204)], trans = 53},
+{fin = [(N 141),(N 204)], trans = 6},
+{fin = [(N 58),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 56},
+{fin = [(N 204)], trans = 57},
+{fin = [(N 204)], trans = 58},
+{fin = [(N 204)], trans = 59},
+{fin = [(N 204)], trans = 60},
+{fin = [(N 204)], trans = 61},
+{fin = [(N 204)], trans = 62},
+{fin = [(N 150),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 64},
+{fin = [(N 93),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 66},
+{fin = [(N 204)], trans = 67},
+{fin = [(N 204)], trans = 68},
+{fin = [(N 204)], trans = 69},
+{fin = [(N 204)], trans = 70},
+{fin = [(N 204)], trans = 71},
+{fin = [(N 192),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 73},
+{fin = [(N 123),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 75},
+{fin = [(N 204)], trans = 76},
+{fin = [(N 101),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 78},
+{fin = [(N 89),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 80},
+{fin = [(N 204)], trans = 81},
+{fin = [(N 204)], trans = 82},
+{fin = [(N 204)], trans = 83},
+{fin = [(N 184),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 85},
+{fin = [(N 204)], trans = 86},
+{fin = [(N 204)], trans = 87},
+{fin = [(N 204)], trans = 88},
+{fin = [(N 112),(N 204)], trans = 6},
+{fin = [(N 204)], trans = 90},
+{fin = [(N 204)], trans = 91},
+{fin = [(N 204)], trans = 92},
+{fin = [(N 204)], trans = 93},
+{fin = [(N 171),(N 204)], trans = 6},
 {fin = [], trans = 95},
 {fin = [], trans = 96},
 {fin = [], trans = 97},
 {fin = [], trans = 98},
-{fin = [(N 200)], trans = 0},
-{fin = [(N 62)], trans = 0},
-{fin = [(N 60)], trans = 0},
-{fin = [(N 46)], trans = 102},
-{fin = [(N 35)], trans = 0},
-{fin = [(N 29)], trans = 0},
-{fin = [(N 44)], trans = 105},
-{fin = [(N 38)], trans = 0},
-{fin = [(N 32)], trans = 0},
-{fin = [(N 48)], trans = 0},
-{fin = [(N 72)], trans = 109},
-{fin = [(N 51)], trans = 0},
+{fin = [(N 204)], trans = 0},
+{fin = [(N 66)], trans = 0},
+{fin = [(N 64)], trans = 0},
+{fin = [(N 50)], trans = 102},
+{fin = [(N 39)], trans = 0},
+{fin = [(N 33)], trans = 0},
+{fin = [(N 48)], trans = 105},
+{fin = [(N 42)], trans = 0},
+{fin = [(N 36)], trans = 0},
+{fin = [(N 52)], trans = 0},
+{fin = [(N 76)], trans = 109},
+{fin = [(N 55)], trans = 0},
 {fin = [(N 19)], trans = 111},
-{fin = [(N 27)], trans = 112},
+{fin = [(N 31)], trans = 112},
 {fin = [], trans = 113},
 {fin = [], trans = 114},
 {fin = [(N 16)], trans = 0},
-{fin = [(N 68)], trans = 0},
-{fin = [(N 23)], trans = 0},
-{fin = [(N 70)], trans = 0},
-{fin = [(N 21)], trans = 0},
+{fin = [(N 72)], trans = 0},
+{fin = [(N 27)], trans = 0},
+{fin = [(N 74)], trans = 0},
 {fin = [(N 25)], trans = 0},
-{fin = [(N 58)], trans = 0},
-{fin = [(N 56)], trans = 0},
-{fin = [(N 40)], trans = 0},
+{fin = [(N 29)], trans = 0},
+{fin = [(N 62)], trans = 0},
+{fin = [(N 60)], trans = 0},
+{fin = [(N 44)], trans = 0},
 {fin = [], trans = 124},
-{fin = [(N 192)], trans = 124},
+{fin = [(N 196)], trans = 124},
 {fin = [(N 2)], trans = 126},
 {fin = [(N 6)], trans = 127},
 {fin = [], trans = 127}])
@@ -1147,109 +1147,111 @@ let fun continue() = lex() in
 
 			(* Application actions *)
 
-  102 => ((*#line 96.18 "tiger.lex"*) Tokens.THEN (!lineRef,!lineRef) (*#line 1150.1 "tiger.lex.sml"*)
+  101 => ((*#line 96.18 "tiger.lex"*) Tokens.ELSE (!lineRef,!lineRef) (*#line 1150.1 "tiger.lex.sml"*)
 )
-| 108 => ((*#line 97.19 "tiger.lex"*) Tokens.BREAK (!lineRef,!lineRef) (*#line 1152.1 "tiger.lex.sml"*)
+| 106 => ((*#line 97.18 "tiger.lex"*) Tokens.THEN (!lineRef,!lineRef) (*#line 1152.1 "tiger.lex.sml"*)
 )
-| 112 => ((*#line 98.17 "tiger.lex"*) Tokens.LET (!lineRef,!lineRef) (*#line 1154.1 "tiger.lex.sml"*)
+| 112 => ((*#line 98.19 "tiger.lex"*) Tokens.BREAK (!lineRef,!lineRef) (*#line 1154.1 "tiger.lex.sml"*)
 )
-| 115 => ((*#line 99.16 "tiger.lex"*) Tokens.IN (!lineRef,!lineRef) (*#line 1156.1 "tiger.lex.sml"*)
+| 116 => ((*#line 99.17 "tiger.lex"*) Tokens.LET (!lineRef,!lineRef) (*#line 1156.1 "tiger.lex.sml"*)
 )
-| 119 => ((*#line 100.17 "tiger.lex"*) Tokens.END (!lineRef,!lineRef) (*#line 1158.1 "tiger.lex.sml"*)
+| 119 => ((*#line 100.16 "tiger.lex"*) Tokens.IN (!lineRef,!lineRef) (*#line 1158.1 "tiger.lex.sml"*)
 )
-| 123 => ((*#line 101.17 "tiger.lex"*) Tokens.VAR (!lineRef,!lineRef) (*#line 1160.1 "tiger.lex.sml"*)
+| 123 => ((*#line 101.17 "tiger.lex"*) Tokens.END (!lineRef,!lineRef) (*#line 1160.1 "tiger.lex.sml"*)
 )
-| 127 => ((*#line 102.17 "tiger.lex"*) Tokens.NIL (!lineRef,!lineRef) (*#line 1162.1 "tiger.lex.sml"*)
+| 127 => ((*#line 102.17 "tiger.lex"*) Tokens.VAR (!lineRef,!lineRef) (*#line 1162.1 "tiger.lex.sml"*)
 )
-| 130 => ((*#line 103.16 "tiger.lex"*) Tokens.OF (!lineRef,!lineRef) (*#line 1164.1 "tiger.lex.sml"*)
+| 131 => ((*#line 103.17 "tiger.lex"*) Tokens.NIL (!lineRef,!lineRef) (*#line 1164.1 "tiger.lex.sml"*)
 )
-| 137 => ((*#line 104.19 "tiger.lex"*) Tokens.IMPORT (!lineRef,!lineRef) (*#line 1166.1 "tiger.lex.sml"*)
+| 134 => ((*#line 104.16 "tiger.lex"*) Tokens.OF (!lineRef,!lineRef) (*#line 1166.1 "tiger.lex.sml"*)
 )
-| 146 => ((*#line 105.21 "tiger.lex"*) Tokens.FUNCTION (!lineRef,!lineRef) (*#line 1168.1 "tiger.lex.sml"*)
+| 141 => ((*#line 105.19 "tiger.lex"*) Tokens.IMPORT (!lineRef,!lineRef) (*#line 1168.1 "tiger.lex.sml"*)
 )
-| 156 => ((*#line 106.22 "tiger.lex"*) Tokens.PRIMITIVE (!lineRef,!lineRef) (*#line 1170.1 "tiger.lex.sml"*)
+| 150 => ((*#line 106.21 "tiger.lex"*) Tokens.FUNCTION (!lineRef,!lineRef) (*#line 1170.1 "tiger.lex.sml"*)
 )
 | 16 => let val yytext=yymktext() in (*#line 64.19 "tiger.lex"*) updateLine (newlineCount yytext) ;lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*)(*#line 1172.1 "tiger.lex.sml"*)
  end
-| 161 => ((*#line 107.17 "tiger.lex"*) Tokens.TYPE (!lineRef,!lineRef) (*#line 1174.1 "tiger.lex.sml"*)
+| 160 => ((*#line 107.22 "tiger.lex"*) Tokens.PRIMITIVE (!lineRef,!lineRef) (*#line 1174.1 "tiger.lex.sml"*)
 )
-| 167 => ((*#line 108.18 "tiger.lex"*) Tokens.ARRAY (!lineRef,!lineRef) (*#line 1176.1 "tiger.lex.sml"*)
+| 165 => ((*#line 108.17 "tiger.lex"*) Tokens.TYPE (!lineRef,!lineRef) (*#line 1176.1 "tiger.lex.sml"*)
 )
-| 174 => ((*#line 109.19 "tiger.lex"*) Tokens.METHOD (!lineRef,!lineRef) (*#line 1178.1 "tiger.lex.sml"*)
+| 171 => ((*#line 109.18 "tiger.lex"*) Tokens.ARRAY (!lineRef,!lineRef) (*#line 1178.1 "tiger.lex.sml"*)
 )
-| 180 => ((*#line 110.18 "tiger.lex"*) Tokens.CLASS (!lineRef,!lineRef) (*#line 1180.1 "tiger.lex.sml"*)
+| 178 => ((*#line 110.19 "tiger.lex"*) Tokens.METHOD (!lineRef,!lineRef) (*#line 1180.1 "tiger.lex.sml"*)
 )
-| 188 => ((*#line 111.20 "tiger.lex"*) Tokens.EXTENDS (!lineRef,!lineRef) (*#line 1182.1 "tiger.lex.sml"*)
+| 184 => ((*#line 111.18 "tiger.lex"*) Tokens.CLASS (!lineRef,!lineRef) (*#line 1182.1 "tiger.lex.sml"*)
 )
 | 19 => let val yytext=yymktext() in (*#line 65.18 "tiger.lex"*) Tokens.CONST (toInt yytext, !lineRef, !lineRef) (*#line 1184.1 "tiger.lex.sml"*)
  end
-| 192 => let val yytext=yymktext() in (*#line 112.20 "tiger.lex"*) Tokens.QUOTE (yytext,!lineRef,!lineRef) (*#line 1186.1 "tiger.lex.sml"*)
+| 192 => ((*#line 112.20 "tiger.lex"*) Tokens.EXTENDS (!lineRef,!lineRef) (*#line 1186.1 "tiger.lex.sml"*)
+)
+| 196 => let val yytext=yymktext() in (*#line 113.20 "tiger.lex"*) Tokens.QUOTE (yytext,!lineRef,!lineRef) (*#line 1188.1 "tiger.lex.sml"*)
  end
-| 2 => ((*#line 62.19 "tiger.lex"*) lex() (*#line 1188.1 "tiger.lex.sml"*)
+| 2 => ((*#line 62.19 "tiger.lex"*) lex() (*#line 1190.1 "tiger.lex.sml"*)
 )
-| 200 => let val yytext=yymktext() in (*#line 113.19 "tiger.lex"*)Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) (*#line 1190.1 "tiger.lex.sml"*)
+| 204 => let val yytext=yymktext() in (*#line 114.19 "tiger.lex"*)Tokens.IDENTIFIER (yytext,!lineRef, !lineRef) (*#line 1192.1 "tiger.lex.sml"*)
  end
-| 21 => ((*#line 66.19 "tiger.lex"*) Tokens.PLUS  (!lineRef,!lineRef) (*#line 1192.1 "tiger.lex.sml"*)
+| 23 => ((*#line 66.21 "tiger.lex"*) Tokens.NIL  (!lineRef,!lineRef) (*#line 1194.1 "tiger.lex.sml"*)
 )
-| 23 => ((*#line 67.19 "tiger.lex"*) Tokens.MINUS  (!lineRef,!lineRef) (*#line 1194.1 "tiger.lex.sml"*)
+| 25 => ((*#line 67.19 "tiger.lex"*) Tokens.PLUS  (!lineRef,!lineRef) (*#line 1196.1 "tiger.lex.sml"*)
 )
-| 25 => ((*#line 68.19 "tiger.lex"*) Tokens.MUL (!lineRef,!lineRef) (*#line 1196.1 "tiger.lex.sml"*)
+| 27 => ((*#line 68.19 "tiger.lex"*) Tokens.MINUS  (!lineRef,!lineRef) (*#line 1198.1 "tiger.lex.sml"*)
 )
-| 27 => ((*#line 69.19 "tiger.lex"*) Tokens.DIV (!lineRef,!lineRef) (*#line 1198.1 "tiger.lex.sml"*)
+| 29 => ((*#line 69.19 "tiger.lex"*) Tokens.MUL (!lineRef,!lineRef) (*#line 1200.1 "tiger.lex.sml"*)
 )
-| 29 => ((*#line 70.19 "tiger.lex"*) Tokens.EQ (!lineRef,!lineRef) (*#line 1200.1 "tiger.lex.sml"*)
+| 31 => ((*#line 70.19 "tiger.lex"*) Tokens.DIV (!lineRef,!lineRef) (*#line 1202.1 "tiger.lex.sml"*)
 )
-| 32 => ((*#line 71.20 "tiger.lex"*) Tokens.LTEQ (!lineRef,!lineRef) (*#line 1202.1 "tiger.lex.sml"*)
+| 33 => ((*#line 71.19 "tiger.lex"*) Tokens.EQ (!lineRef,!lineRef) (*#line 1204.1 "tiger.lex.sml"*)
 )
-| 35 => ((*#line 72.20 "tiger.lex"*) Tokens.GTEQ (!lineRef,!lineRef) (*#line 1204.1 "tiger.lex.sml"*)
+| 36 => ((*#line 72.20 "tiger.lex"*) Tokens.LTEQ (!lineRef,!lineRef) (*#line 1206.1 "tiger.lex.sml"*)
 )
-| 38 => ((*#line 73.20 "tiger.lex"*) Tokens.NTEQ (!lineRef,!lineRef) (*#line 1206.1 "tiger.lex.sml"*)
+| 39 => ((*#line 73.20 "tiger.lex"*) Tokens.GTEQ (!lineRef,!lineRef) (*#line 1208.1 "tiger.lex.sml"*)
 )
-| 40 => ((*#line 74.19 "tiger.lex"*) Tokens.AND (!lineRef,!lineRef) (*#line 1208.1 "tiger.lex.sml"*)
+| 42 => ((*#line 74.20 "tiger.lex"*) Tokens.NTEQ (!lineRef,!lineRef) (*#line 1210.1 "tiger.lex.sml"*)
 )
-| 42 => ((*#line 75.19 "tiger.lex"*) Tokens.OR (!lineRef,!lineRef) (*#line 1210.1 "tiger.lex.sml"*)
+| 44 => ((*#line 75.19 "tiger.lex"*) Tokens.AND (!lineRef,!lineRef) (*#line 1212.1 "tiger.lex.sml"*)
 )
-| 44 => ((*#line 76.19 "tiger.lex"*) Tokens.LT (!lineRef,!lineRef) (*#line 1212.1 "tiger.lex.sml"*)
+| 46 => ((*#line 76.19 "tiger.lex"*) Tokens.OR (!lineRef,!lineRef) (*#line 1214.1 "tiger.lex.sml"*)
 )
-| 46 => ((*#line 77.19 "tiger.lex"*) Tokens.GT (!lineRef,!lineRef) (*#line 1214.1 "tiger.lex.sml"*)
+| 48 => ((*#line 77.19 "tiger.lex"*) Tokens.LT (!lineRef,!lineRef) (*#line 1216.1 "tiger.lex.sml"*)
 )
-| 48 => ((*#line 78.19 "tiger.lex"*) Tokens.SEMICOLON (!lineRef,!lineRef) (*#line 1216.1 "tiger.lex.sml"*)
+| 50 => ((*#line 78.19 "tiger.lex"*) Tokens.GT (!lineRef,!lineRef) (*#line 1218.1 "tiger.lex.sml"*)
 )
-| 51 => ((*#line 79.16 "tiger.lex"*) Tokens.ASSIGN (!lineRef,!lineRef) (*#line 1218.1 "tiger.lex.sml"*)
+| 52 => ((*#line 79.19 "tiger.lex"*) Tokens.SEMICOLON (!lineRef,!lineRef) (*#line 1220.1 "tiger.lex.sml"*)
 )
-| 54 => ((*#line 80.16 "tiger.lex"*) Tokens.IF  (yypos,yypos+2) (*#line 1220.1 "tiger.lex.sml"*)
+| 55 => ((*#line 80.16 "tiger.lex"*) Tokens.ASSIGN (!lineRef,!lineRef) (*#line 1222.1 "tiger.lex.sml"*)
 )
-| 56 => ((*#line 81.15 "tiger.lex"*) Tokens.LPAREN (!lineRef,!lineRef) (*#line 1222.1 "tiger.lex.sml"*)
-)
-| 58 => ((*#line 82.15 "tiger.lex"*) Tokens.RPAREN (!lineRef,!lineRef) (*#line 1224.1 "tiger.lex.sml"*)
+| 58 => ((*#line 81.16 "tiger.lex"*) Tokens.IF  (yypos,yypos+2) (*#line 1224.1 "tiger.lex.sml"*)
 )
 | 6 => let val yytext=yymktext() in (*#line 63.19 "tiger.lex"*) updateLine (newlineCount yytext) ;lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*)(*#line 1226.1 "tiger.lex.sml"*)
  end
-| 60 => ((*#line 83.19 "tiger.lex"*) Tokens.LBRACK (!lineRef,!lineRef) (*#line 1228.1 "tiger.lex.sml"*)
+| 60 => ((*#line 82.15 "tiger.lex"*) Tokens.LPAREN (!lineRef,!lineRef) (*#line 1228.1 "tiger.lex.sml"*)
 )
-| 62 => ((*#line 84.19 "tiger.lex"*) Tokens.RBRACK (!lineRef,!lineRef) (*#line 1230.1 "tiger.lex.sml"*)
+| 62 => ((*#line 83.15 "tiger.lex"*) Tokens.RPAREN (!lineRef,!lineRef) (*#line 1230.1 "tiger.lex.sml"*)
 )
-| 64 => ((*#line 85.19 "tiger.lex"*) Tokens.LBRACE (!lineRef,!lineRef) (*#line 1232.1 "tiger.lex.sml"*)
+| 64 => ((*#line 84.19 "tiger.lex"*) Tokens.LBRACK (!lineRef,!lineRef) (*#line 1232.1 "tiger.lex.sml"*)
 )
-| 66 => ((*#line 86.19 "tiger.lex"*) Tokens.RBRACE (!lineRef,!lineRef) (*#line 1234.1 "tiger.lex.sml"*)
+| 66 => ((*#line 85.19 "tiger.lex"*) Tokens.RBRACK (!lineRef,!lineRef) (*#line 1234.1 "tiger.lex.sml"*)
 )
-| 68 => ((*#line 87.19 "tiger.lex"*) Tokens.DOT (!lineRef,!lineRef) (*#line 1236.1 "tiger.lex.sml"*)
+| 68 => ((*#line 86.19 "tiger.lex"*) Tokens.LBRACE (!lineRef,!lineRef) (*#line 1236.1 "tiger.lex.sml"*)
 )
-| 70 => ((*#line 88.19 "tiger.lex"*) Tokens.COMMA (!lineRef,!lineRef) (*#line 1238.1 "tiger.lex.sml"*)
+| 70 => ((*#line 87.19 "tiger.lex"*) Tokens.RBRACE (!lineRef,!lineRef) (*#line 1238.1 "tiger.lex.sml"*)
 )
-| 72 => ((*#line 89.19 "tiger.lex"*) Tokens.COLON (!lineRef,!lineRef) (*#line 1240.1 "tiger.lex.sml"*)
+| 72 => ((*#line 88.19 "tiger.lex"*) Tokens.DOT (!lineRef,!lineRef) (*#line 1240.1 "tiger.lex.sml"*)
 )
-| 76 => ((*#line 90.17 "tiger.lex"*) Tokens.NEW	(!lineRef,!lineRef)(*#line 1242.1 "tiger.lex.sml"*)
+| 74 => ((*#line 89.19 "tiger.lex"*) Tokens.COMMA (!lineRef,!lineRef) (*#line 1242.1 "tiger.lex.sml"*)
 )
-| 82 => ((*#line 91.19 "tiger.lex"*) Tokens.WHILE (!lineRef,!lineRef) (*#line 1244.1 "tiger.lex.sml"*)
+| 76 => ((*#line 90.19 "tiger.lex"*) Tokens.COLON (!lineRef,!lineRef) (*#line 1244.1 "tiger.lex.sml"*)
 )
-| 85 => ((*#line 92.16 "tiger.lex"*) Tokens.DO (!lineRef,!lineRef) (*#line 1246.1 "tiger.lex.sml"*)
+| 80 => ((*#line 91.17 "tiger.lex"*) Tokens.NEW	(!lineRef,!lineRef)(*#line 1246.1 "tiger.lex.sml"*)
 )
-| 89 => ((*#line 93.17 "tiger.lex"*) Tokens.FOR (!lineRef,!lineRef) (*#line 1248.1 "tiger.lex.sml"*)
+| 86 => ((*#line 92.19 "tiger.lex"*) Tokens.WHILE (!lineRef,!lineRef) (*#line 1248.1 "tiger.lex.sml"*)
 )
-| 92 => ((*#line 94.16 "tiger.lex"*) Tokens.TO (!lineRef,!lineRef) (*#line 1250.1 "tiger.lex.sml"*)
+| 89 => ((*#line 93.16 "tiger.lex"*) Tokens.DO (!lineRef,!lineRef) (*#line 1250.1 "tiger.lex.sml"*)
 )
-| 97 => ((*#line 95.18 "tiger.lex"*) Tokens.ELSE (!lineRef,!lineRef) (*#line 1252.1 "tiger.lex.sml"*)
+| 93 => ((*#line 94.17 "tiger.lex"*) Tokens.FOR (!lineRef,!lineRef) (*#line 1252.1 "tiger.lex.sml"*)
+)
+| 96 => ((*#line 95.16 "tiger.lex"*) Tokens.TO (!lineRef,!lineRef) (*#line 1254.1 "tiger.lex.sml"*)
 )
 | _ => raise Internal.LexerError
 

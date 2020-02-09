@@ -14,10 +14,10 @@ struct
 			|Or
 
   datatype Expr = Const of int
+		 |Closed of Expr list
                  | Op of Expr * BinOp * Expr
                  | Neg of Expr
 		 | Assign of Expr*Expr
-		 | IF
 		 | WHILE of Expr*Expr
 		 | FOR of string*Expr*Expr*Expr
 		 | OPENIF of (Expr*Expr)
@@ -34,8 +34,7 @@ struct
                  | FunCall of string * Expr list
                  | MethodCall of Expr * string * Expr list 
 		 | Quote of string
-	and Dec = VarDec of string * Expr
-                 |VarDecType of string * Expr * string
+	and Dec = VariableDec of Vdec 
 		 |Import of string
 		 |PrimitiveDec of string*Tyfields
                  |PrimitiveDecType of string*Tyfields*string
@@ -48,9 +47,13 @@ struct
 	and Ty 	= NameTy of string
 		 |RecordTy of Tyfields
 		 |ArrayTy of string
-        and Classfield = MethodDec of string*Tyfields*Expr
+		 |ClassDefCan of Classfield list
+		 |ClassDefCanType of string*Classfield list
+        and Classfield = ClassAttribute of Vdec
+			|MethodDec of string*Tyfields*Expr
                         |MethodDecType of string*Tyfields*string*Expr 
-         
+        and Vdec =  VarDec of string * Expr
+                 |VarDecType of string * string*Expr 
   datatype Program = Foo of Expr
                     |Bar of Dec list
 
