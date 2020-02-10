@@ -1,6 +1,11 @@
 val blue = "\027[1;34m"
 val white = "\027[0m"
 val yellow = "\027[0;33m"
+val black   = "\027[0;30m"
+val red = "\027[0;31m"
+val green = "\027[0;32m"
+val magenta = "\027[0;35m"
+val cyan = "\027[0;36m"
 structure beautify =
 struct
   fun  put s = if (s = 0) then ("") else ("  "^(put (s-1)))
