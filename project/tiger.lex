@@ -13,8 +13,8 @@ fun updateLine n      = lineRef := !(lineRef) + n
 type svalue        = Tokens.svalue
 type ('a,'b) token = ('a,'b) Tokens.token
 type lexresult     = (svalue,pos) token
-
-
+val commentDepth = ref 0
+val comment = ref ""
 fun lineRange l r = "line " ^ l
 				  (*else ("line " ^ Int.toString l ^ "-" ^ Int.toString r)*)
 fun error (e,l,r) = TextIO.output(TextIO.stdErr, lineRange l r ^ ":" ^ e ^ "\n")
@@ -53,62 +53,68 @@ val newlineCount = List.length o List.filter (fn x => x = #"\n") o String.explod
 %%
 
 %header (functor TigerLexFun(structure Tokens : Tiger_TOKENS));
+%s COMMENT;
 ws    = [\ \t];
 digit = [0-9]+;
 letter = [a-zA-Z];
 id  = [a-zA-Z]([a-z_A-Z1-9])*;
 comment = "/*"([^*]|\*+[^*/])*\*+"/";
+cstart = "/*";
+cend = "*/";
 %%
-{ws}+         => ( lex() );
-\n({ws}*\n)*  => ( updateLine (newlineCount yytext) ;lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*));
-{comment}     => ( updateLine (newlineCount yytext) ;lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*));
-{digit}      => ( Tokens.CONST (toInt yytext, !lineRef, !lineRef) );
-"nil"           => ( Tokens.NIL  (!lineRef,!lineRef) );
-"+"           => ( Tokens.PLUS  (!lineRef,!lineRef) );
-"-"           => ( Tokens.MINUS  (!lineRef,!lineRef) );
-"*"           => ( Tokens.MUL (!lineRef,!lineRef) );
-"/"           => ( Tokens.DIV (!lineRef,!lineRef) );
-"="           => ( Tokens.EQ (!lineRef,!lineRef) );
-"<="           => ( Tokens.LTEQ (!lineRef,!lineRef) );
-">="           => ( Tokens.GTEQ (!lineRef,!lineRef) );
-"<>"           => ( Tokens.NTEQ (!lineRef,!lineRef) );
-"&"           => ( Tokens.AND (!lineRef,!lineRef) );
-"|"           => ( Tokens.OR (!lineRef,!lineRef) );
-"<"           => ( Tokens.LT (!lineRef,!lineRef) );
-">"           => ( Tokens.GT (!lineRef,!lineRef) );
-";"           => ( Tokens.SEMICOLON (!lineRef,!lineRef) );
-":="	      => ( Tokens.ASSIGN (!lineRef,!lineRef) );
-"if"	      => ( Tokens.IF  (yypos,yypos+2) );
-"("	      => ( Tokens.LPAREN (!lineRef,!lineRef) );
-")"	      => ( Tokens.RPAREN (!lineRef,!lineRef) );
-"["           => ( Tokens.LBRACK (!lineRef,!lineRef) );
-"]"           => ( Tokens.RBRACK (!lineRef,!lineRef) );
-"{"           => ( Tokens.LBRACE (!lineRef,!lineRef) );
-"}"           => ( Tokens.RBRACE (!lineRef,!lineRef) );
-"."           => ( Tokens.DOT (!lineRef,!lineRef) );
-","           => ( Tokens.COMMA (!lineRef,!lineRef) );
-":"           => ( Tokens.COLON (!lineRef,!lineRef) );
-"new"	      => ( Tokens.NEW	(!lineRef,!lineRef));
-"while"	      => ( Tokens.WHILE (!lineRef,!lineRef) );
-"do"	      => ( Tokens.DO (!lineRef,!lineRef) );
-"for"	      => ( Tokens.FOR (!lineRef,!lineRef) );
-"to"	      => ( Tokens.TO (!lineRef,!lineRef) );
-"else"	      => ( Tokens.ELSE (!lineRef,!lineRef) );
-"then"	      => ( Tokens.THEN (!lineRef,!lineRef) );
-"break"	      => ( Tokens.BREAK (!lineRef,!lineRef) );
-"let"	      => ( Tokens.LET (!lineRef,!lineRef) );
-"in"	      => ( Tokens.IN (!lineRef,!lineRef) );
-"end"	      => ( Tokens.END (!lineRef,!lineRef) );
-"var"	      => ( Tokens.VAR (!lineRef,!lineRef) );
-"nil"	      => ( Tokens.NIL (!lineRef,!lineRef) );
-"of"	      => ( Tokens.OF (!lineRef,!lineRef) );
-"import"      => ( Tokens.IMPORT (!lineRef,!lineRef) );
-"function"      => ( Tokens.FUNCTION (!lineRef,!lineRef) );
-"primitive"      => ( Tokens.PRIMITIVE (!lineRef,!lineRef) );
-"type"      => ( Tokens.TYPE (!lineRef,!lineRef) );
-"array"      => ( Tokens.ARRAY (!lineRef,!lineRef) );
-"method"      => ( Tokens.METHOD (!lineRef,!lineRef) );
-"class"      => ( Tokens.CLASS (!lineRef,!lineRef) );
-"extends"      => ( Tokens.EXTENDS (!lineRef,!lineRef) );
-"\"".*"\""     => ( Tokens.QUOTE (yytext,!lineRef,!lineRef) );
-{id}|"_main"  => (Tokens.ID (yytext,!lineRef, !lineRef) );
+<INITIAL>{ws}+         => ( lex() );
+<INITIAL>\n({ws}*\n)*  => ( updateLine (newlineCount yytext) ;lex()(*Tokens.NEWLINE (!lineRef, !lineRef)*));
+<INITIAL>{digit}      => ( Tokens.CONST (toInt yytext, !lineRef, !lineRef) );
+<COMMENT>"/*"		=> (commentDepth := (!commentDepth + 1); lex());
+<INITIAL>"/*"		=> (commentDepth := (!commentDepth + 1); YYBEGIN COMMENT; lex());
+<COMMENT>"*/"		=> (commentDepth := (!commentDepth - 1); if (!commentDepth)=0 then (YYBEGIN INITIAL; print(!comment) ) else () ;lex());
+<COMMENT>.		=>(comment := (!comment^yytext);lex() );
+<INITIAL>"nil"           => ( Tokens.NIL  (!lineRef,!lineRef) );
+<INITIAL>"+"           => ( Tokens.PLUS  (!lineRef,!lineRef) );
+<INITIAL>"-"           => ( Tokens.MINUS  (!lineRef,!lineRef) );
+<INITIAL>"*"           => ( Tokens.MUL (!lineRef,!lineRef) );
+<INITIAL>"/"           => ( Tokens.DIV (!lineRef,!lineRef) );
+<INITIAL>"="           => ( Tokens.EQ (!lineRef,!lineRef) );
+<INITIAL>"<="           => ( Tokens.LTEQ (!lineRef,!lineRef) );
+<INITIAL>">="           => ( Tokens.GTEQ (!lineRef,!lineRef) );
+<INITIAL>"<>"           => ( Tokens.NTEQ (!lineRef,!lineRef) );
+<INITIAL>"&"           => ( Tokens.AND (!lineRef,!lineRef) );
+<INITIAL>"|"           => ( Tokens.OR (!lineRef,!lineRef) );
+<INITIAL>"<"           => ( Tokens.LT (!lineRef,!lineRef) );
+<INITIAL>">"           => ( Tokens.GT (!lineRef,!lineRef) );
+<INITIAL>";"           => ( Tokens.SEMICOLON (!lineRef,!lineRef) );
+<INITIAL>":="	      => ( Tokens.ASSIGN (!lineRef,!lineRef) );
+<INITIAL>"if"	      => ( Tokens.IF  (yypos,yypos+2) );
+<INITIAL>"("	      => ( Tokens.LPAREN (!lineRef,!lineRef) );
+<INITIAL>")"	      => ( Tokens.RPAREN (!lineRef,!lineRef) );
+<INITIAL>"["           => ( Tokens.LBRACK (!lineRef,!lineRef) );
+<INITIAL>"]"           => ( Tokens.RBRACK (!lineRef,!lineRef) );
+<INITIAL>"{"           => ( Tokens.LBRACE (!lineRef,!lineRef) );
+<INITIAL>"}"           => ( Tokens.RBRACE (!lineRef,!lineRef) );
+<INITIAL>"."           => ( Tokens.DOT (!lineRef,!lineRef) );
+<INITIAL>","           => ( Tokens.COMMA (!lineRef,!lineRef) );
+<INITIAL>":"           => ( Tokens.COLON (!lineRef,!lineRef) );
+<INITIAL>"new"	      => ( Tokens.NEW	(!lineRef,!lineRef));
+<INITIAL>"while"	      => ( Tokens.WHILE (!lineRef,!lineRef) );
+<INITIAL>"do"	      => ( Tokens.DO (!lineRef,!lineRef) );
+<INITIAL>"for"	      => ( Tokens.FOR (!lineRef,!lineRef) );
+<INITIAL>"to"	      => ( Tokens.TO (!lineRef,!lineRef) );
+<INITIAL>"else"	      => ( Tokens.ELSE (!lineRef,!lineRef) );
+<INITIAL>"then"	      => ( Tokens.THEN (!lineRef,!lineRef) );
+<INITIAL>"break"	      => ( Tokens.BREAK (!lineRef,!lineRef) );
+<INITIAL>"let"	      => ( Tokens.LET (!lineRef,!lineRef) );
+<INITIAL>"in"	      => ( Tokens.IN (!lineRef,!lineRef) );
+<INITIAL>"end"	      => ( Tokens.END (!lineRef,!lineRef) );
+<INITIAL>"var"	      => ( Tokens.VAR (!lineRef,!lineRef) );
+<INITIAL>"nil"	      => ( Tokens.NIL (!lineRef,!lineRef) );
+<INITIAL>"of"	      => ( Tokens.OF (!lineRef,!lineRef) );
+<INITIAL>"import"      => ( Tokens.IMPORT (!lineRef,!lineRef) );
+<INITIAL>"function"      => ( Tokens.FUNCTION (!lineRef,!lineRef) );
+<INITIAL>"primitive"      => ( Tokens.PRIMITIVE (!lineRef,!lineRef) );
+<INITIAL>"type"      => ( Tokens.TYPE (!lineRef,!lineRef) );
+<INITIAL>"array"      => ( Tokens.ARRAY (!lineRef,!lineRef) );
+<INITIAL>"method"      => ( Tokens.METHOD (!lineRef,!lineRef) );
+<INITIAL>"class"      => ( Tokens.CLASS (!lineRef,!lineRef) );
+<INITIAL>"extends"      => ( Tokens.EXTENDS (!lineRef,!lineRef) );
+<INITIAL>"\"".*"\""     => ( Tokens.QUOTE (yytext,!lineRef,!lineRef) );
+<INITIAL>{id}|"_main"  => (Tokens.ID (yytext,!lineRef, !lineRef) );

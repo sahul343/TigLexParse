@@ -30,10 +30,10 @@ struct
     |indent s  n (Ast.Op(a, oper, b)) = "("^( indent 0 n a)^(Ast.binOPtoString oper)^( indent 0 n b)^")"
     |indent s  n (Ast.Closed x) = "(\n"^(indentlist (s+1) n x)^"\n"^(put s)^")"
     |indent s  n  (Ast.Assign (x, y) ) = (put s) ^( indent 0 n x)^" := "^( indent 0 n y)
-    |indent s  n (Ast.OPENIF (a,b) ) =n^(put s)^blue^"if"^white^" " ^ (indent s  n a) ^blue^" then"^white^(indent (s+1) n b) 
-    |indent s  n (Ast.CLOSEDIF (a,b, c) ) = n^(indent s  n (Ast.OPENIF(a, b)))^(put s)^blue^"else"^white^(indent (s+1) n c)
-    |indent s  n  (Ast.WHILE (x,y) )   = (put s)^blue^"while"^white^(indent s  n x)^blue^" do"^white^"\n"^(put (s+1))^(indent s  ("\n") y)
-    |indent s  n  (Ast.FOR   (a, b, c, d) )= "\n"^(put s)^blue^"for "^white^a^" := "^( indent 0 n b)^blue^" to "^white^( indent 0 n c)^blue^" do"^white^(indent (s+1) ("\n") d)
+    |indent s  n (Ast.OPENIF (a,b) ) =n^(put s)^blue^"if "^white^" " ^ (indent s  n a) ^blue^" then "^white^(indent (s+1) n b) 
+    |indent s  n (Ast.CLOSEDIF (a,b, c) ) = n^(indent s  n (Ast.OPENIF(a, b)))^(put s)^blue^" else "^white^(indent (s+1) n c)
+    |indent s  n  (Ast.WHILE (x,y) )   = (put s)^blue^"while "^white^(indent s  n x)^blue^" do"^white^"\n"^(put (s+1))^(indent s  ("\n") y)
+    |indent s  n  (Ast.FOR   (a, b, c, d) )= "\n"^(put s)^blue^"for "^white^a^" := "^( indent 0 n b)^blue^" to "^white^( indent 0 n c)^blue^" do "^white^(indent (s+1) ("\n") d)
     |indent s  n (Ast.BREAK) = (put s)^blue^"break"^white
     |indent s  n (Ast.LET(a, b) ) = (put s)^blue^"let"^white^"\n"^(indentdeclist (s+1) n a)^blue^"\n"^(put s)^"in"^white^"\n"^(indentlist (s+1) n b)^"\n"^(put s)^blue^"end"^white
    				
