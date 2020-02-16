@@ -122,10 +122,20 @@ find_nullable ();
 find_first ();
 find_follow ();
 
-fun print_atom_list (x::xs) = (Atom.toString x)^", " ^ (print_atom_list xs)
-    |print_atom_list _ = "\n";
+fun  print_atom_list []	= "\n"
+    | print_atom_list (x1::[]) =(Atom.toString x1)^" \n"
+    | print_atom_list (x1::xs) = (Atom.toString x1)^", " ^ (print_atom_list xs)
+
+fun print_set_list ((a,b)::xs) = ((Atom.toString a)^":-\t"^(print_atom_list (AtomSet.listItems (!b))))^(print_set_list xs)
+    |print_set_list _ 	= "\n";
 
 (*printing nullable *)
 
-print("The list of nullable symbols :-\t"^print_atom_list (!nullable));
+print("The list of nullable symbols : \t"^print_atom_list (!nullable));
+(*printing first sets *)
 
+print("The list of first sets for the each symbol in the grammar :\n"^(print_set_list (AtomMap.listItemsi (!first) )));
+
+
+(*printing follow sets *)
+print("The list of follow sets for the each symbol in the grammar :\n"^(print_set_list (AtomMap.listItemsi (!follow) )));
