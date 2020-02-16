@@ -34,7 +34,7 @@ fun member_atom_list lst x = List.exists (fn y => (Atom.compare(x,y) = EQUAL)) l
 
 
 
-(* whether NULLABLE has reached it's fixed point*)
+(* Whether fixed point is calculated or not*)
 
 val cont = ref false;
 
@@ -91,7 +91,23 @@ fun find_first () = (cont:= false; find_first_symbols (AtomSet.listItems (#symbo
 
 
 (* FINDING FOLLOW SETS *)
-fun find_follow_prod a (x::xs) = 
+fun add_follow_symbol y x (xs::xss) = (let val fst_xs = if AtomSet.member (#tokens grammar, xs) then AtomSet.add (AtomSet.empty, xs)
+									   					else !(AtomMap.lookup (!first, xs))
+												val foll_x = !(AtomMap.lookup (!follow, x)) in
+											if AtomSet.isSubset (fst_xs, foll_x) then ()
+											else (cont := true; AtomMap.lookup (!follow, x) := AtomSet.union (fst_xs, foll_x))
+										end;
+										if member_atom_list (!nullable) xs then add_follow_symbol y x xss else ())
+| 	add_follow_symbol y x _ = let val foll_y = !(AtomMap.lookup (!follow, y))
+										val foll_x = !(AtomMap.lookup (!follow, x)) in
+									if AtomSet.isSubset (foll_y, foll_x) then ()
+									else (cont := true; AtomMap.lookup (!follow, x) := AtomSet.union (foll_x, foll_y))
+								end;
+
+fun find_follow_prod y (x::xs) = (if AtomSet.member (#symbols grammar, x) then add_follow_symbol y x xs else ();
+								  find_follow_prod y xs)
+|	find_follow_prod _ _ = ();
+
 fun find_follow_rule x (r::rules) = (find_follow_prod x r; find_follow_rule x rules)
 |   find_follow_rule _ _ = ();
 fun find_follow_symbol x = let val xrules = RHSSet.listItems (AtomMap.lookup(#rules grammar, x)) in
@@ -101,4 +117,15 @@ fun find_follow_symbols (x::xs) = (find_follow_symbol x; find_follow_symbols xs)
 |   find_follow_symbols _ 	= ();
 fun find_follow () = (cont:= false; find_follow_symbols (AtomSet.listItems (#symbols grammar) ) ;
 			if(!cont) then find_follow () else () );
+
+find_nullable ();
+find_first ();
+find_follow ();
+
+fun print_atom_list (x::xs) = (Atom.toString x)^", " ^ (print_atom_list xs)
+    |print_atom_list _ = "\n";
+
+(*printing nullable *)
+
+print("The list of nullable symbols :-\t"^print_atom_list (!nullable));
 
