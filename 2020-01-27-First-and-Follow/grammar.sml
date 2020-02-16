@@ -1,4 +1,3 @@
-use "type.sml";
 (* symbols in the grammar *)
 val sym = ref AtomSet.empty;
 sym := AtomSet.addList(!sym,[Atom.atom "S",Atom.atom "E", Atom.atom "T", Atom.atom "F"] );
@@ -6,7 +5,7 @@ sym := AtomSet.addList(!sym,[Atom.atom "S",Atom.atom "E", Atom.atom "T", Atom.at
 
 (* Tokens in the grammar *)
 val tok = ref AtomSet.empty;
-tok := AtomSet.addList(!tok,[Atom.atom "$", Atom.atom "*", Atom.atom "+", Atom.atom "a"] );
+tok := AtomSet.addList(!tok,[Atom.atom "$", Atom.atom "*", Atom.atom "+", Atom.atom "a",Atom.atom "(", Atom.atom ")"] );
 
 
 (*Adding productions for S *)
@@ -24,7 +23,7 @@ T_:= RHSSet.addList(!T_,[ [Atom.atom "T", Atom.atom "*",Atom.atom "F"], [Atom.at
 
 (* Adding productions for F *)
 val F_ = ref RHSSet.empty;
-F_:= RHSSet.addList(!F_,[ [Atom.atom "a"] ]);
+F_:= RHSSet.addList(!F_,[ [Atom.atom "a"],[Atom.atom "(",Atom.atom "E",Atom.atom ")"] ]);
 
 
 
@@ -34,3 +33,4 @@ rule := AtomMap.insert (!rule, Atom.atom "F", !F_);
 rule := AtomMap.insert (!rule, Atom.atom "E", !E_);
 rule := AtomMap.insert (!rule, Atom.atom "T", !T_);
 val grammar : Grammar = {symbols = !sym, tokens = !tok, rules = !rule };
+
