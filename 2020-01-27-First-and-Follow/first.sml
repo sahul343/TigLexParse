@@ -1,80 +1,37 @@
-type Symbol = Atom.atom
-type Token  = Atom.atom
+(* we need grammar type and an example grammar *)
+use "type.sml";
+use "grammar.sml";
 
-type Symbols = AtomSet.set   (* set of symbols *)
-type Tokens  = AtomSet.set   (* set of tokens  *)
+(* The flow is like we find first all nullable symbols then find first sets and follow sets of symbols *)
 
-type RHS    = Atom.atom list  (* The RHS γ of a rule A -> γ *)
+(* set of atoms to store all nullable items *)
 
-(*
-
-We have the structures AtomSet and AtomMap to represent sets and maps
-of Atoms. For any type t if we want sets and maps (dictionaries) we
-need an ordering structure on the elements.  We would like to create
-the set structure on RHS's. For this you first need to define a
-structure of signature ORD_KEY for RHS.
-
-*)
-
-structure RHS_KEY : ORD_KEY = struct
-    (* complete this *)
-type ord_key = RHS
-fun compare(a,b) = List.collate Atom.compare (a, b)
-end
+val nullable : Atom.atom list ref = ref nil;
 
 
-(*
-
-Use the above structure to create a set of rhs's
-
-*)
-
-structure RHSSet = RedBlackSetFn (RHS_KEY)
+(* Map for storing first and follow of symbols of grammar*)
+val first : (AtomSet.set ref) AtomMap.map ref = ref AtomMap.empty;
+val follow : (AtomSet.set ref) AtomMap.map ref = ref AtomMap.empty;
 
 
-structure First_set : ORD_KEY = struct
-type ord_key = AtomSet.set
-fun compare = RHSSet.compare
-end
+(* we have to intialise first and follow sets to be empty for each symbol of the grammar *)
 
+fun initalise mp = let  
+			fun insert_sym (x::xs) = (mp:= AtomMap.insert(!mp,x,AtomSet.empty); insert_sym xs  )
+			    |insert_sym  _	   = () 
+		   in 
+			insert_sym (AtomSet.listItems (#symbols grammar) )
+		   end;
 
-structure FirstMap = RedBlackMapFn(First_set)
+initalise first;
+intialise follow;
 
 
 
-type Productions = RHSSet.set
-
-(* The rules of the grammar are a dictionary whose keys are the symbol
-   and the values are the Productions associated with the grammar.
-*)
-
-type Rules = Productions AtomMap.map
-
-(* find next approximate first set and return *)
 
 
 
-fun ApproxFirst g curr = 
-
-
-fun first_helper g  currfirst= let 
-			nextfirst = ApproxFirst g currfirst
-	      	in 
-			if currfirst = nextfirst then currfirst else (first_helper g nextfirst)	
-	     	end
-
-
-fun first g = let 
-		val intialise = FirstMap.empty()
-		val insert =map  (fn x => FirstMap.insert(x,))   (#first g)
-	(* intialise termianl first set as itself and 
-				non-terminals as empty set *)
-	      in 
-		 	first_helper g intialise
-	      end
 
 
 
-type Grammar    = { symbols : Symbols, tokens : Tokens, rules : Rules }
 
-(*  update Grammar* (AtomSet.set AtomMap.map) ->( AtomSet.set AtomMap.map) *)
