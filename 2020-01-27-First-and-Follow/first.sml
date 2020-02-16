@@ -27,7 +27,11 @@ initalise first;
 intialise follow;
 
 
-
+fun member_atom_list lst x = let 
+					fun cmp y = Atom.compare (x, y) = EQUAL 
+				in
+                            		List.exists cmp lst
+                        	end
 
 
 
