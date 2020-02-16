@@ -88,3 +88,17 @@ fun find_first_symbols (x::xs) = (find_first_symbol x;find_first_symbols xs)
 
 fun find_first () = (cont:= false; find_first_symbols (AtomSet.listItems (#symbols grammar) );
 			if (!cont) then find_first () else () );
+
+
+(* FINDING FOLLOW SETS *)
+fun find_follow_prod a (x::xs) = 
+fun find_follow_rule x (r::rules) = (find_follow_prod x r; find_follow_rule x rules)
+|   find_follow_rule _ _ = ();
+fun find_follow_symbol x = let val xrules = RHSSet.listItems (AtomMap.lookup(#rules grammar, x)) in
+				find_follow_rule x xrules
+			   end;
+fun find_follow_symbols (x::xs) = (find_follow_symbol x; find_follow_symbols xs)
+|   find_follow_symbols _ 	= ();
+fun find_follow () = (cont:= false; find_follow_symbols (AtomSet.listItems (#symbols grammar) ) ;
+			if(!cont) then find_follow () else () );
+
