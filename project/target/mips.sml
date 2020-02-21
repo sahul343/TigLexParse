@@ -47,9 +47,13 @@ datatype ('t, 'l) inst = ADD of 't * 't * 't
                 | JAL of 'l
                 | SYSCALL
 
-fun prett (ADD (a, b, c)) = "add $" ^ Int.toString x ^ " $" ^ Int.toString y ^ " $" ^ Int.toString z ^ "\n"
-    |  pretty (SUB (a, b, c)) = "sub $" ^ Int.toString x ^ " $" ^ Int.toString y ^ " $" ^ Int.toString z ^ "\n"
-   1|  pretty (ADDI (a, b, c)) = "addi $" ^ Int.toString x ^ " $" ^ Int.toString y ^ " $" ^ Int.toString z ^ "\n"
-    
-
+fun prett (ADD (a, b, c)) = "add $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ ", $" ^ Int.toString z ^ "\n"
+    |  pretty (SUB (a, b, c)) = "sub $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ ", $" ^ Int.toString z ^ "\n"
+    |  pretty (ADDI (a, b, c)) = "addi $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ ", $" ^ Int.toString z ^ "\n"
+    |  pretty (ADDU (a, b, c)) = "addu $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ ", $" ^ Int.toString z ^ "\n"
+    |  pretty (SUBU (a, b, c)) = "subu $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ ", $" ^ Int.toString z ^ "\n"
+    |  pretty (ADDIU (a, b, c)) = "addiu $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ ", " ^ Int.toString z ^ "\n"
+    |  pretty (MUL (x, y, z)) = "mul $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ ", $" ^ Int.toString z ^ "\n"
+    |  pretty (MULT (x, y)) = "mult $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ "\n"
+    |  pretty (DIV (x, y)) = "div $" ^ Int.toString x ^ ", $" ^ Int.toString y ^ "\n"
 end
