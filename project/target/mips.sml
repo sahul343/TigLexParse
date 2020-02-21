@@ -5,7 +5,15 @@ signature TEMP = sig
     val newtemp  : unit -> temp
 
 end
+structure Temp : TEMP = struct
+    type temp = int 
+    type label = int
+    val tempcnt = ref 0;
+    val labelcnt = ref 0;
+    fun newlabel () = (labelcnt := !labelcnt + 1; !labelcnt)
+    fun newtemp () = (tempcnt := !tempcnt + 1; !tempcnt)
 
+end;
 structure MIPS = struct 
 
 datatype reg = zero | v of int | a of int | t of int | s of int
@@ -81,4 +89,4 @@ fun pretty (ADD (a, b, c)) = "add $" ^ Int.toString a ^ ", $" ^ Int.toString b ^
     |  pretty (JR a) = "jr $" ^ Int.toString a ^ "\n"
     |  pretty (JAL a) = "jal " ^ Int.toString a ^ "\n"
     |  pretty _ =  "syscall\n"
-end
+end;
