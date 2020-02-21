@@ -77,4 +77,8 @@ fun pretty (ADD (a, b, c)) = "add $" ^ Int.toString a ^ ", $" ^ Int.toString b ^
     |  pretty (BLE (a, b, c)) = "ble $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
     |  pretty (SLT (a, b, c)) = "slt $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", $" ^ Int.toString c ^ "\n"
     |  pretty (SLTI (a, b, c)) = "slti $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
+    |  pretty (J a) = "j " ^ Int.toString a ^ "\n"
+    |  pretty (JR a) = "jr $" ^ Int.toString a ^ "\n"
+    |  pretty (JAL a) = "jal " ^ Int.toString a ^ "\n"
+    |  pretty _ =  "syscall\n"
 end
