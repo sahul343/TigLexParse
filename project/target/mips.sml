@@ -69,4 +69,10 @@ fun prett (ADD (a, b, c)) = "add $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ 
     |  pretty (LI (a, b)) =  "li $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ "\n"
     |  pretty (MFHI a) =  "mhfi $" ^ Int.toString a ^ "\n"
     |  pretty (MFLO a) =  "mflo $" ^ Int.toString a ^ "\n"
+    |  pretty (BEQ (a, b, c)) = "beq $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
+    |  pretty (BNE (a, b, c)) = "bnq $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
+    |  pretty (BGT (a, b, c)) = "bgt $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
+    |  pretty (BGE (a, b, c)) = "bge $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
+    |  pretty (BLT (a, b, c)) = "blt $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
+    |  pretty (BLE (a, b, c)) = "ble $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
 end
