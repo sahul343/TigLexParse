@@ -47,7 +47,7 @@ datatype ('t, 'l) inst = ADD of 't * 't * 't
                 | JAL of 'l
                 | SYSCALL
 
-fun prett (ADD (a, b, c)) = "add $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", $" ^ Int.toString c ^ "\n"
+fun pretty (ADD (a, b, c)) = "add $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", $" ^ Int.toString c ^ "\n"
     |  pretty (SUB (a, b, c)) = "sub $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", $" ^ Int.toString c ^ "\n"
     |  pretty (ADDI (a, b, c)) = "addi $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", $" ^ Int.toString c ^ "\n"
     |  pretty (ADDU (a, b, c)) = "addu $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", $" ^ Int.toString c ^ "\n"
@@ -75,4 +75,6 @@ fun prett (ADD (a, b, c)) = "add $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ 
     |  pretty (BGE (a, b, c)) = "bge $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
     |  pretty (BLT (a, b, c)) = "blt $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
     |  pretty (BLE (a, b, c)) = "ble $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
+    |  pretty (SLT (a, b, c)) = "slt $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", $" ^ Int.toString c ^ "\n"
+    |  pretty (SLTI (a, b, c)) = "slti $" ^ Int.toString a ^ ", $" ^ Int.toString b ^ ", " ^ Int.toString c ^ "\n"
 end
