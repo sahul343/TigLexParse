@@ -11,7 +11,8 @@ structure Temp : TEMP = struct
     val tempcnt = ref 0
     val labelcnt = ref 0
     fun newlabel () = (labelcnt := !labelcnt + 1; !labelcnt)
-    fun newtemp () = (tempcnt := !tempcnt + 1; !tempcnt)
+    fun newtemp () = (tempcnt := !tempcnt + 1; !tempcnt) 
+    
 
 end;
 structure MIPS = struct 

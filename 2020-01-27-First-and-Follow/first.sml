@@ -1,6 +1,6 @@
 (* we need grammar type and an example grammar *)
 use "type.sml";
-use "grammar.sml";
+use "grammar2.sml";
 
 (* The flow is like we find first all nullable symbols then find first sets and follow sets of symbols *)
 
