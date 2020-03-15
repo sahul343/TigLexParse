@@ -53,4 +53,14 @@ structure MipsFrame : FRAME = struct
 
     fun exp (InFrame t) = (fn tmp => Tr.MEM (Tr.BINOP (Tr.PLUS, tmp, Tr.CONST t)))
     |   exp (InReg t) = (fn _ => Tr.TEMP t)
+
+    fun newFrame { name, formals } = let fun addFormal (x :: xs, offset) = if x then (InFrame offset) :: (addFormal (xs, offset + wordSize))
+                                                                           else (InReg (Te.newtemp ())) :: (addFormal (xs, offset))
+                                         |   addFormal _ = []
+                                         val accesses = addFormal (formals, wordSize)
+                                         fun viewShift (access, reg) = Tr.MOVE (exp access (Tr.TEMP FP), Tr.TEMP reg)
+                                         val shift = ListPair.map viewShift (accesses, argRegs) 
+                                     in if (List.length formals) <= (List.length argRegs) then { name = name, formals = accesses, locals = ref 0, shift = shift }
+                                                                                          else raise ArgumentOverflow
+                                     end
 end
