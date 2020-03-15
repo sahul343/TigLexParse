@@ -50,4 +50,7 @@ structure MipsFrame : FRAME = struct
     val FP = Te.newtemp ()
     val RA = Te.newtemp ()
     val RV = V0
+
+    fun exp (InFrame t) = (fn tmp => Tr.MEM (Tr.BINOP (Tr.PLUS, tmp, Tr.CONST t)))
+    |   exp (InReg t) = (fn _ => Tr.TEMP t)
 end
