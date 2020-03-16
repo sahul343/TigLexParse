@@ -63,4 +63,12 @@ structure MipsFrame : FRAME = struct
                                      in if (List.length formals) <= (List.length argRegs) then { name = name, formals = accesses, locals = ref 0, shift = shift }
                                                                                           else raise ArgumentOverflow
                                      end
+    fun name { name, formals, locals, shift } = name
+    fun formals { name, formals, locals, shift } = formals
+    fun allocLocal { name, formals, locals, shift } escape = if escape then ( locals := !locals + 1; InFrame (!locals * wordSize) )
+                                                             else InReg (Te.newtemp ())
+
+    fun procEntryExit1 (frame, body) = body
+    fun string (label, str) = Symbol.name label ^ ": .asciiz \"" ^ str ^ "\"\n"
+    fun externalCall (s, args) = Tr.CALL (Tr.NAME (Te.namedlabel s), args)
 end
